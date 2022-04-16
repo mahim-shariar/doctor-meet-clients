@@ -1,16 +1,13 @@
 import React from 'react';
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 
-const PremiumCheckoutForm = ({choosenCategory}) => {
-  
-  
-    const stripe = useStripe();
+const PremiumCheckoutForm = ({ choosenCategory }) => {
+  const stripe = useStripe();
   const elements = useElements();
 
   const handleSubmit = async (event) => {
     // Block native form submission.
     event.preventDefault();
-    
 
     if (!stripe || !elements) {
       // Stripe.js has not loaded yet. Make sure to disable
@@ -27,7 +24,7 @@ const PremiumCheckoutForm = ({choosenCategory}) => {
     }
 
     // Use your card Element with other Stripe.js APIs
-    const {error, paymentMethod} = await stripe.createPaymentMethod({
+    const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: 'card',
       card,
     });
@@ -38,8 +35,8 @@ const PremiumCheckoutForm = ({choosenCategory}) => {
       console.log('[PaymentMethod]', paymentMethod);
     }
   };
-    return (
-        <form onSubmit={handleSubmit} className="mt-5">
+  return (
+    <form onSubmit={handleSubmit} className="mt-5">
       <CardElement
         options={{
           style: {
@@ -56,11 +53,11 @@ const PremiumCheckoutForm = ({choosenCategory}) => {
           },
         }}
       />
-      <button type="submit" disabled={!stripe}  className="btn btn-danger mt-4">
+      <button type="submit" disabled={!stripe} className="btn btn-danger mt-4">
         Pay
       </button>
     </form>
-    ); 
+  );
 };
 
 export default PremiumCheckoutForm;

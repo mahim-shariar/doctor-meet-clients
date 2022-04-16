@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import { faArrowAltCircleRight } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Button, Container, Modal } from "react-bootstrap";
-import helpImg from "../../Assets/img/need-help.svg";
-import "./CovidHelp.css";
-import useAuth from "../Hooks/useAuth";
+import React, { useState } from 'react';
+import { faArrowAltCircleRight } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Button, Container, Modal } from 'react-bootstrap';
+import helpImg from '../../Assets/img/need-help.svg';
+import './CovidHelp.css';
+import useAuth from '../Hooks/useAuth';
 
 const Help = () => {
   // const { user } = useAuth();
@@ -32,9 +32,9 @@ const Help = () => {
           </div>
 
           <div className=" col-lg-6 my-3 p-5">
-            <div className="p-3" >
-              <h2 className="text-start p-1" >COVID-19 enquiry form</h2>
-              <p className="text-start p-2" >
+            <div className="p-3">
+              <h2 className="text-start p-1">COVID-19 enquiry form</h2>
+              <p className="text-start p-2">
                 Completing the form online has been made simpler. It should take
                 no more than 20 minutes to complete. Once you have received the
                 text message, you can submit the form anytime within 24 hours.
@@ -42,7 +42,11 @@ const Help = () => {
                 you and complete the case interview over the phone.
               </p>
             </div>
-            <Button variant="success" className="d-block ms-4" onClick={handleShow}>
+            <Button
+              variant="success"
+              className="d-block ms-4"
+              onClick={handleShow}
+            >
               Fill From <FontAwesomeIcon icon={faArrowAltCircleRight} />
             </Button>
           </div>

@@ -1,24 +1,24 @@
 /* eslint-disable react/jsx-pascal-case */
-import React, { useEffect, useState } from "react";
-import Phamecy_single_product from "../Pharmecy_single_product/Phamecy_single_product";
-import Pharmecy_timar from "../Pharmecy_timar/Pharmecy_timar";
-import "./Pharmecy_product.css";
-import Pharma_3 from "../../../Assets/Pharmecy/banner-6.png";
-import Pharma_4 from "../../../Assets/Pharmecy/banner-7-1.jpg";
-import Pharma_5 from "../../../Assets/Pharmecy/banner-8-1.jpg";
-import Pharma_6 from "../../../Assets/Pharmecy/banner-9.jpg";
-import Pharma_7 from "../../../Assets/Pharmecy/banner-10.jpg";
-import Pharma_8 from "../../../Assets/Pharmecy/banner-11.jpg";
-import Pharma_9 from "../../../Assets/Pharmecy/banner-12.jpg";
-import pharma_text_2 from "../../../Assets/Pharmecy/banner-6-text.png";
-import pharma_text_3 from "../../../Assets/Pharmecy/banner-7-text.png";
-import pharma_text_4 from "../../../Assets/Pharmecy/banner-8-text.png";
-import pharma_text_5 from "../../../Assets/Pharmecy/banner-9-text.png";
-import pharma_text_6 from "../../../Assets/Pharmecy/banner-10-text.png";
-import pharma_text_7 from "../../../Assets/Pharmecy/banner-11-text.png";
-import pharma_text_8 from "../../../Assets/Pharmecy/banner-12-text.png";
-import Phamecy_Card_slider from "../Pharmecy_Card_Slider/Pharmecy_Card_Slider";
-import Pharmecy_Best_Product from "../Pharmecy_Best_Product/Pharmecy_Best_Product";
+import React, { useEffect, useState } from 'react';
+import Phamecy_single_product from '../Pharmecy_single_product/Phamecy_single_product';
+import Pharmecy_timar from '../Pharmecy_timar/Pharmecy_timar';
+import './Pharmecy_product.css';
+import Pharma_3 from '../../../Assets/Pharmecy/banner-6.png';
+import Pharma_4 from '../../../Assets/Pharmecy/banner-7-1.jpg';
+import Pharma_5 from '../../../Assets/Pharmecy/banner-8-1.jpg';
+import Pharma_6 from '../../../Assets/Pharmecy/banner-9.jpg';
+import Pharma_7 from '../../../Assets/Pharmecy/banner-10.jpg';
+import Pharma_8 from '../../../Assets/Pharmecy/banner-11.jpg';
+import Pharma_9 from '../../../Assets/Pharmecy/banner-12.jpg';
+import pharma_text_2 from '../../../Assets/Pharmecy/banner-6-text.png';
+import pharma_text_3 from '../../../Assets/Pharmecy/banner-7-text.png';
+import pharma_text_4 from '../../../Assets/Pharmecy/banner-8-text.png';
+import pharma_text_5 from '../../../Assets/Pharmecy/banner-9-text.png';
+import pharma_text_6 from '../../../Assets/Pharmecy/banner-10-text.png';
+import pharma_text_7 from '../../../Assets/Pharmecy/banner-11-text.png';
+import pharma_text_8 from '../../../Assets/Pharmecy/banner-12-text.png';
+import Phamecy_Card_slider from '../Pharmecy_Card_Slider/Pharmecy_Card_Slider';
+import Pharmecy_Best_Product from '../Pharmecy_Best_Product/Pharmecy_Best_Product';
 
 export interface productsType {
   Sku: string;
@@ -44,7 +44,7 @@ const Pharmecy_Products = () => {
   time.setSeconds(time.getMonth() + 19890);
 
   useEffect(() => {
-    fetch("https://immense-beyond-64415.herokuapp.com/medicine/all")
+    fetch('https://immense-beyond-64415.herokuapp.com/medicine/all')
       .then((res) => res.json())
       .then((data) => {
         setProducts(data.result);
@@ -169,7 +169,7 @@ const Pharmecy_Products = () => {
         <h1 className="text-center my-5"> Bestsellers </h1>
       </div>
       <div className="row">
-      {products.slice(0, 6).map((product) => (
+        {products.slice(0, 6).map((product) => (
           <Pharmecy_Best_Product
             key={product._id}
             products={product}

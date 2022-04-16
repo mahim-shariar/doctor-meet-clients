@@ -1,17 +1,16 @@
 import React from 'react';
-import { RatingStar } from "rating-star";
-import { Cart, Heart, Search } from "react-bootstrap-icons";
+import { RatingStar } from 'rating-star';
+import { Cart, Heart, Search } from 'react-bootstrap-icons';
 
-
-const Pharmecy_Best_Product = (props:any) => {
-    let { name, price, rating, img1, img2 } = props.products;
+const Pharmecy_Best_Product = (props: any) => {
+  let { name, price, rating, img1, img2 } = props.products;
   return (
     <div className="col-lg-2 col-md-3 col-sm-6 p-0">
       <div className="product p-4">
         <div className="product-img">
           <img
             className="img-fluid"
-            src={img1 + ".jpg"}
+            src={img1 + '.jpg'}
             alt="front product image"
           />
           <img
@@ -21,16 +20,16 @@ const Pharmecy_Best_Product = (props:any) => {
           />
           <div className="overlay">
             <button className="btn" title="Wishlit">
-              {" "}
-              <Heart></Heart>{" "}
+              {' '}
+              <Heart></Heart>{' '}
             </button>
             <button className="btn" title="Add to Cart">
-              {" "}
-              <Cart></Cart>{" "}
+              {' '}
+              <Cart></Cart>{' '}
             </button>
             <button className="btn" title="Quick View">
-              {" "}
-              <Search></Search>{" "}
+              {' '}
+              <Search></Search>{' '}
             </button>
           </div>
         </div>
@@ -41,7 +40,7 @@ const Pharmecy_Best_Product = (props:any) => {
             <RatingStar
               size={16}
               maxScore={5}
-              colors={{ mask: "#ff7f23" }}
+              colors={{ mask: '#ff7f23' }}
               id="123"
               rating={rating}
             />

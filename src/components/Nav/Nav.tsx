@@ -1,10 +1,10 @@
-import "bootstrap";
-import React, { useEffect, useState } from "react";
-import { ArrowDownCircleFill, PersonCircle } from "react-bootstrap-icons";
-import { NavLink } from "react-router-dom";
-import useFirebase from "../../firebase/useFirebase/useFirebase";
-import logo from "./../../Assets/img/logo.png";
-import "./Nav.css";
+import 'bootstrap';
+import React, { useEffect, useState } from 'react';
+import { ArrowDownCircleFill, PersonCircle } from 'react-bootstrap-icons';
+import { NavLink } from 'react-router-dom';
+import useFirebase from '../../firebase/useFirebase/useFirebase';
+import logo from './../../Assets/img/logo.png';
+import './Nav.css';
 
 const Nav = () => {
   const [offset, setOffset] = useState(0);
@@ -22,16 +22,16 @@ const Nav = () => {
 
   return (
     <>
-      {window.location.pathname === "/dashboard/dashboarHome" ||
-      window.location.pathname === "/dashboard/doctors" ||
-      window.location.pathname === "/dashboard/admin" ||
-      window.location.pathname === "/dashboard/favdoc" ? (
+      {window.location.pathname === '/dashboard/dashboarHome' ||
+      window.location.pathname === '/dashboard/doctors' ||
+      window.location.pathname === '/dashboard/admin' ||
+      window.location.pathname === '/dashboard/favdoc' ? (
         <div></div>
       ) : (
         <nav className={parallaxNav}>
           <div className="container">
             <NavLink className="navbar-brand fs-2 ps-md-5 ms-md-5" to="/">
-              {/* <span>Doctors Meet</span> */}{" "}
+              {/* <span>Doctors Meet</span> */}{' '}
               <img className="img-fluid" src={logo} alt="" height="70px" />
             </NavLink>
             <button
@@ -67,13 +67,19 @@ const Nav = () => {
                   </li>
                   <div className="dropdown-content">
                     <a href="#">
-                      <NavLink className="nav-link" to="/CovidPortal">Covid Portal</NavLink>
+                      <NavLink className="nav-link" to="/CovidPortal">
+                        Covid Portal
+                      </NavLink>
                     </a>
                     <a>
-                      <NavLink className="nav-link" to="/FindDonors">Blood Donors</NavLink>
+                      <NavLink className="nav-link" to="/FindDonors">
+                        Blood Donors
+                      </NavLink>
                     </a>
                     <a>
-                      <NavLink className="nav-link" to="/Pharma">Pharmacy</NavLink>
+                      <NavLink className="nav-link" to="/Pharma">
+                        Pharmacy
+                      </NavLink>
                     </a>
                     <a
                       href="

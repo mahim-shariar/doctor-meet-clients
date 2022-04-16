@@ -1,9 +1,9 @@
-import { RatingStar } from "rating-star";
-import React, { useEffect, useState } from "react";
-import { Cart } from "react-bootstrap-icons";
-import { useParams } from "react-router-dom";
-import "./Pharmecy_product_view.css";
-import banner_img from "../../../Assets/Pharmecy/banner-sidebar.png";
+import { RatingStar } from 'rating-star';
+import React, { useEffect, useState } from 'react';
+import { Cart } from 'react-bootstrap-icons';
+import { useParams } from 'react-router-dom';
+import './Pharmecy_product_view.css';
+import banner_img from '../../../Assets/Pharmecy/banner-sidebar.png';
 // import required modules
 // import { Autoplay, Navigation, Pagination } from "swiper";
 // import "swiper/css";
@@ -55,7 +55,7 @@ const Pharmecy_product_view = () => {
     shopAddress,
     weight,
   } = products;
-  let [allimg, setAllimg] = useState("");
+  let [allimg, setAllimg] = useState('');
   const getImage = (image: string) => {
     setAllimg(image);
   };
@@ -69,8 +69,8 @@ const Pharmecy_product_view = () => {
         <div className="product-div">
           <div className="product-div-left">
             <div className="img-container">
-              {allimg === "" ? (
-                <img src={img1 + ".jpg"} alt="" />
+              {allimg === '' ? (
+                <img src={img1 + '.jpg'} alt="" />
               ) : (
                 <img className="img-fluid" src={allimg} alt="" />
               )}
@@ -79,10 +79,10 @@ const Pharmecy_product_view = () => {
               <div>
                 <img
                   onClick={() => {
-                    getImage(img1 + ".jpg");
+                    getImage(img1 + '.jpg');
                   }}
                   className="img-fluid"
-                  src={img1 + ".jpg"}
+                  src={img1 + '.jpg'}
                   alt=""
                 />
               </div>
@@ -128,7 +128,7 @@ const Pharmecy_product_view = () => {
             <RatingStar
               size={16}
               maxScore={5}
-              colors={{ mask: "#ff7f23" }}
+              colors={{ mask: '#ff7f23' }}
               id="123"
               rating={rating}
             />
@@ -140,20 +140,20 @@ const Pharmecy_product_view = () => {
                 className="btn fw-bold text-size "
                 onClick={handleONClickMinas}
               >
-                {" "}
-                -{" "}
-              </button>{" "}
+                {' '}
+                -{' '}
+              </button>{' '}
               <p className="my-auto px-2"> {count} </p>
               <button
                 className="btn fw-bold text-size "
                 onClick={handleOnClikplus}
               >
-                {" "}
-                +{" "}
-              </button>{" "}
+                {' '}
+                +{' '}
+              </button>{' '}
             </div>
             <button className="btn-style">
-              {" "}
+              {' '}
               <Cart></Cart> Add to cart
             </button>
           </div>
@@ -172,16 +172,16 @@ const Pharmecy_product_view = () => {
           <div className="d-flex col-lg-6 col-md-6 border-left-for-ad">
             <ul className="color-h1 fw-for-ul-p my-3">
               <li>
-                {" "}
-                <p> category </p>{" "}
+                {' '}
+                <p> category </p>{' '}
               </li>
               <li>
-                {" "}
-                <p> Power </p>{" "}
+                {' '}
+                <p> Power </p>{' '}
               </li>
               <li>
-                {" "}
-                <p> weight </p>{" "}
+                {' '}
+                <p> weight </p>{' '}
               </li>
             </ul>
             <div className=" fw-for-ul-p color-h1 mx-4 my-3">
@@ -206,23 +206,23 @@ const Pharmecy_product_view = () => {
             <h2 className="color-h1"> Reviews </h2>
             <hr />
             <p className="text-color-for-p fw-for-ul-p">
-              {" "}
-              There are no reviews yet.{" "}
+              {' '}
+              There are no reviews yet.{' '}
             </p>
           </div>
           <div className="my-5">
             <h5 className="color-h1">
-              {" "}
+              {' '}
               Be the first to review “Daily Men’s Multi Vitamins & Minerals”
             </h5>
             <p className="text-color-for-p fw-for-ul-p">
-              {" "}
+              {' '}
               Your email address will not be published. Required fields are
               marked *
             </p>
             <p className="text-color-for-p fw-for-ul-p">
-              {" "}
-              Your Rating:{" "}
+              {' '}
+              Your Rating:{' '}
               <RatingStar
                 clickable
                 maxScore={5}
@@ -231,38 +231,36 @@ const Pharmecy_product_view = () => {
                 onRatingChange={onRatingChange}
               />
             </p>
-            <div className="container" > 
-            <div className="container" >
-              <div className="mb-3 row">
-                <div className="col">
-                  <input
-                    type="email"
-                    className="form-control"
-                    placeholder="Name *"
-                    aria-label="First name"
-                  />
+            <div className="container">
+              <div className="container">
+                <div className="mb-3 row">
+                  <div className="col">
+                    <input
+                      type="email"
+                      className="form-control"
+                      placeholder="Name *"
+                      aria-label="First name"
+                    />
+                  </div>
+                  <div className="col">
+                    <input
+                      type="email"
+                      className="form-control"
+                      placeholder="Email *"
+                      aria-label=""
+                    />
+                  </div>
                 </div>
-                <div className="col">
-                  <input
-                    type="email"
+                <div className="mb-3">
+                  <textarea
                     className="form-control"
-                    placeholder="Email *"
-                    aria-label=""
-                  />
+                    id="exampleFormControlTextarea1"
+                    placeholder="Your Reviw *"
+                    style={{ height: '100px' }}
+                  ></textarea>
                 </div>
+                <button className="btn-style">Send</button>
               </div>
-              <div className="mb-3">
-                <textarea
-                  className="form-control"
-                  id="exampleFormControlTextarea1"
-                  placeholder="Your Reviw *"
-                  style={{height:'100px'}}
-                ></textarea>
-              </div>
-              <button className="btn-style" >
-                Send
-              </button>
-            </div>
             </div>
           </div>
         </div>
