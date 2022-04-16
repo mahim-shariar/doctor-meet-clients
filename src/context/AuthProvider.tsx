@@ -14,7 +14,7 @@ type firebase = {
     email: string,
     password: string,
     name: string,
-    AccountType: string
+    AccountType: string,
   ) => void;
   signUsingEmail: (email: string, password: string) => void;
   resetPassword: (email: string) => void;

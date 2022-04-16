@@ -141,7 +141,7 @@ const DonorFilter = () => {
   const onSubmit: SubmitHandler<IFormInput> = (data) => {
     // console.log(data);
     const filterDonors = donorData.filter(
-      (donor) => donor.group === data.group && donor.district === data.district
+      (donor) => donor.group === data.group && donor.district === data.district,
     );
     // console.log(filterDonors);
     setDisplayDonors(filterDonors);

@@ -1,39 +1,39 @@
-import axios, { AxiosResponse } from "axios";
-import "bootstrap/dist/css/bootstrap.min.css";
-import React, { useEffect, useState } from "react";
-import Doctor from "./Doctor";
+import axios, { AxiosResponse } from 'axios';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useEffect, useState } from 'react';
+import Doctor from './Doctor';
 const borderColFilter = {
-  backgroundColor: "#ebf2f3",
-  color: "#005963",
-  fontWeight: "bold",
-  fontSize: "20px",
-  border: "0",
+  backgroundColor: '#ebf2f3',
+  color: '#005963',
+  fontWeight: 'bold',
+  fontSize: '20px',
+  border: '0',
 };
 const bordrCol = {
-  border: "solid 1px ",
-  color: "#ecf8f9",
-  borderRadius: "5px",
+  border: 'solid 1px ',
+  color: '#ecf8f9',
+  borderRadius: '5px',
 };
 const fontCol = {
-  color: "#686a6f",
-  fontSize: "16px",
+  color: '#686a6f',
+  fontSize: '16px',
 };
 const fontColDoc = {
-  color: "#005963",
+  color: '#005963',
 };
 const btnStyle = {
-  backgroundColor: "#00acb1",
-  border: "0",
-  color: "#fff",
-  padding: "10px",
-  borderRadius: "5px",
-  fontWeight: "bold",
+  backgroundColor: '#00acb1',
+  border: '0',
+  color: '#fff',
+  padding: '10px',
+  borderRadius: '5px',
+  fontWeight: 'bold',
 };
 type Props = {};
 const Doctors: React.FC<Props> = () => {
   const [doctorsData, setDoctorsData] = useState([]);
   const uri =
-    "https://raw.githubusercontent.com/mhasancy/doctorsData/main/doctorsDataNew.json";
+    'https://raw.githubusercontent.com/mhasancy/doctorsData/main/doctorsDataNew.json';
   const fetchData = async () => {
     try {
       const response: AxiosResponse = await axios.get(uri);

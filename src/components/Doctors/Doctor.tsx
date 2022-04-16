@@ -1,37 +1,37 @@
-import React from "react";
+import React from 'react';
 import {
   AiFillStar,
   AiOutlineCalendar,
   AiOutlineSafetyCertificate,
-} from "react-icons/ai";
-import { IoLocationOutline } from "react-icons/io5";
+} from 'react-icons/ai';
+import { IoLocationOutline } from 'react-icons/io5';
 
 const borderColFilter = {
-  backgroundColor: "#ebf2f3",
-  color: "#005963",
-  fontWeight: "bold",
-  fontSize: "20px",
-  border: "0",
+  backgroundColor: '#ebf2f3',
+  color: '#005963',
+  fontWeight: 'bold',
+  fontSize: '20px',
+  border: '0',
 };
 const bordrCol = {
-  border: "solid 1px ",
-  color: "#ecf8f9",
-  borderRadius: "5px",
+  border: 'solid 1px ',
+  color: '#ecf8f9',
+  borderRadius: '5px',
 };
 const fontCol = {
-  color: "#686a6f",
-  fontSize: "16px",
+  color: '#686a6f',
+  fontSize: '16px',
 };
 const fontColDoc = {
-  color: "#005963",
+  color: '#005963',
 };
 const btnStyle = {
-  backgroundColor: "#00acb1",
-  border: "0",
-  color: "#fff",
-  padding: "10px",
-  borderRadius: "5px",
-  fontWeight: "bold",
+  backgroundColor: '#00acb1',
+  border: '0',
+  color: '#fff',
+  padding: '10px',
+  borderRadius: '5px',
+  fontWeight: 'bold',
 };
 
 export interface doctorData {
@@ -73,8 +73,8 @@ const Doctor: React.FC<Props> = ({ doctorData }) => {
             <div
               className="col-6 col-md-5"
               style={{
-                color: "#ecf8f9",
-                borderRight: "1px solid ",
+                color: '#ecf8f9',
+                borderRight: '1px solid ',
               }}
             >
               <div className="card-body">
@@ -92,12 +92,12 @@ const Doctor: React.FC<Props> = ({ doctorData }) => {
                   <button
                     className="ms-2"
                     style={{
-                      backgroundColor: "#fff",
-                      border: "solid 1px",
-                      color: "#00acb1",
-                      padding: "10px",
-                      borderRadius: "5px",
-                      fontWeight: "bold",
+                      backgroundColor: '#fff',
+                      border: 'solid 1px',
+                      color: '#00acb1',
+                      padding: '10px',
+                      borderRadius: '5px',
+                      fontWeight: 'bold',
                     }}
                   >
                     <svg
@@ -119,13 +119,13 @@ const Doctor: React.FC<Props> = ({ doctorData }) => {
                 {/* <h5 className="card-title">Card title</h5> */}
                 <i
                   className="bi-alarm"
-                  style={{ fontSize: "2rem", color: "cornflowerblue" }}
-                ></i>{" "}
+                  style={{ fontSize: '2rem', color: 'cornflowerblue' }}
+                ></i>{' '}
                 <h6 className="card-text" style={fontCol}>
                   <span
                     className="me-2"
                     style={{
-                      color: "#00acb1",
+                      color: '#00acb1',
                     }}
                   >
                     <IoLocationOutline />
@@ -135,7 +135,7 @@ const Doctor: React.FC<Props> = ({ doctorData }) => {
                   <span
                     className="me-2"
                     style={{
-                      color: "#00acb1",
+                      color: '#00acb1',
                     }}
                   >
                     <AiOutlineSafetyCertificate />
@@ -145,7 +145,7 @@ const Doctor: React.FC<Props> = ({ doctorData }) => {
                   <span
                     className="me-2"
                     style={{
-                      color: "#00acb1",
+                      color: '#00acb1',
                     }}
                   >
                     <AiOutlineCalendar />
@@ -154,7 +154,7 @@ const Doctor: React.FC<Props> = ({ doctorData }) => {
                 </h6>
                 <br />
                 <p className="card-text text-dark">
-                  <span style={{ color: "orange" }}>
+                  <span style={{ color: 'orange' }}>
                     <AiFillStar />
                     <AiFillStar />
                     <AiFillStar />

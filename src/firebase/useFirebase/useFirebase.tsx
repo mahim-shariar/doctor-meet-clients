@@ -29,7 +29,7 @@ type firebase = {
     email: string,
     password: string,
     Firstname: string,
-    LastName: string
+    LastName: string,
   ) => void;
   signUsingEmail: (email: string, password: string) => void;
   resetPassword: (email: string) => void;
@@ -117,7 +117,7 @@ const useFirebase = (): firebase => {
     email: string,
     password: string,
     Firstname: string,
-    LastName: string
+    LastName: string,
   ) => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((result) => {

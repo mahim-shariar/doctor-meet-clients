@@ -12,7 +12,7 @@ const ContactUs = () => {
         'service_429c7ul',
         'template_dr9cfyd',
         e.target,
-        'M9AHQR1dWtEHnJG3q'
+        'M9AHQR1dWtEHnJG3q',
       )
       .then(
         (result: any) => {
@@ -23,7 +23,7 @@ const ContactUs = () => {
         },
         (error: any) => {
           console.log(error.text);
-        }
+        },
       );
     e.target.reset();
   };
