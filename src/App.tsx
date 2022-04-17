@@ -69,6 +69,7 @@ function App() {
                         <Route path="admin" element={<Admin />} />
                     </Route>
 
+
                     <Route path="/doctors" element={<Doctors />} />
                 </Routes>
                 <Footer></Footer>
