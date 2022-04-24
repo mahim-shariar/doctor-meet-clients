@@ -5,25 +5,29 @@ import Review from "../../components/Review/Review";
 import HomeGallery from "../../components/HomeGallery/HomeGallery";
 import Services from "../../components/Services/Services";
 import Banner from "../../components/Banner/Banner";
+import MapDirection from "../../components/MapDirection/MapDirection";
+import VideoSDKApp from "../../components/video-sdk/VideoSDKApp/VideoSDKApp";
 
 const Home = () => {
- 
-  return (
-    <>
-      <Banner></Banner>
+    return (
+        <>
+            <Banner></Banner>
 
-      <Services></Services>
+            <Services></Services>
 
-      <HealthCareProvider></HealthCareProvider>
+            <HealthCareProvider></HealthCareProvider>
+            <VideoSDKApp></VideoSDKApp>
+            <Review></Review>
 
-      <Review></Review>
+            <HomeGallery></HomeGallery>
+            
+            <div className="py-5 ">
+                <MapDirection></MapDirection>
+            </div>
 
-      <HomeGallery></HomeGallery>
-
-      <Articles></Articles>
-     
-    </>
-  );
+            <Articles></Articles>
+        </>
+    );
 };
 
 export default Home;
