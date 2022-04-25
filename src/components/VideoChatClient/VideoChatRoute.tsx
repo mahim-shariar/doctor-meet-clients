@@ -8,7 +8,7 @@ const VideoChatRoute = () => {
   useEffect(() => {
     if (!window.location.hash) {
       window.location.href = window.location + '#loaded';
-      window.location.reload();
+      window?.location?.reload();
     }
   }, []);
 
