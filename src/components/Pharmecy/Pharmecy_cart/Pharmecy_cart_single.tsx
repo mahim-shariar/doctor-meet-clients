@@ -2,14 +2,13 @@ import React, { useState } from 'react';
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Pharmecy_cart_single = (props: { item: any, index: any, removeDoctor: any, handleChildCartData:any }) => {
-  
+const Pharmecy_cart_single = (props: { itemData: any, item: any, index: any, removeDoctor: any }) => {
+
     let [count, setCount] = useState(1);
-    let[totalCart,setTotalCart]=useState(1);
     let handleOnClikplus = () => {
-        let total = count + 1;
-        setCount(total)
-        props.handleChildCartData(total)
+        var total = count + 1;
+        setCount(total);
+
 
     }
 
@@ -22,7 +21,7 @@ const Pharmecy_cart_single = (props: { item: any, index: any, removeDoctor: any,
         }
     }
 
-    props.handleChildCartData(count)
+
 
     return (
         <div className="col-lg-8">
@@ -67,7 +66,7 @@ const Pharmecy_cart_single = (props: { item: any, index: any, removeDoctor: any,
             </div>
         </div>
 
-        
+
     );
 };
 

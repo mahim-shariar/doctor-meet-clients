@@ -6,6 +6,7 @@ import Maps from "../../components/maps/Maps";
 import "./ContactUs.css";
 import { Icon } from "@iconify/react";
 import MapDirection from "../../components/MapDirection/MapDirection";
+import Swal from 'sweetalert2';
 
 const ContactUs = () => {
     const sendEmail = (e: any) => {
@@ -21,9 +22,13 @@ const ContactUs = () => {
             .then(
                 (result: any) => {
                     if (result.text === "OK") {
-                        alert(
-                            "Your Message Was Successfully Sent. Thank You !"
-                        );
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Your Message Was Sent, Thank You',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
                         console.log(result.text);
                     }
                 },
@@ -100,6 +105,7 @@ const ContactUs = () => {
                                         className="form-control"
                                         type="email"
                                         id="emailId"
+                                        name="email"
                                     />
                                 </div>
                                 <div className="col-10 form-group pt-3 ">

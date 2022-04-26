@@ -5,10 +5,7 @@ import "./Pharmecy_cart.css";
 import Pharmecy_cart_single from "./Pharmecy_cart_single";
 
 const Pharmecy_cart = () => {
- let cartTotal=1;
-  const handleChildCartData=(cartData:any)=>{
-    cartTotal=cartTotal+cartData;
-  }
+
 
 
   let [tax, setTax] = useState(0);
@@ -51,7 +48,7 @@ const Pharmecy_cart = () => {
       <div className="container position-style my-5">
         <div className="row my-all">
           <h3> Order </h3>
-          {itemData.map((item, index) => (<Pharmecy_cart_single item={item} index={index} removeDoctor={removeDoctor} handleChildCartData={handleChildCartData}></Pharmecy_cart_single>
+          {itemData.map((item, index) => (<Pharmecy_cart_single itemData={itemData} item={item} index={index} removeDoctor={removeDoctor}></Pharmecy_cart_single>
 
           ))}
           <div className="col-lg-4 position-set">
@@ -66,7 +63,7 @@ const Pharmecy_cart = () => {
                   <p> Total Amount </p>
                 </div>
                 <div className="">
-                  <p> {cartTotal} </p>
+                  {/* <p> {getTotalCartValue} </p> */}
                   <p> $299 </p>
                   <p> ${tax} </p>
                   <p> $309 </p>

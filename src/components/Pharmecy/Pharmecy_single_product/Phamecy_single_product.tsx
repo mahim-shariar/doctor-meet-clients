@@ -73,9 +73,9 @@ const Phamecy_single_product = (props: any) => {
         showConfirmButton: false,
         timer: 1500
       })
-      
+
     }
-      
+
 
     localStorage.setItem("item", JSON.stringify([...newItems]));
   };

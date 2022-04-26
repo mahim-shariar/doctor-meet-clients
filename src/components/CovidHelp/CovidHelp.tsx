@@ -5,6 +5,7 @@ import { Button, Container, Modal } from "react-bootstrap";
 import helpImg from "../../Assets/img/need-help.svg";
 import "./CovidHelp.css";
 import useAuth from "../Hooks/useAuth";
+import emailjs from "emailjs-com";
 
 const Help = () => {
   // const { user } = useAuth();
@@ -13,6 +14,31 @@ const Help = () => {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const sendEmail = (e: any) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_429c7ul",
+        "template_dr9cfyd",
+        e.target,
+        "M9AHQR1dWtEHnJG3q"
+      )
+      .then(
+        (result: any) => {
+          if (result.text === "OK") {
+            alert(
+              "Your Message Was Successfully Sent. Thank You !"
+            );
+            console.log(result.text);
+          }
+        },
+        (error: any) => {
+          console.log(error.text);
+        }
+      );
+    e.target.reset();
+  };
 
   return (
     <div className="help-section container" id="help">
@@ -43,21 +69,21 @@ const Help = () => {
               </p>
             </div>
             <Button variant="success" className="d-block ms-4" onClick={handleShow}>
-              Fill From <FontAwesomeIcon icon={faArrowAltCircleRight} />
+              Fill Frommms <FontAwesomeIcon icon={faArrowAltCircleRight} />
             </Button>
           </div>
 
-          <Modal show={show} onHide={handleClose}>
+          <Modal show={show} onHide={handleClose} >
             <Modal.Header closeButton>
-              <Modal.Title>COVID-19 enquiry form</Modal.Title>
+              <Modal.Title>COVID-19 enquiry formMMM</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              <form className="covid-contact">
+              <form className="covid-contact" onSubmit={sendEmail} >
                 <div className="mb-3">
                   <input
-                    type="text"
                     className="border-0 form-control bg-light rounded-3"
-                    id="recipient-name"
+                    type="email"
+                    id="emailId"
                     placeholder="Email"
                     // value={user.email}
                     disabled
@@ -67,8 +93,10 @@ const Help = () => {
                   <input
                     type="text"
                     className="border-0 form-control bg-light rounded-3"
-                    id="recipient-name"
+
                     placeholder="Name"
+                    name="name"
+                    id="nameId"
                     // value={user?.displayName}
                     disabled
                   />
@@ -79,6 +107,7 @@ const Help = () => {
                     className="border-0 form-control bg-light rounded-3"
                     id="recipient-phone"
                     placeholder="Phone"
+                    name="Phone"
                   />
                 </div>
                 <div className="mb-3">
@@ -93,19 +122,26 @@ const Help = () => {
                   <textarea
                     className="border-0 form-control bg-light rounded-3"
                     id="message-text"
+                    name="message"
                     placeholder="Message in details"
                   ></textarea>
                 </div>
+                <Modal.Footer>
+                  <Button variant="secondary" onClick={handleClose}>
+                    Close
+                  </Button>
+                  {/* <Button variant="primary" type="submit">
+                    Send Message <FontAwesomeIcon icon={faArrowAltCircleRight} />
+                  </Button> */}
+                  <input
+                    className="btn btn-outline-info fw-bold"
+                    type="submit"
+                    value="Send Message"
+                  ></input>
+                </Modal.Footer>
               </form>
             </Modal.Body>
-            <Modal.Footer>
-              <Button variant="secondary" onClick={handleClose}>
-                Close
-              </Button>
-              <Button variant="primary" onClick={handleClose}>
-                Send Message <FontAwesomeIcon icon={faArrowAltCircleRight} />
-              </Button>
-            </Modal.Footer>
+
           </Modal>
         </div>
       </Container>

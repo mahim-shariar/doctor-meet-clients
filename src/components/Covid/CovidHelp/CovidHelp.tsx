@@ -5,6 +5,8 @@ import { Button, Container, Modal } from "react-bootstrap";
 import helpImg from "../../../Assets/img/need-help.svg";
 import useAuth from "../../Hooks/useAuth";
 import "./CovidHelp.css";
+import emailjs from "emailjs-com";
+import Swal from 'sweetalert2';
 
 const Help = () => {
     const { user } = useAuth();
@@ -12,6 +14,36 @@ const Help = () => {
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    const sendEmail = (e: any) => {
+        e.preventDefault();
+
+        emailjs
+            .sendForm(
+                "service_429c7ul",
+                "template_dr9cfyd",
+                e.target,
+                "M9AHQR1dWtEHnJG3q"
+            )
+            .then(
+                (result: any) => {
+                    if (result.text === "OK") {
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Your Message Was Sent, Thank You',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                        console.log(result.text);
+                    }
+                },
+                (error: any) => {
+                    console.log(error.text);
+                }
+            );
+        e.target.reset();
+    };
 
     return (
         <div className="help-section container" id="help">
@@ -64,14 +96,14 @@ const Help = () => {
                             <Modal.Title>COVID-19 Enquiry Form</Modal.Title>
                         </Modal.Header>
                         <Modal.Body>
-                            <form className="covid-contact">
+                            <form className="covid-contact" onSubmit={sendEmail}>
                                 <div className="mb-3">
                                     <input
                                         type="text"
                                         className="border-0 form-control bg-light rounded-3"
                                         id="recipient-email"
-                                        placeholder={user?.email || ""}
-                                        disabled
+                                        name="email"
+                                        value={user?.email || ""}
                                     />
                                 </div>
                                 <div className="mb-3">
@@ -79,8 +111,8 @@ const Help = () => {
                                         type="text"
                                         className="border-0 form-control bg-light rounded-3"
                                         id="recipient-name"
-                                        placeholder={user?.displayName || ""}
-                                        disabled
+                                        name="name"
+                                        value={user?.displayName || ""}
                                     />
                                 </div>
                                 <div className="mb-3">
@@ -89,6 +121,7 @@ const Help = () => {
                                         className="border-0 form-control bg-light rounded-3"
                                         id="recipient-phone"
                                         placeholder="Phone"
+                                        name="phone"
                                     />
                                 </div>
                                 <div className="mb-3">
@@ -97,6 +130,8 @@ const Help = () => {
                                         className="border-0 form-control bg-light rounded-3"
                                         id="recipient-symptoms"
                                         placeholder="Symptoms"
+                                        name="sympthoms"
+
                                     />
                                 </div>
                                 <div className="mb-3">
@@ -104,19 +139,21 @@ const Help = () => {
                                         className="border-0 form-control bg-light rounded-3"
                                         id="message-text"
                                         placeholder="Message in details"
+                                        name="name"
                                     ></textarea>
                                 </div>
+                                <Modal.Footer>
+                                    <Button variant="secondary" onClick={handleClose}>
+                                        Close
+                                    </Button>
+                                    <Button variant="primary" type="submit">
+                                        Send Message{" "}
+                                        <FontAwesomeIcon icon={faArrowAltCircleRight} />
+                                    </Button>
+                                </Modal.Footer>
                             </form>
                         </Modal.Body>
-                        <Modal.Footer>
-                            <Button variant="secondary" onClick={handleClose}>
-                                Close
-                            </Button>
-                            <Button variant="primary" onClick={handleClose}>
-                                Send Message{" "}
-                                <FontAwesomeIcon icon={faArrowAltCircleRight} />
-                            </Button>
-                        </Modal.Footer>
+
                     </Modal>
                 </div>
             </Container>
