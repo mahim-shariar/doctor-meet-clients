@@ -1,9 +1,10 @@
 import { render,screen } from "@testing-library/react"
-import App from './App'
+import PharmecyHome from "./PharmecyHome";
+
 
 
 test('everything is running fine',()=>{
-    render (<App/>);
+    render (<PharmecyHome/>);
     
     // eslint-disable-next-line testing-library/no-debugging-utils
     screen.debug();

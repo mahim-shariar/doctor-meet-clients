@@ -1,9 +1,9 @@
 import { render,screen } from "@testing-library/react"
-import App from './App'
+import PremiumPayment from "./PremiumPayment"
 
 
 test('everything is running fine',()=>{
-    render (<App/>);
+    render (<PremiumPayment/>);
     
     // eslint-disable-next-line testing-library/no-debugging-utils
     screen.debug();

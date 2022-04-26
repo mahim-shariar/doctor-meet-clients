@@ -1,9 +1,7 @@
 import { render,screen } from "@testing-library/react"
-import App from './App'
-
-
+import VideoChatRoute from "./VideoChatRoute";
 test('everything is running fine',()=>{
-    render (<App/>);
+    render (<VideoChatRoute/>);
     
     // eslint-disable-next-line testing-library/no-debugging-utils
     screen.debug();
