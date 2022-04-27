@@ -2,36 +2,36 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Route, Routes } from "react-router-dom";
 import Doctors from "./components/Doctors/Doctors";
 import Footer from "./components/Footer/Footer";
+import AppointmentDoctors from "./components/GetAppointmentFolder/AppointmentDoctors/AppointmentDoctors";
+import GetAppointmentForm from "./components/GetAppointmentFolder/GetAppointmentForm/GetAppointmentForm";
+import PayAppointmentFee from "./components/GetAppointmentFolder/PayAppointmentFee/PayAppointmentFee";
+import ManageDoctors from "./components/ManageDoctors/ManageDoctors/ManageDoctors";
+import ManageDonors from "./components/ManageDonors/ManageDonors/ManageDonors";
 import Nav from "./components/Nav/Nav";
+import Pharmecy_product_view from "./components/Pharmecy/Phamecy_product_view/Pharmecy_product_view";
+import PharmecyHome from "./components/Pharmecy/PharmecyHome/PharmecyHome";
+import Pharmecy_all_Product from "./components/Pharmecy/Pharmecy_all_Product/Pharmecy_all_Product";
+import Pharmecy_cart from "./components/Pharmecy/Pharmecy_cart/Pharmecy_cart";
 import PremiumMemberships from "./components/PremiumMembership/PremiumMemberships";
 import PremiumPayment from "./components/PremiumMembership/PremiumPayment";
-import PharmecyHome from "./components/Pharmecy/PharmecyHome/PharmecyHome";
-import Login from "./components/security/Login/Login";
+import LoginSignUp from "./components/security/LoginSignup";
 import Registation from "./components/security/Registation/Registation";
 import AllDoctors from "./components/UserDashboard/AllDoctors/AllDoctors";
 import FavoriteDoctors from "./components/UserDashboard/FavoriteDoctors/FavoriteDoctors";
+import MyAppointments from "./components/UserDashboard/MyAppointments/MyAppointments";
 import VideoChatRoute from "./components/VideoChatClient/VideoChatRoute";
+import AuthProvider from "./context/AuthProvider";
+import About from "./page/About/About";
 import ContactUs from "./page/ContactUs/ContactUs";
 import CovidPortal from "./page/CovidPortal/CovidPortal";
 import Admin from "./page/Dashboards/AdminDashboard/AdminDashboard";
+import AllAppointments from "./page/Dashboards/AllAppointments/AllAppointments";
 import Dashboard from "./page/Dashboards/Dashboard/Dashboard";
 import DashboardHome from "./page/Dashboards/DashboardHome/DashboardHome";
 import FindDonors from "./page/FindDonors/FindDonors";
 import Home from "./page/Home/Home";
-import Profile from "./page/Profile/Profile";
-import Pharmecy_product_view from "./components/Pharmecy/Phamecy_product_view/Pharmecy_product_view";
-import AppointmentDoctors from "./components/GetAppointmentFolder/AppointmentDoctors/AppointmentDoctors";
-import GetAppointmentForm from "./components/GetAppointmentFolder/GetAppointmentForm/GetAppointmentForm";
-import PayAppointmentFee from "./components/GetAppointmentFolder/PayAppointmentFee/PayAppointmentFee";
-import MyAppointments from "./components/UserDashboard/MyAppointments/MyAppointments";
-import Pharmecy_cart from "./components/Pharmecy/Pharmecy_cart/Pharmecy_cart";
-import Pharmecy_all_Product from "./components/Pharmecy/Pharmecy_all_Product/Pharmecy_all_Product";
 import NotFound from "./page/NotFound/NotFound";
-import ManageDoctors from "./components/ManageDoctors/ManageDoctors/ManageDoctors";
-import ManageDonors from "./components/ManageDonors/ManageDonors/ManageDonors";
-import AllAppointments from "./page/Dashboards/AllAppointments/AllAppointments";
-import AuthProvider from "./context/AuthProvider";
-import About from "./page/About/About";
+import Profile from "./page/Profile/Profile";
 
 function App() {
     return (
@@ -42,7 +42,7 @@ function App() {
                     <Route path="/" element={<Home />}></Route>
                     <Route path="/home" element={<Home />}></Route>
                     <Route path="/signUp" element={<Registation />}></Route>
-                    <Route path="/login" element={<Login />}></Route>
+                    <Route path="/login" element={<LoginSignUp history="abc" location="abc" />}></Route>
                     <Route path="/ContactUs" element={<ContactUs />}></Route>
                     <Route path="/about" element={<About />}></Route>
                     <Route path="/profile" element={<Profile />}></Route>
