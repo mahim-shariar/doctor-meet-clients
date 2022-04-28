@@ -7,6 +7,15 @@ import LogoOnlyLayout from "../layouts/LogoOnlyLayout";
 // components
 import LoadingScreen from "../components/LoadingScreen";
 import MainLayout from "../layouts/main/index";
+import GeneralEcommerce from "../pages/dashboard/GeneralEcommerce";
+import GeneralAnalytics from "../pages/dashboard/GeneralAnalytics";
+import GeneralBanking from "../pages/dashboard/GeneralBanking";
+import GeneralBooking from "../pages/dashboard/GeneralBooking";
+import UserProfile from "../pages/dashboard/UserProfile";
+import UserCards from "../pages/dashboard/UserCards";
+import UserList from "../pages/dashboard/UserList";
+import UserCreate from "../pages/dashboard/UserCreate";
+import UserAccount from "../pages/dashboard/UserAccount";
 
 // ----------------------------------------------------------------------
 
@@ -137,9 +146,12 @@ export default function Router() {
       element: <DashboardLayout />,
       children: [
         { element: <Navigate to="/dashboard/home" replace />, index: true },
-        { path: "home", element: <DashboardHome /> },
+        { path: "home", element: <GeneralApp /> },
 
-        { path: "three", element: <PageThree /> },
+        { path: "three", element: <GeneralEcommerce /> },
+        { path: "analytics", element: <GeneralAnalytics /> },
+        { path: "banking", element: <GeneralBanking /> },
+        { path: "booking", element: <GeneralBooking /> },
         {
           path: "user",
           children: [
@@ -151,6 +163,12 @@ export default function Router() {
             { path: "favorite-doctors", element: <FavoriteDoctors /> },
             { path: "my-appointments", element: <MyAppointments /> },
             { path: "get-appointments", element: <GetAppointmentForm /> },
+            { path: "profile", element: <UserProfile /> },
+            { path: "cards", element: <UserCards /> },
+            { path: "list", element: <UserList /> },
+            { path: "new", element: <UserCreate /> },
+            { path: ":name/edit", element: <UserCreate /> },
+            { path: "account", element: <UserAccount /> },
           ],
         },
         {
@@ -234,8 +252,8 @@ const VerifyCode = Loadable(lazy(() => import("../pages/auth/VerifyCode")));
 const CovidPortal = Loadable(
   lazy(() => import("../pages/covid-portal/CovidPortal"))
 );
-const DashboardHome = Loadable(
-  lazy(() => import("../pages/dashboards/dashboard-home/DashboardHome"))
+const GeneralApp = Loadable(
+  lazy(() => import("../pages/dashboard/GeneralApp"))
 );
 const AllDoctors = Loadable(
   lazy(() => import("../components/all-doctors/AllDoctors"))
@@ -258,7 +276,7 @@ const GetAppointmentForm = Loadable(
   lazy(() => import("../components/appointment/GetAppointmentForm"))
 );
 const AllAppointments = Loadable(
-  lazy(() => import("../pages/dashboards/all-appointments/AllAppointments"))
+  lazy(() => import("../pages/dashboard/all-appointments/AllAppointments"))
 );
 const FindDonors = Loadable(
   lazy(() => import("../pages/find-donors/FindDonors"))

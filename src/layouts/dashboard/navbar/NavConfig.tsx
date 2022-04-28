@@ -1,6 +1,7 @@
 // components
 import Iconify from "../../../components/Iconify";
 import SvgIconStyle from "../../../components/SvgIconStyle";
+import { PATH_DASHBOARD } from "../../../routes/paths";
 
 // ----------------------------------------------------------------------
 
@@ -31,6 +32,21 @@ const sidebarConfig = [
       {
         title: "Pharmacy",
         path: "/dashboard/three",
+        icon: <Iconify icon={"fluent:more-circle-20-filled"} {...ICON_SIZE} />,
+      },
+      {
+        title: "Analytics",
+        path: "/dashboard/analytics",
+        icon: <Iconify icon={"fluent:more-circle-20-filled"} {...ICON_SIZE} />,
+      },
+      {
+        title: "Banking",
+        path: "/dashboard/banking",
+        icon: <Iconify icon={"fluent:more-circle-20-filled"} {...ICON_SIZE} />,
+      },
+      {
+        title: "Booking",
+        path: "/dashboard/booking",
         icon: <Iconify icon={"fluent:more-circle-20-filled"} {...ICON_SIZE} />,
       },
     ],
@@ -65,6 +81,36 @@ const sidebarConfig = [
           {
             title: "Get Appointments",
             path: "/dashboard/user/get-appointments",
+            icon: ICONS.analytics,
+          },
+          {
+            title: "Profile",
+            path: "/dashboard/user/profile",
+            icon: ICONS.analytics,
+          },
+          {
+            title: "Cards",
+            path: "/dashboard/user/cards",
+            icon: ICONS.analytics,
+          },
+          {
+            title: "List",
+            path: "/dashboard/user/list",
+            icon: ICONS.analytics,
+          },
+          {
+            title: "Create",
+            path: "/dashboard/user/new",
+            icon: ICONS.analytics,
+          },
+          {
+            title: "Edit",
+            path: `/dashboard/{user}/edit`,
+            icon: ICONS.analytics,
+          },
+          {
+            title: "Account",
+            path: "/dashboard/user/account",
             icon: ICONS.analytics,
           },
         ],

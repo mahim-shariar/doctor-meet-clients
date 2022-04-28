@@ -6,7 +6,6 @@ import { store } from "../../redux/store";
 // @mui
 import { styled } from "@mui/material/styles";
 // _mock_
-
 // components
 import Page from "../../components/Page";
 
