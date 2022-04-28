@@ -2,7 +2,7 @@ import React from "react";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Modal, Button } from "react-bootstrap";
-import useAuth from "../../../hooks/useAuth";
+import useAuthLocal from "../../../hooks/useAuthLocal";
 import "react-phone-number-input/style.css";
 import { useForm, SubmitHandler } from "react-hook-form";
 import Swal from "sweetalert2";
@@ -20,7 +20,7 @@ interface IFormInputs {
 
 const JoinUsForm = (props: any) => {
   const { show, handleClose } = props;
-  const { user } = useAuth();
+  const { user } = useAuthLocal();
   const {
     register,
     handleSubmit,

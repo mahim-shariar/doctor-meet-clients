@@ -1,9 +1,9 @@
 import React from "react";
 import { Navigate, useLocation } from "react-router-dom";
-import useAuth from "../hooks/useAuth";
+import useAuthLocal from "../hooks/useAuthLocal";
 
 const RequireAuth = ({ children }: { children: JSX.Element }) => {
-  const { user, isLoading } = useAuth();
+  const { user, isLoading } = useAuthLocal();
   let location = useLocation();
 
   if (isLoading) {

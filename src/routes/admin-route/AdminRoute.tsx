@@ -1,10 +1,10 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Navigate, useLocation } from "react-router-dom";
-import useAuth from "../../hooks/useAuth";
+import useAuthLocal from "../../hooks/useAuthLocal";
 
 const AdminRoute = ({ children }: { children: JSX.Element }) => {
-  const { user, isLoading } = useAuth();
+  const { user, isLoading } = useAuthLocal();
   const [admin, setAdmin] = useState(false);
   const [done, setDone] = useState(false);
 

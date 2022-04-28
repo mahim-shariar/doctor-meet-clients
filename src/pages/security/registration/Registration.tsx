@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { Button, Form } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import useFirebase from "../../../firebase/useFirebase/useFirebase";
-// import useAuth from "../../Hooks/useAuth";
+// import useAuthLocal from "../../Hooks/useAuthLocal";
 
 const Registration = () => {
   let { createUsingEmail, signUsingGoogle, setMessage, message } =

@@ -3,11 +3,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import { Button, Container, Modal } from "react-bootstrap";
 import helpImg from "../../assets/img/need-help.svg";
-import useAuth from "../../hooks/useAuth";
+import useAuthLocal from "../../hooks/useAuthLocal";
 import "./CovidHelp.css";
 
 const Help = () => {
-  const { user } = useAuth();
+  const { user } = useAuthLocal();
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);

@@ -1,4 +1,4 @@
-// import 'emoji-mart/css/emoji-mart.css';
+import 'emoji-mart/css/emoji-mart.css';
 import PropTypes from 'prop-types';
 import { Picker } from 'emoji-mart';
 import { useState } from 'react';

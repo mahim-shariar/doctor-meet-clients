@@ -1,10 +1,10 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import useAuth from "../../hooks/useAuth";
+import useAuthLocal from "../../hooks/useAuthLocal";
 import "./Profile.css";
 
 const Profile = () => {
-  let { user } = useAuth();
+  let { user } = useAuthLocal();
 
   return (
     <div className="container emp-profile">
