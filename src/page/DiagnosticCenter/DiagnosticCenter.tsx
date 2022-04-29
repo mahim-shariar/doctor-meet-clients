@@ -7,6 +7,7 @@ import DiagnosticChooseUs from '../../components/DiagnosticCenterComponents/Diag
 import DiagnosticSpecialities from '../../components/DiagnosticCenterComponents/DiagnosticSpecialities/DiagnosticSpecialities';
 import OurDiagnosticServices from '../../components/DiagnosticCenterComponents/OurDiagnosticServices/OurDiagnosticServices';
 import PopularTestProcedures from '../../components/DiagnosticCenterComponents/PopularTestProcuders/PopularTestProcedures';
+import SimpleProcess from '../../components/DiagnosticCenterComponents/SimpleProcess/SimpleProcess';
 
 
 
@@ -24,6 +25,7 @@ const DiagnosticCenter = () => {
             <BookCovidTest></BookCovidTest>
             <DiagnosticSpecialities></DiagnosticSpecialities>
             <ChooseDiagnostics></ChooseDiagnostics>
+            <SimpleProcess></SimpleProcess>
         </div>
     );
 };
