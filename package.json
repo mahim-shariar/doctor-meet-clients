@@ -132,7 +132,6 @@
     "simplebar-react": "^2.3.6",
     "slick-carousel": "^1.8.1",
     "socket.io-client": "^4.4.1",
-    "stream": "^0.0.2",
     "stream-browserify": "^3.0.0",
     "styled-components": "^5.3.5",
     "stylis": "^4.0.13",
