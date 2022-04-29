@@ -32,6 +32,7 @@ import ManageDonors from "./components/ManageDonors/ManageDonors/ManageDonors";
 import AllAppointments from "./page/Dashboards/AllAppointments/AllAppointments";
 import AuthProvider from "./context/AuthProvider";
 import About from "./page/About/About";
+import DiagnosticCenter from "./page/DiagnosticCenter/DiagnosticCenter";
 
 function App() {
     return (
@@ -62,6 +63,7 @@ function App() {
                     <Route path="/FindDonors" element={<FindDonors />}></Route>
                     <Route path="/cart" element={<Pharmecy_cart />} />
                     <Route path="/shop" element={<Pharmecy_all_Product />} />
+                    <Route path="/diagnostic-center" element={<DiagnosticCenter />} />
                     <Route path="/dashboard" element={<Dashboard />}>
                         <Route
                             path="dashboarHome"

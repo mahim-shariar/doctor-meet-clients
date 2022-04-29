@@ -6,6 +6,7 @@ import logo from "../../Assets/img/logo.png";
 import { Avatar } from "@mui/material";
 import "./Nav.css";
 import { BoxArrowInLeft, BoxArrowRight, CaretDownFill } from "react-bootstrap-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const Nav = () => {
     const [offset, setOffset] = useState(0);
     let { user, logOut } = useAuth();
@@ -37,6 +38,7 @@ const Nav = () => {
                                 alt=""
                                 height="70px"
                             />
+                            
                         </NavLink>
                         <button
                             className="navbar-toggler"
@@ -117,6 +119,14 @@ const Nav = () => {
                                         to="/about"
                                     >
                                         About Us
+                                    </NavLink>
+                                </li>
+                                <li className="nav-item">
+                                    <NavLink
+                                        className="nav-link"
+                                        to="/diagnostic-center"
+                                    >
+                                       Diagnostic Center
                                     </NavLink>
                                 </li>
                             </ul>
