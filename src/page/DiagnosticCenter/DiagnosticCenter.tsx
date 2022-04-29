@@ -1,6 +1,9 @@
 import React from 'react';
+import BookCovidTest from '../../components/DiagnosticCenterComponents/BookCovidTest/BookCovidTest';
 import CovidAwarnessBar from '../../components/DiagnosticCenterComponents/CovidAwarnessBar/CovidAwarnessBar';
 import DiagnosticCenterBanner from '../../components/DiagnosticCenterComponents/DiagnosticCenterBanner/DiagnosticCenterBanner';
+import DiagnosticChooseUs from '../../components/DiagnosticCenterComponents/DiagnosticChooseUs/DiagnosticChooseUs';
+import OurDiagnosticServices from '../../components/DiagnosticCenterComponents/OurDiagnosticServices/OurDiagnosticServices';
 import PopularTestProcedures from '../../components/DiagnosticCenterComponents/PopularTestProcuders/PopularTestProcedures';
 
 
@@ -14,6 +17,9 @@ const DiagnosticCenter = () => {
             <DiagnosticCenterBanner></DiagnosticCenterBanner>
             <CovidAwarnessBar></CovidAwarnessBar>
             <PopularTestProcedures></PopularTestProcedures>
+            <OurDiagnosticServices></OurDiagnosticServices>
+            <DiagnosticChooseUs></DiagnosticChooseUs>
+            <BookCovidTest></BookCovidTest>
         </div>
     );
 };
