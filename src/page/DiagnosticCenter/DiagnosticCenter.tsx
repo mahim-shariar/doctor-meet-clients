@@ -16,7 +16,6 @@ import SimpleProcess from '../../components/DiagnosticCenterComponents/SimplePro
 const DiagnosticCenter = () => {
     return (
         <div>
-            <h1>Hello From Diagnostic Center</h1>
             <DiagnosticCenterBanner></DiagnosticCenterBanner>
             <CovidAwarnessBar></CovidAwarnessBar>
             <PopularTestProcedures></PopularTestProcedures>
