@@ -39,20 +39,23 @@ const DiagnosticPathology = ({pathology}) => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            {pathology.title}
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            {pathology.content}
-          </Typography>
-          <h3>Code : {pathology.code}</h3>
-          <div>
-              <h3>Price : {floatPrice}(-{pathology.discount}% OFF)</h3>
-          </div>
-          <Link to={`/diagnostic-appointment-form/pathology/${pathology._id}`}>
-          <button>Book Now</button>
-      
-          </Link>
+        <h1 id="modal-modal-title" className='imaging-modal-title'>
+      {pathology.title}
+    </h1>
+    <h4 id="modal-modal-description" sx={{ mt: 2 }} className='imaging-modal-description'>
+      {pathology.content}
+    </h4>
+    <h3 className='imaging-modal-code'>Code : {pathology.code}</h3>
+    <div>
+        <h3 className='imaging-modal-price'>Price : ${floatPrice}(-{pathology.discount}% OFF)</h3>
+    </div>
+    <Link to={`/diagnostic-appointment-form/imaging/${pathology._id}`}>
+    <button className='btn-book-now'>
+      <img src="https://cdn-icons-png.flaticon.com/512/2983/2983788.png" alt="book-now" style={{width:"20px",height:"20px",marginRight:"10px"}}/>
+      Book Now
+    </button>
+
+    </Link>
           
         </Box>
       </Modal>
