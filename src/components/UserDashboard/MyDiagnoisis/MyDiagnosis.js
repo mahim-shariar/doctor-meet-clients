@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const MyDiagnosis = ({diagnosis}) => {
-    console.log(diagnosis);
-    const intPrice=diagnosis.price;
-    const intDiscount=diagnosis.discount;
+    console.log(diagnosis)
+    const intPrice=diagnosis.selectedDiagnosis.price;
+    const intDiscount=diagnosis.selectedDiagnosis.discount;
       const floatDiscount=parseFloat(intDiscount).toFixed(2);
       
       const dd=floatDiscount/100.00;

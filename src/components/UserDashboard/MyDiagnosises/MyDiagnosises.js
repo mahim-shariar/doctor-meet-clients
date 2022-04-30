@@ -13,7 +13,7 @@ const MyDiagnosises = () => {
     },[user])
     useEffect(()=>{
         
-    },[])
+    },[user])
     return (
         <div className="mt-5 ms-5">
         <Table>

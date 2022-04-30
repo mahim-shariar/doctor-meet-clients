@@ -11,19 +11,21 @@ const stripePromise = loadStripe(
 const DiagnosicPay = () => {
     const [diagnostic, setDiagnostic] = useState({});
     const params = useParams();
-    const intPrice=diagnostic.selectedDiagnosis.price;
-    const intDiscount=diagnostic.selectedDiagnosis.discount;
-      const floatDiscount=parseFloat(intDiscount).toFixed(2);
-      
-      const dd=floatDiscount/100.00;
-      // console.log(intPrice,dd);
-  const floatPrice=intPrice-(intPrice*dd);
-  console.log(params);
+    
   useEffect(()=>{
     fetch(`http://localhost:5000/bookedDiagnosis/${params.id}`)
     .then(res=>res.json())
     .then(data=>setDiagnostic(data))
   },[params])
+  const intPrice=diagnostic?.selectedDiagnosis?.price;
+    const intDiscount=diagnostic?.selectedDiagnosis?.discount;
+      const floatDiscount=parseFloat(intDiscount).toFixed(2);
+      
+      const dd=floatDiscount/100.00;
+      // console.log(intPrice,dd);
+  const floatPrice=intPrice-(intPrice*dd);
+  console.log(diagnostic);
+
     return (
         <div>
             <div className="container">
