@@ -25,9 +25,9 @@ navigate(`/diagnostic-appointment-form/sections/${section._id}`)
     <Card.Text>
       {section.content}
       <br />
-      ${floatPrice}(-${off} OFF)
+      <h6>${floatPrice}  (included ${off} discount)</h6>
     </Card.Text>
-    <Button variant="primary" onClick={goToForm}>Go somewhere</Button>
+    <button className="btn-choose-diagnostic-book-now" onClick={goToForm}>Book Now</button>
   </Card.Body>
 </Card>
 
