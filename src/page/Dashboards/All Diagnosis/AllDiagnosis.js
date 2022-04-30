@@ -2,32 +2,28 @@ import React, { useEffect, useState } from 'react';
 import styled from '@emotion/styled';
 import { Paper, TableBody, TableCell, tableCellClasses, TableContainer, TableHead, TableRow } from '@mui/material';
 import { Table } from 'react-bootstrap';
-import useFirebase from '../../../firebase/useFirebase/useFirebase';
-import MyDiagnosis from '../MyDiagnoisis/MyDiagnosis';
+import AllDiagnosisRow from './AllDiagnosisRow';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
-  [`&.${tableCellClasses.head}`]: {
-    backgroundColor: "black",
-    color: "white",
-  },
-  [`&.${tableCellClasses.body}`]: {
-    fontSize: 14,
-  },
-}));
+    [`&.${tableCellClasses.head}`]: {
+      backgroundColor: "black",
+      color: "white",
+    },
+    [`&.${tableCellClasses.body}`]: {
+      fontSize: 14,
+    },
+  }));
 
-const MyDiagnosises = () => {
-    const [myDiagnosis,setMyDiagnosis]=useState([]);
-    const {user}=useFirebase();
+
+const AllDiagnosis = () => {
+    const [diagnosis,setDiagnosis]=useState([]);
     useEffect(()=>{
-        fetch(`http://localhost:5000/bookedDiagnosis/single?email=${user?.email}`)
+        fetch("http://localhost:5000/bookedDiagnosis")
         .then(res=>res.json())
-        .then(data=>setMyDiagnosis(data))
-    },[user])
-    useEffect(()=>{
-        
-    },[user])
+        .then(data=>setDiagnosis(data))
+    },[])
     return (
-      <TableContainer component={Paper} className="mt-5 ms-5">
+        <TableContainer component={Paper} className="mt-5 ms-5">
          <Table sx={{ minWidth: 700 }} aria-label="customized table">
          <TableHead>
           <TableRow>
@@ -42,14 +38,13 @@ const MyDiagnosises = () => {
         <TableBody>
         
           {
-            myDiagnosis.map(diagnosis=><MyDiagnosis diagnosis={diagnosis}></MyDiagnosis>)
+            diagnosis.map(diagnos=><AllDiagnosisRow diagnos={diagnos}></AllDiagnosisRow>)
           }
        
         </TableBody>
          </Table>
       </TableContainer>
-
     );
 };
 
-export default MyDiagnosises;
+export default AllDiagnosis;

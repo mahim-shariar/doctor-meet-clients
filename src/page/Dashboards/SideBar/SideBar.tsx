@@ -54,6 +54,12 @@ const SideBar = () => {
         >
           My Diagnosis
         </Link>
+        <Link
+          to="/dashboard/all-diagnosis"
+          className={firstPath === "all-diagnosis" ? "active" : ""}
+        >
+          All Diagnosis
+        </Link>
         
         <Link to="/">Back To Home</Link>
       </div>

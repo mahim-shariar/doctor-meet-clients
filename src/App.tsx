@@ -36,6 +36,7 @@ import DiagnosticCenter from "./page/DiagnosticCenter/DiagnosticCenter";
 import DiagnosticAppointmentForm from "./components/DiagnosticCenterComponents/DignosticAppointmentForm/DiagnosticAppointmentForm";
 import MyDiagnosises from "./components/UserDashboard/MyDiagnosises/MyDiagnosises";
 import DiagnosicPay from "./components/DiagnosticCenterComponents/DiagnosticPay/DiagnosicPay";
+import AllDiagnosis from "./page/Dashboards/All Diagnosis/AllDiagnosis";
 
 function App() {
     return (
@@ -81,6 +82,10 @@ function App() {
                         <Route
                             path="myappointments"
                             element={<MyAppointments />}
+                        />
+                        <Route
+                            path="all-diagnosis"
+                            element={<AllDiagnosis />}
                         />
                         <Route
                             path="my-diagnosis"

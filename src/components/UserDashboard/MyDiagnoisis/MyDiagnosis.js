@@ -46,18 +46,7 @@ const MyDiagnosis = ({diagnosis}) => {
              </Link>
               </StyledTableCell>
       </StyledTableRow>
-      //   <tr>
-      //   <td>{diagnosis.name}</td>
-      //   <td>{diagnosis.selectedDiagnosis.code}</td>
-      //   <td>{diagnosis?.paymentStatus}</td>
-      //   <td>{floatPrice} $</td>
-      //   <td>{diagnosis?.bookingDate}</td>
-      //   <td>
-      //       <Link to={`/diagnostic-pay/${diagnosis._id}`}>
-      //       <button className='btn btn-warning'>Pay</button>
-      //       </Link>
-      //     </td>
-      // </tr>
+    
     );
 };
 
