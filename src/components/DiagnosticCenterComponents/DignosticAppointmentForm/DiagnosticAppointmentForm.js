@@ -1,13 +1,33 @@
-import React,{useState} from 'react';
+import React,{useEffect, useState} from 'react';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 import { useParams,useNavigate } from 'react-router-dom';
 import useFirebase from '../../../firebase/useFirebase/useFirebase';
 import './DiagnosticAppointmentForm.css';
 const DiagnosticAppointmentForm = () => {
     const params = useParams();
+    const [category,setCategory]=useState({});
+   
     const navigate=useNavigate();
     const [data,setData]=useState({})
     const { user } = useFirebase();
+    useEffect(()=>{
+        fetch(`http://localhost:5000/${params.category}`)
+        .then(res=>res.json())
+        .then(data=>{
+            
+            for (const d of data) {
+                
+                if (d._id === params.id) {
+                    // setCategory(d);
+                    console.log(d);
+                    
+                        setCategory(d);
+                    
+                }
+            }
+        })
+    },[params.id,params.category])
+    // console.log(category);
     const handleOnChange = (e) => {
         const field = e.target.name;
         const value = e.target.value;
@@ -15,6 +35,7 @@ const DiagnosticAppointmentForm = () => {
         newUser[field] = value;
         setData(newUser);
     }
+ 
     const handleOnSubmit = (e) => {
         e.preventDefault();
         if(!data.name){
@@ -23,8 +44,8 @@ const DiagnosticAppointmentForm = () => {
         if(!data.email){
             data.email=user.email;
         }
-        data.selectedDiagnosis=params.id;
-        console.log(data);
+        data.selectedDiagnosis=category;
+        data.paymentStatus="unpaid";
         fetch(`http://localhost:5000/bookedDiagnosis`, {
                 method: "POST",
                 headers: {
@@ -36,7 +57,7 @@ const DiagnosticAppointmentForm = () => {
                 .then(data => {
                     if (data.insertedId) {
                         alert("Appointment is booked successfully. Now go to dashboard to pay");
-                        navigate("/dashboard");
+                        navigate("/dashboard/my-diagnosis");
                     }
                 })
     }

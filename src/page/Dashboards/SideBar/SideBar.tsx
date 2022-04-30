@@ -48,6 +48,12 @@ const SideBar = () => {
         >
           All Appointments
         </Link>
+        <Link
+          to="/dashboard/my-diagnosis"
+          className={firstPath === "my-diagnosis" ? "active" : ""}
+        >
+          My Diagnosis
+        </Link>
         
         <Link to="/">Back To Home</Link>
       </div>

@@ -34,6 +34,7 @@ import AuthProvider from "./context/AuthProvider";
 import About from "./page/About/About";
 import DiagnosticCenter from "./page/DiagnosticCenter/DiagnosticCenter";
 import DiagnosticAppointmentForm from "./components/DiagnosticCenterComponents/DignosticAppointmentForm/DiagnosticAppointmentForm";
+import MyDiagnosises from "./components/UserDashboard/MyDiagnosises/MyDiagnosises";
 
 function App() {
     return (
@@ -65,7 +66,7 @@ function App() {
                     <Route path="/cart" element={<Pharmecy_cart />} />
                     <Route path="/shop" element={<Pharmecy_all_Product />} />
                     <Route path="/diagnostic-center" element={<DiagnosticCenter />} />
-                    <Route path="/diagnostic-appointment-form/:id" element={<DiagnosticAppointmentForm />} />
+                    <Route path="/diagnostic-appointment-form/:category/:id" element={<DiagnosticAppointmentForm />} />
                     <Route path="/dashboard" element={<Dashboard />}>
                         <Route
                             path="dashboarHome"
@@ -79,6 +80,10 @@ function App() {
                         <Route
                             path="myappointments"
                             element={<MyAppointments />}
+                        />
+                        <Route
+                            path="my-diagnosis"
+                            element={<MyDiagnosises />}
                         />
                         <Route path="doctorslist" element={<AllDoctors />} />
                         <Route path="favdoc" element={<FavoriteDoctors />} />

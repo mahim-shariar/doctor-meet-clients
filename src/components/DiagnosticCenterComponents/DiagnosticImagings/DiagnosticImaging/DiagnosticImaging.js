@@ -53,7 +53,7 @@ const DiagnosticImaging = ({imaging}) => {
     <div>
         <h3>Price : {floatPrice}(-{imaging.discount}% OFF)</h3>
     </div>
-    <Link to={`/diagnostic-appointment-form/${imaging._id}`}>
+    <Link to={`/diagnostic-appointment-form/imaging/${imaging._id}`}>
     <button>Book Now</button>
 
     </Link>
