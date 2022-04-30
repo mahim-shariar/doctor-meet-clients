@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const MyDiagnosis = ({diagnosis}) => {
     console.log(diagnosis);
@@ -17,11 +18,11 @@ const MyDiagnosis = ({diagnosis}) => {
         <td>{diagnosis?.paymentStatus}</td>
         <td>{floatPrice} $</td>
         <td>{diagnosis?.bookingDate}</td>
-        {/* <td>
-            <Link to={`/payAppointmentFee/${appointment._id}`}>
+        <td>
+            <Link to={`/diagnostic-pay/${diagnosis._id}`}>
             <button className='btn btn-warning'>Pay</button>
             </Link>
-          </td> */}
+          </td>
       </tr>
     );
 };

@@ -35,6 +35,7 @@ import About from "./page/About/About";
 import DiagnosticCenter from "./page/DiagnosticCenter/DiagnosticCenter";
 import DiagnosticAppointmentForm from "./components/DiagnosticCenterComponents/DignosticAppointmentForm/DiagnosticAppointmentForm";
 import MyDiagnosises from "./components/UserDashboard/MyDiagnosises/MyDiagnosises";
+import DiagnosicPay from "./components/DiagnosticCenterComponents/DiagnosticPay/DiagnosicPay";
 
 function App() {
     return (
@@ -85,6 +86,10 @@ function App() {
                             path="my-diagnosis"
                             element={<MyDiagnosises />}
                         />
+                        <Route
+                            path="my-diagnosis/:category/:id"
+                            element={<MyDiagnosises />}
+                        />
                         <Route path="doctorslist" element={<AllDoctors />} />
                         <Route path="favdoc" element={<FavoriteDoctors />} />
                         <Route
@@ -112,9 +117,10 @@ function App() {
                         element={<GetAppointmentForm />}
                     ></Route>
                     <Route
-                        path="/payAppointmentFee/:id"
-                        element={<PayAppointmentFee />}
+                        path="/diagnostic-pay/:id"
+                        element={<DiagnosicPay />}
                     ></Route>
+                    
                     <Route path="*" element={<NotFound />}></Route>
                 </Routes>
                 <Footer></Footer>
