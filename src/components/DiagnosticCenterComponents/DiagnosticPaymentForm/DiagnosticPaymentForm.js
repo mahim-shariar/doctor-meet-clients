@@ -68,7 +68,7 @@ const navigate=useNavigate();
           },
         }}
       />
-      <button type="submit" className="appointment-fee-submit-btn" disabled={!stripe}>
+      <button type="submit" className="btn-diagnosis-pay" disabled={!stripe}>
         Pay
       </button>
     </form>
