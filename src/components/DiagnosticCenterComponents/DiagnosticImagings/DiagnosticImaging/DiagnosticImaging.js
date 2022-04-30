@@ -2,6 +2,7 @@ import React from 'react';
 import { Box,  Button,  Modal, Typography } from '@mui/material';
 
 import './DiagnosticImaging.css';
+import { Link } from 'react-router-dom';
 
 const DiagnosticImaging = ({imaging}) => {
     const intPrice=imaging.price;
@@ -26,7 +27,7 @@ const DiagnosticImaging = ({imaging}) => {
     p: 4,
   };
     return (
-        <>
+        <div>
         <div className='d-flex align-items-center imaging-info-container' onClick={handleOpen}>
             <img src="https://cdn-icons-png.flaticon.com/512/1828/1828640.png" alt="" style={{width:"30px",height:"30px"}} />
             <h5 className='ms-5'>{imaging.title}</h5>
@@ -52,10 +53,14 @@ const DiagnosticImaging = ({imaging}) => {
     <div>
         <h3>Price : {floatPrice}(-{imaging.discount}% OFF)</h3>
     </div>
+    <Link to={`/diagnostic-appointment-form/${imaging._id}`}>
     <button>Book Now</button>
+
+    </Link>
+    
   </Box>
 </Modal>
-        </>
+        </div>
     );
 };
 

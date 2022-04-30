@@ -33,6 +33,7 @@ import AllAppointments from "./page/Dashboards/AllAppointments/AllAppointments";
 import AuthProvider from "./context/AuthProvider";
 import About from "./page/About/About";
 import DiagnosticCenter from "./page/DiagnosticCenter/DiagnosticCenter";
+import DiagnosticAppointmentForm from "./components/DiagnosticCenterComponents/DignosticAppointmentForm/DiagnosticAppointmentForm";
 
 function App() {
     return (
@@ -64,6 +65,7 @@ function App() {
                     <Route path="/cart" element={<Pharmecy_cart />} />
                     <Route path="/shop" element={<Pharmecy_all_Product />} />
                     <Route path="/diagnostic-center" element={<DiagnosticCenter />} />
+                    <Route path="/diagnostic-appointment-form/:id" element={<DiagnosticAppointmentForm />} />
                     <Route path="/dashboard" element={<Dashboard />}>
                         <Route
                             path="dashboarHome"
