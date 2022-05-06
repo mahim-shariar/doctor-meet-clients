@@ -11,7 +11,7 @@ const DiagnosticAppointmentForm = () => {
     const [data,setData]=useState({})
     const { user } = useFirebase();
     useEffect(()=>{
-        fetch(`http://localhost:5000/${params.category}`)
+        fetch(`https://floating-basin-02241.herokuapp.com/${params.category}`)
         .then(res=>res.json())
         .then(data=>{
             
@@ -46,7 +46,7 @@ const DiagnosticAppointmentForm = () => {
         }
         data.selectedDiagnosis=category;
         data.paymentStatus="unpaid";
-        fetch(`http://localhost:5000/bookedDiagnosis`, {
+        fetch(`https://floating-basin-02241.herokuapp.com/bookedDiagnosis`, {
                 method: "POST",
                 headers: {
                     "content-type": "application/json"

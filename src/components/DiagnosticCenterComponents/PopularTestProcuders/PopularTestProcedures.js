@@ -6,7 +6,7 @@ const PopularTestProcedures = () => {
 
   const [testProcedures, setTestProcedures] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/testProcuders")
+    fetch("https://floating-basin-02241.herokuapp.com/testProcuders")
       .then(res => res.json())
       .then(data => setTestProcedures(data))
   }, [])

@@ -14,7 +14,7 @@ const DiagnosicPay = () => {
     const params = useParams();
     
   useEffect(()=>{
-    fetch(`http://localhost:5000/bookedDiagnosis/${params.id}`)
+    fetch(`https://floating-basin-02241.herokuapp.com/bookedDiagnosis/${params.id}`)
     .then(res=>res.json())
     .then(data=>setDiagnostic(data))
   },[params])

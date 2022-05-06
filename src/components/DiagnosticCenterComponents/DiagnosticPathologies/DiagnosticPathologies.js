@@ -5,7 +5,7 @@ import DiagnosticPathology from '../DiagnosticPathology/DiagnosticPathology';
 const DiagnosticPathologies = () => {
     const [pathologies,setPathologies]=useState([]);
     useEffect(()=>{
-        fetch('http://localhost:5000/pathology')
+        fetch('https://floating-basin-02241.herokuapp.com/pathology')
         .then(res=>res.json())
         .then(data=>setPathologies(data))
     },[])

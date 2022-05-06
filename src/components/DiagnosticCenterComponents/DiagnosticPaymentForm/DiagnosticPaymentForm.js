@@ -36,7 +36,7 @@ const navigate=useNavigate();
     } else {
       console.log('[PaymentMethod]', paymentMethod);
       if(paymentMethod.id){
-        fetch(`http://localhost:5000/bookedDiagnosis/${diagnostic._id}`,{
+        fetch(`https://floating-basin-02241.herokuapp.com/bookedDiagnosis/${diagnostic._id}`,{
           method:"PUT"
         })
         .then(res=>res.json())

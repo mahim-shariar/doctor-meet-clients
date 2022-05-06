@@ -6,7 +6,7 @@ import { Col, Row } from 'react-bootstrap';
 const DiagnosticImagings = () => {
     const [imagings,setImagings]=useState([]);
     useEffect(()=>{
-        fetch("http://localhost:5000/imaging")
+        fetch("https://floating-basin-02241.herokuapp.com/imaging")
         .then(res=>res.json())
         .then(data=>setImagings(data))
     },[])

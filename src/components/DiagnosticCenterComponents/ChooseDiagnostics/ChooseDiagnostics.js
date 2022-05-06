@@ -5,7 +5,7 @@ import './ChooseDiagnostics.css';
 const ChooseDiagnostics = () => {
     const [sections,setSections]=useState([]);
     useEffect(()=>{
-        fetch("http://localhost:5000/sections")
+        fetch("https://floating-basin-02241.herokuapp.com/sections")
         .then(res=>res.json())
         .then(data=>setSections(data))
     },[])

@@ -5,7 +5,7 @@ import './DiagnosticSpecialities.css';
 const DiagnosticSpecialities = () => {
     const [specialities,setSpecialities]=useState([]);
     useEffect(()=>{
-        fetch("http://localhost:5000/speciality")
+        fetch("https://floating-basin-02241.herokuapp.com/speciality")
         .then(res=>res.json())
         .then(data=>setSpecialities(data))
     },[])

@@ -19,7 +19,7 @@ const MyDiagnosises = () => {
     const [myDiagnosis,setMyDiagnosis]=useState([]);
     const {user}=useFirebase();
     useEffect(()=>{
-        fetch(`http://localhost:5000/bookedDiagnosis/single?email=${user?.email}`)
+        fetch(`https://floating-basin-02241.herokuapp.com/bookedDiagnosis/single?email=${user?.email}`)
         .then(res=>res.json())
         .then(data=>setMyDiagnosis(data))
     },[user])

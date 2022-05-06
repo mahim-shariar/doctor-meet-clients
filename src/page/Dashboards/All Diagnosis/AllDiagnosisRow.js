@@ -35,7 +35,7 @@ const deleteBookedDiagnosisAppointment=(e)=>{
     e.preventDefault();
     const isConfirm=window.confirm("Are you sure want to delete this data?");
     if(isConfirm){
-        fetch(`http://localhost:5000/bookedDiagnosis/${diagnos._id}`,{
+        fetch(`https://floating-basin-02241.herokuapp.com/bookedDiagnosis/${diagnos._id}`,{
             method:"Delete"
         })
         .then(res=>res.json())

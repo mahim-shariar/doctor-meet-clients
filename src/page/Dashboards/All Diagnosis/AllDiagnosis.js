@@ -18,7 +18,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 const AllDiagnosis = () => {
     const [diagnosis,setDiagnosis]=useState([]);
     useEffect(()=>{
-        fetch("http://localhost:5000/bookedDiagnosis")
+        fetch("https://floating-basin-02241.herokuapp.com/bookedDiagnosis")
         .then(res=>res.json())
         .then(data=>setDiagnosis(data))
     },[])
