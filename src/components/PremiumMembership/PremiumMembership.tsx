@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardGroup, Container } from 'react-bootstrap';
+import { Card} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './PremiumMembership.css';
 
@@ -19,12 +19,12 @@ type Props = {
 };
 
 const PremiumMembership: React.FC<Props>  = ({ premiumMembership}) => { 
-  const {id,amount,duration,category,pharmacyDiscount,appointmentDiscount,labTestDiscount,img}=premiumMembership;
+  const {id,amount,duration,category,pharmacyDiscount,appointmentDiscount,labTestDiscount}=premiumMembership;
     return (
         
           
   <Card>
-    <Card.Img variant="top" src={img} className="premium-membership-images"/>
+    {/* <Card.Img variant="top" src={img} className="premium-membership-images"/> */}
     <Card.Body>
       <Card.Title>{category}</Card.Title>
       <Card.Text>

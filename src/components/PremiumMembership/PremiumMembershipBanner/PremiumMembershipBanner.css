@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Lato&family=Radio+Canada&display=swap');
+.black-banner-bg{
+    width: 60%;
+    height: 400px;
+    background-color:#010101;
+    color: white;
+    font-family: 'Radio Canada', sans-serif;
+}
+.premium-banner-image{
+    height: 400px;
+    width: 40%;
+}

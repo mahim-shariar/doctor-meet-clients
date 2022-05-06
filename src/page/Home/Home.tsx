@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import Articles from "../../components/Articles/Articles";
 import HealthCareProvider from "../../components/HealthCareProvider/HealthCareProvider";
 import Review from "../../components/Review/Review";
@@ -17,7 +17,6 @@ const Home = () => {
             <HealthCareProvider></HealthCareProvider>
 
             <Review></Review>
-
             <HomeGallery></HomeGallery>
 
             <div className="py-5 ">
