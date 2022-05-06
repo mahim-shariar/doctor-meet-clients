@@ -26,12 +26,18 @@ const PremiumPayment = () => {
     },[params])
 
     return (
-        <div className="container">
-            <h3>Pay : $ {choosenCategory.amount} to get membership "{choosenCategory.category}" for {choosenCategory.duration} months</h3>
+        <div className="payment-box">
+             <div className="container">
+                 <h4>Category: {choosenCategory.category}</h4>
+                 <h4>Duration: {choosenCategory.duration} months</h4>
+                 <h4>Amount: ${choosenCategory.amount}</h4>
+            {/* <h3>Pay : $ {choosenCategory.amount} to get membership "{choosenCategory.category}" for {choosenCategory.duration} months</h3> */}
             <Elements stripe={stripePromise}>
       <PremiumCheckoutForm choosenCategory={choosenCategory}/>
     </Elements>
         </div>
+        </div>
+       
     );
 };
 

@@ -60,7 +60,7 @@ const PremiumCheckoutForm = ({choosenCategory}) => {
           },
         }}
       />
-      <button type="submit" disabled={!stripe}  className="btn btn-danger mt-4">
+      <button type="submit" disabled={!stripe}  className="btn-diagnosis-pay mb-4">
         Pay
       </button>
     </form>

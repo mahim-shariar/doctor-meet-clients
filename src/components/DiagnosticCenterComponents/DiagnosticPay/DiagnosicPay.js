@@ -28,7 +28,7 @@ const DiagnosicPay = () => {
   
 
     return (
-        <div className="payment-box">
+    <div className="payment-box">
             <div className="container">
                 
                 <h3 className="text-center">Pay : $ {floatPrice}</h3>
