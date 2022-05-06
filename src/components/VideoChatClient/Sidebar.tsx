@@ -1,20 +1,44 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { SocketContext } from "../../context/Context";
+import useFirebase from "../../firebase/useFirebase/useFirebase";
 import './Sidebar.css';
 const Sidebar = ({ children }: any) => {
-  const { me, callAccepted, setName, callEnded, leaveCall, callUser } =
+  const { me, callAccepted, setName, name,callEnded, leaveCall, callUser } =
     useContext(SocketContext);
+    const {user}=useFirebase();
   const [idToCall, setIdToCall] = useState("");
+  const [count,setCount]=useState(0);
+  // console.log(me);
+  useEffect(()=>{
+    setName(user?.displayName)
+    
+  },[user,setName])
+
   const callAUser = (e: any) => {
     e.preventDefault();
+    
     callUser(idToCall);
   };
-  console.log(me);
+  const copyId=(e:any)=>{
+    e.preventDefault();
+if(me){
+  alert(`Id ${me} is copied succesfully`);
+}
+else{
+  alert("OOPS ! Id is not copied. Try Again");
+  setCount(count+1);
+  if(count===1){
+    setCount(0);
+    window.location.reload();
+  }
+}
+
+  }
   return (
     <div className="video-chat-sidebar">
        <CopyToClipboard text={me}>
-                <button className="btn-copy-id" onClick={(e)=>e.preventDefault()} title="Click to Copy">ID</button>
+                <button className="btn-copy-id" onClick={copyId} title="Click to Copy">ID</button>
               </CopyToClipboard>
       <form noValidate autoComplete="off">
         <div>
@@ -27,8 +51,9 @@ const Sidebar = ({ children }: any) => {
                 className="sidebar-form"
                 aria-label="Sizing example input"
                 aria-describedby="inputGroup-sizing-sm"
-                onChange={(e) => setName(e.target.value)}
-                placeholder="Enter Your Name"
+                disabled
+                value={name}
+                
               />
               
          
@@ -51,16 +76,15 @@ const Sidebar = ({ children }: any) => {
                 value={idToCall}
                 
               />
-              {callAccepted && !callEnded ? (
-                <button className="btn btn-warning" onClick={leaveCall}>
-                  Hang Up
-                </button>
-              ) : (
-                
-                  <img src="https://cdn-icons.flaticon.com/png/128/3059/premium/3059606.png?token=exp=1651840673~hmac=229c3147a5b14466a711b596bea30808" className="call-icon" alt="" onClick={callAUser} title="Call Now"/>
-                
-              )}
+              {!callAccepted && 
+                    <img src="https://cdn-icons-png.flaticon.com/128/724/724664.png" className="call-icon" alt="" onClick={callAUser} title="Call Now"/>
+              }
             </div>
+            {callAccepted && !callEnded && (
+                <button className="btn-decline-call mx-auto mt-5" onClick={leaveCall} title="Decline">
+                <i className="fas fa-phone-slash"></i>
+                </button>
+              )}
           </div>
         </div>
       </form>

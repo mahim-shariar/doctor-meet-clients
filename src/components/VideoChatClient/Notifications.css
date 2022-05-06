@@ -1,0 +1,48 @@
+.call-notification-title{
+    font-weight: 500;
+    font-family: 'Radio Canada', sans-serif;
+}
+
+.btn-accept-call {background-image: linear-gradient(to right, #3CA55C 0%, #B5AC49  51%, #3CA55C  100%)}
+.btn-accept-call {
+   margin: 10px;
+   padding: 10px 45px;
+   text-align: center;
+   text-transform: uppercase;
+   transition: 0.5s;
+   background-size: 200% auto;
+   color: white;            
+   box-shadow: 0 0 20px #eee;
+   border-radius: 40px;
+   display: block;
+   border: 0px;
+ }
+
+ .btn-accept-call:hover {
+   background-position: right center; /* change the direction of the change here */
+   color: #fff;
+   text-decoration: none;
+ }
+
+ 
+ .btn-decline-call {background-image: linear-gradient(to right, #D31027 0%, #EA384D  51%, #D31027  100%)}
+ .btn-decline-call{
+    margin: 10px;
+    padding: 10px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 20px #eee;
+    border-radius: 40px;
+    display: block;
+    border: 0px;
+  }
+
+  .btn-decline-call:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }
+ 
