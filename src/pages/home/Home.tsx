@@ -11,44 +11,45 @@ import HomeGallery from "../../components/home-gallery/HomeGallery";
 import HomeHero from "./HomeHero";
 import MapDirection from "../../components/map-ditrection/MapDirection";
 import TopDoctors from "../../components/top-rated-doctors/TopDoctors";
+import { Box } from "@mui/material";
 
 // ----------------------------------------------------------------------
 
 const RootStyle = styled("div")(() => ({
-    height: "100%",
+  height: "100%",
 }));
 
 const ContentStyle = styled("div")(({ theme }) => ({
-    overflow: "hidden",
-    position: "relative",
-    backgroundColor: theme.palette.background.default,
+  overflow: "hidden",
+  position: "relative",
+  backgroundColor: theme.palette.background.default,
 }));
 
 // ----------------------------------------------------------------------
 
 export default function HomePage() {
-    return (
-        <Page title="Home">
-            <RootStyle>
-                <ContentStyle>
-                    <HomeHero />
+  return (
+    <Page title="Home">
+      <RootStyle>
+        <ContentStyle>
+          <HomeHero />
 
-                    <Services></Services>
+          <Services></Services>
 
-                    <HealthCareProvider></HealthCareProvider>
+          <HealthCareProvider></HealthCareProvider>
 
-                    <TopDoctors></TopDoctors>
+          <TopDoctors></TopDoctors>
 
-                    <Articles></Articles>
+          <Articles></Articles>
 
-                    <Review></Review>
+          <Review></Review>
 
-                    <HomeGallery></HomeGallery>
-                    <div className="py-5 ">
-                        <MapDirection></MapDirection>
-                    </div>
-                </ContentStyle>
-            </RootStyle>
-        </Page>
-    );
+          <HomeGallery></HomeGallery>
+          <Box py={5}>
+            <MapDirection></MapDirection>
+          </Box>
+        </ContentStyle>
+      </RootStyle>
+    </Page>
+  );
 }

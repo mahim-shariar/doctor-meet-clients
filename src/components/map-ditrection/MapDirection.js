@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import mapboxgl from "mapbox-gl";
 import MapboxDirections from "@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions";
 import "./MapDirection.css";
+import { Box } from "@mui/material";
 
 // eslint-disable-next-line import/no-webpack-loader-syntax
 mapboxgl.workerClass =
@@ -31,9 +32,9 @@ const MapDirection = () => {
             .addTo(map); */
     }, []);
     return (
-        <div className="">
-            <div id="map"></div>
-        </div>
+        <Box>
+            <Box id="map"></Box>
+        </Box>
     );
 };
 
