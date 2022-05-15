@@ -1,4 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import Doctors from "./components/Doctors/Doctors";
 import Footer from "./components/Footer/Footer";
@@ -14,7 +15,7 @@ import Pharmecy_all_Product from "./components/Pharmecy/Pharmecy_all_Product/Pha
 import Pharmecy_cart from "./components/Pharmecy/Pharmecy_cart/Pharmecy_cart";
 import PremiumMemberships from "./components/PremiumMembership/PremiumMemberships";
 import PremiumPayment from "./components/PremiumMembership/PremiumPayment";
-import LoginSignUp from "./components/security/LoginSignup";
+import Login from "./components/security/Login/Login";
 import Registation from "./components/security/Registation/Registation";
 import AllDoctors from "./components/UserDashboard/AllDoctors/AllDoctors";
 import FavoriteDoctors from "./components/UserDashboard/FavoriteDoctors/FavoriteDoctors";
@@ -32,8 +33,16 @@ import FindDonors from "./page/FindDonors/FindDonors";
 import Home from "./page/Home/Home";
 import NotFound from "./page/NotFound/NotFound";
 import Profile from "./page/Profile/Profile";
+import { loadUser } from "./redux/actions/userAction";
+import { useAppDispatch } from "./redux/store";
 
 function App() {
+
+    const dispatch = useAppDispatch();
+
+    useEffect(() => {
+        dispatch(loadUser())
+    });
     return (
         <>
             <AuthProvider>
@@ -42,7 +51,7 @@ function App() {
                     <Route path="/" element={<Home />}></Route>
                     <Route path="/home" element={<Home />}></Route>
                     <Route path="/signUp" element={<Registation />}></Route>
-                    <Route path="/login" element={<LoginSignUp history="abc" location="abc" />}></Route>
+                    <Route path="/login" element={<Login />}></Route>
                     <Route path="/ContactUs" element={<ContactUs />}></Route>
                     <Route path="/about" element={<About />}></Route>
                     <Route path="/profile" element={<Profile />}></Route>

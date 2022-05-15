@@ -1,25 +1,25 @@
 /* eslint-disable react/jsx-pascal-case */
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import pharma_text_6 from "../../../Assets/Pharmecy/banner-10-text.png";
+import Pharma_7 from "../../../Assets/Pharmecy/banner-10.jpg";
+import pharma_text_7 from "../../../Assets/Pharmecy/banner-11-text.png";
+import Pharma_8 from "../../../Assets/Pharmecy/banner-11.jpg";
+import pharma_text_8 from "../../../Assets/Pharmecy/banner-12-text.png";
+import Pharma_9 from "../../../Assets/Pharmecy/banner-12.jpg";
+import pharma_text_2 from "../../../Assets/Pharmecy/banner-6-text.png";
+import Pharma_3 from "../../../Assets/Pharmecy/banner-6.png";
+import Pharma_4 from "../../../Assets/Pharmecy/banner-7-1.jpg";
+import pharma_text_3 from "../../../Assets/Pharmecy/banner-7-text.png";
+import Pharma_5 from "../../../Assets/Pharmecy/banner-8-1.jpg";
+import pharma_text_4 from "../../../Assets/Pharmecy/banner-8-text.png";
+import pharma_text_5 from "../../../Assets/Pharmecy/banner-9-text.png";
+import Pharma_6 from "../../../Assets/Pharmecy/banner-9.jpg";
+import Pharmecy_Best_Product from "../Pharmecy_Best_Product/Pharmecy_Best_Product";
+import Phamecy_Card_slider from "../Pharmecy_Card_Slider/Pharmecy_Card_Slider";
 import Phamecy_single_product from "../Pharmecy_single_product/Phamecy_single_product";
 import Pharmecy_timar from "../Pharmecy_timar/Pharmecy_timar";
 import "./Pharmecy_product.css";
-import Pharma_3 from "../../../Assets/Pharmecy/banner-6.png";
-import Pharma_4 from "../../../Assets/Pharmecy/banner-7-1.jpg";
-import Pharma_5 from "../../../Assets/Pharmecy/banner-8-1.jpg";
-import Pharma_6 from "../../../Assets/Pharmecy/banner-9.jpg";
-import Pharma_7 from "../../../Assets/Pharmecy/banner-10.jpg";
-import Pharma_8 from "../../../Assets/Pharmecy/banner-11.jpg";
-import Pharma_9 from "../../../Assets/Pharmecy/banner-12.jpg";
-import pharma_text_2 from "../../../Assets/Pharmecy/banner-6-text.png";
-import pharma_text_3 from "../../../Assets/Pharmecy/banner-7-text.png";
-import pharma_text_4 from "../../../Assets/Pharmecy/banner-8-text.png";
-import pharma_text_5 from "../../../Assets/Pharmecy/banner-9-text.png";
-import pharma_text_6 from "../../../Assets/Pharmecy/banner-10-text.png";
-import pharma_text_7 from "../../../Assets/Pharmecy/banner-11-text.png";
-import pharma_text_8 from "../../../Assets/Pharmecy/banner-12-text.png";
-import Phamecy_Card_slider from "../Pharmecy_Card_Slider/Pharmecy_Card_Slider";
-import Pharmecy_Best_Product from "../Pharmecy_Best_Product/Pharmecy_Best_Product";
-import { Link } from "react-router-dom";
 
 export interface productsType {
   Sku: string;
@@ -49,7 +49,7 @@ const Pharmecy_Products = () => {
       .then((res) => res.json())
       .then((data) => {
         setProducts(data.result);
-        console.log(data);
+        // console.log(data);
       });
   }, []);
 

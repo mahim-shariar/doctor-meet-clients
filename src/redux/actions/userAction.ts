@@ -61,14 +61,13 @@ export const login =
 
 // Register
 export const register = (userData: any) => async (dispatch: AppDispatch) => {
-  console.log(userData);
   try {
     dispatch({ type: REGISTER_USER_REQUEST });
 
-    const config = { headers: { "Content-Type": "multipart/form-data" } };
+    const config = { headers: { "Content-Type": "application/json" } };
 
     const { data } = await axios.post(
-      `http://localhost:3000/api/v1/register`,
+      `http://localhost:5000/api/v1/register`,
       userData,
       config
     );

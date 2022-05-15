@@ -1,37 +1,42 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
-import useFirebase from '../../../firebase/useFirebase/useFirebase';
-// import useAuth from "../../Hooks/useAuth";
+import { register } from '../../../redux/actions/userAction';
+import { useAppDispatch } from '../../../redux/store';
 
 const Registation = () => {
-  let { createUsingEmail, signUsingGoogle, setMessage, message } =
-    useFirebase();
 
-  const FirstName = useRef<HTMLInputElement>(null!);
-  const LastName = useRef<HTMLInputElement>(null!);
-  const mail = useRef<HTMLInputElement>(null!);
+  const [message, setMessage] = useState("")
+  const dispatch = useAppDispatch();
+
+  const Name = useRef<HTMLInputElement>(null!);
+  const Email = useRef<HTMLInputElement>(null!);
   const pass = useRef<HTMLInputElement>(null!);
   const Cpass = useRef<HTMLInputElement>(null!);
+  const Image = useRef<HTMLInputElement>(null!);
   const handelSubmit = (e: any): void => {
     e.preventDefault();
-    const mailE: string = mail.current.value;
-    const passE: string = pass.current.value;
-    const passC: string = Cpass.current.value;
-    const fName: string = FirstName.current.value;
-    const LName: string = LastName.current.value;
+    const email: string = Email.current.value;
+    const password: string = pass.current.value;
+    const confirmPassword: string = Cpass.current.value;
+    const name: string = Name.current.value;
+    const image: string = Image.current.value;
 
-    if (passE !== passC) {
+    if (password !== confirmPassword) {
       setMessage('Confirm Password doest Matched');
     } else {
-      createUsingEmail(mailE, passE, fName, LName);
-      console.log(mailE, passE, fName, LName);
-      mail.current.value = '';
-      pass.current.value = '';
-      Cpass.current.value = '';
-      FirstName.current.value = '';
-      LastName.current.value = '';
-      setMessage('');
+      // createUsingEmail(mailE, passE, name );
+      console.log(email, password, name, image);
+      dispatch(register({
+        name,
+        email,
+        password,
+        image
+      }))
+      // Email.current.value = '';
+      // pass.current.value = '';
+      // Cpass.current.value = '';
+      // setMessage('');
     }
   };
   return (
@@ -48,26 +53,22 @@ const Registation = () => {
           <Form className="container">
             <div className="form-row row my-3">
               <Form.Label>Name</Form.Label>
-              <div className="col-lg-6">
+              <div className="col-lg-12">
                 <input
                   type="text"
                   className="form-control"
-                  placeholder="First name"
-                  ref={FirstName}
-                />
-              </div>
-              <div className="col-lg-6">
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="Last name"
-                  ref={LastName}
+                  placeholder="Name"
+                  ref={Name}
                 />
               </div>
             </div>
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
-              <Form.Control ref={mail} type="email" placeholder="Enter email" />
+              <Form.Control ref={Email} type="email" placeholder="Enter email" />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicImage">
+              <Form.Label>Image Link</Form.Label>
+              <Form.Control ref={Image} type="text" placeholder="Enter Image" />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicPassword">
               <Form.Label>Password</Form.Label>
@@ -100,12 +101,12 @@ const Registation = () => {
               </small>{' '}
             </div>
           </Form>
-          <div className="row px-3 mt-4 mb-2 ">
+          {/* <div className="row px-3 mt-4 mb-2 ">
             <div className="line"></div>{' '}
             <small className="or text-center">Or</small>
             <div className="line"></div>
-          </div>
-          <div className="mb-4 d-flex px-3">
+          </div> */}
+          {/* <div className="mb-4 d-flex px-3">
             <h6 className="mb-0 d-flex align-items-center mr-4">
               Sign in with:{' '}
             </h6>
@@ -127,7 +128,7 @@ const Registation = () => {
                 />
               </button>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
