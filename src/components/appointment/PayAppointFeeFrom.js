@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 const PayAppointmentFeeFrom = ({ appointment }) => {
     const stripe = useStripe();
     const elements = useElements();
-
+const navigate=useNavigate();
     const handleSubmit = async (event) => {
         // Block native form submission.
         event.preventDefault();
@@ -34,6 +34,7 @@ const PayAppointmentFeeFrom = ({ appointment }) => {
             console.log("[error]", error);
         } else {
             console.log("[PaymentMethod]", paymentMethod);
+            
             if (paymentMethod.id) {
                 fetch(
                     `https://floating-basin-02241.herokuapp.com/allAppointments/${appointment._id}`,
@@ -41,8 +42,14 @@ const PayAppointmentFeeFrom = ({ appointment }) => {
                         method: "PUT",
                     }
                 )
-                    .then((res) => res.json())
-                    .then((data) => console.log(data));
+                    .then((res) =>res.json())
+                    .then(data =>{
+                        if(data?.id){
+                            console.log(data)
+                            alert("Payment is successful!");
+                            navigate('/');
+                        }
+                    });
             }
         }
     };
@@ -65,9 +72,7 @@ const PayAppointmentFeeFrom = ({ appointment }) => {
                 }}
             />
             <button
-                type="submit"
-                disabled={!stripe}
-                className="btn btn-danger mt-4"
+                 type="submit" className="btn-diagnosis-pay my-5" disabled={!stripe}
             >
                 Pay
             </button>
