@@ -31,7 +31,12 @@ const sidebarConfig = [
       {
         title: "Pharmacy",
         path: "/dashboard/three",
-        icon: <Iconify icon={"fluent:more-circle-20-filled"} {...ICON_SIZE} />,
+        icon: (
+          <Iconify
+            icon={"fluent:more-circle-20-filled"}
+            {...ICON_SIZE}
+          />
+        ),
       },
     ],
   },
@@ -72,41 +77,76 @@ const sidebarConfig = [
             path: "/dashboard/user/my-diagnosises",
             icon: ICONS.analytics,
           },
-        ],
-      },
-    ],
-  },
-  {
-    items: [
-      {
-        title: "admin",
-        path: "/dashboard/admin",
-        icon: ICONS.user,
-        children: [
           {
-            title: "Doctors",
-            path: "/dashboard/admin/manage-doctors",
-            icon: ICONS.analytics,
-          },
-          {
-            title: "Donors",
-            path: "/dashboard/admin/manage-donors",
-            icon: ICONS.analytics,
-          },
-          {
-            title: "Appointments",
-            path: "/dashboard/admin/all-appointments",
-            icon: ICONS.analytics,
-          },
-          {
-            title: "Diagnosis",
-            path: "/dashboard/admin/all-diagnosis",
+            title: "Add Review",
+            path: "/dashboard/user/add-review",
             icon: ICONS.analytics,
           },
         ],
       },
     ],
   },
-];
+  // {
+  //   items: [
+  //     {
+  //       title: "admin",
+  //       path: "/dashboard/admin",
+  //       icon: ICONS.user,
+  //       children: [
+  //         {
+  //           title: "Doctors",
+  //           path: "/dashboard/admin/manage-doctors",
+  //           icon: ICONS.analytics,
+  //         },
+  //         {
+  //           title: "Donors",
+  //           path: "/dashboard/admin/manage-donors",
+  //           icon: ICONS.analytics,
+  //         },
+  //         {
+  //           title: "Appointments",
+  //           path: "/dashboard/admin/all-appointments",
+  //           icon: ICONS.analytics,
+  //         },
+  //         {
+  //           title: "Diagnosis",
+  //           path: "/dashboard/admin/all-diagnosis",
+  //           icon: ICONS.analytics,
+  //         },
+          // MANAGEMENT
+          // ----------------------------------------------------------------------
+          
+          {
+            items: [
+              {
+                title: "admin",
+                path: "/dashboard/admin",
+                icon: ICONS.user,
+                children: [
+                  {
+                    title: "Doctors",
+                    path: "/dashboard/admin/manage-doctors",
+                    icon: ICONS.analytics,
+                  },
+                  {
+                    title: "Donors",
+                    path: "/dashboard/admin/manage-donors",
+                    icon: ICONS.analytics,
+                  },
+                  {
+                    title: "Appointments",
+                    path: "/dashboard/admin/all-appointments",
+                    icon: ICONS.analytics,
+                  },
+                  {
+                              title: "Diagnosis",
+                              path: "/dashboard/admin/all-diagnosis",
+                              icon: ICONS.analytics,
+                            },
+                ],
+              },
+            ],
+          },
+        ];
 
-export default sidebarConfig;
+        export default sidebarConfig;

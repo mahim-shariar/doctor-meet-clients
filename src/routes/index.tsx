@@ -11,6 +11,7 @@ import DiagnosticCenter from "../components/diagnostic-center/DiagnosticCenter";
 import { DiagnosicPay,  DiagnosticAppointmentForm } from "../components/diagnostic-center";
 
 
+import UserReview from "../components/user-review/UserReview";
 
 // ----------------------------------------------------------------------
 
@@ -177,8 +178,11 @@ export default function Router() {
                         {
                             path:"my-diagnosises",
                             element:<MyDiagnosises />,
-                        }
+                        },{
                         
+                            path: "add-review",
+                            element: <UserReview />,
+                        },
                     ],
                 },
                 {
