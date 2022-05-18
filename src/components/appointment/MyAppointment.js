@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import useTime from '../../hooks/useTime';
 
 const MyAppointment = ({appointment}) => {
-    console.log(appointment);
+    const {date}=useTime();
+    console.log(appointment.date);
+
     return (
         <tr>
       <td>{appointment.doctorInfo.name}</td>

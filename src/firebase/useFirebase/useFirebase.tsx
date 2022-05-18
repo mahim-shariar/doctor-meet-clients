@@ -13,7 +13,7 @@ import {
   User,
   UserCredential,
 } from "firebase/auth";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import initializationAuth from "../firebase.initialize";
 
@@ -36,6 +36,8 @@ type firebase = {
   isLogged: boolean;
   updateUserName: (name: string) => void;
   updatingPass: (pass: string) => void;
+
+  
 };
 
 initializationAuth();
@@ -45,7 +47,9 @@ const useFirebase = (): firebase => {
   const [isLoading, setIsLoading] = useState(true);
   const [admin, setAdmin] = useState(false);
   const [isLogged, setIsLogged] = useState(false);
+
   const nevigate = useNavigate();
+
 
   // const saveUser = (email: string | null, displayName: string | null, method: string, AccountType: string): void => {
   //     const user = { email, displayName, AccountType };
@@ -244,6 +248,7 @@ const useFirebase = (): firebase => {
     isLogged,
     updateUserName,
     updatingPass,
+
   };
 };
 

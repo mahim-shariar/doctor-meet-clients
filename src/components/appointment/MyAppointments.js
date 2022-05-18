@@ -3,20 +3,28 @@ import { Table } from "react-bootstrap";
 import useFirebase from "../../firebase/useFirebase/useFirebase";
 import MyAppointment from "./MyAppointment";
 import Page from "../Page";
+
 const MyAppointments = () => {
     const { user } = useFirebase();
     const [appointments, setAppointments] = useState([]);
+  
     useEffect(() => {
+        
+
         fetch(
             `https://floating-basin-02241.herokuapp.com/allAppointments/single?patientEmail=${user?.email}`
         )
             .then((res) => res.json())
             .then((data) => setAppointments(data));
+           
     }, [user]);
+
     return (
         <Page title="All Appointments">
+
         <div>
             <h1>Hello From My Appointments</h1>
+            
             <Table>
                 <thead>
                     <tr>
