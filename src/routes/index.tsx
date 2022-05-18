@@ -7,11 +7,13 @@ import LogoOnlyLayout from "../layouts/LogoOnlyLayout";
 // components
 import LoadingScreen from "../components/LoadingScreen";
 import MainLayout from "../layouts/main/index";
-import DiagnosticCenter from "../components/diagnostic-center/DiagnosticCenter";
+
 import { DiagnosicPay,  DiagnosticAppointmentForm } from "../components/diagnostic-center";
 
 
 import UserReview from "../components/user-review/UserReview";
+import { DiagnosticCenter } from "../components/diagnostic-center";
+
 
 // ----------------------------------------------------------------------
 
@@ -260,7 +262,7 @@ export default function Router() {
                     element: <PayAppointmentFee />,
                 },
                 {
-                    path: "diagnostic-center",
+                    path: "/diagnostic-center",
                     element: <DiagnosticCenter/>,
                 },
                 {
@@ -271,6 +273,7 @@ export default function Router() {
                     path:"/diagnostic-pay/:id",
                     element:<DiagnosicPay />,
                 },
+                
                
                 
             ],
