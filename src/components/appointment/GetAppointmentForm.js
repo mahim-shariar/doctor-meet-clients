@@ -79,6 +79,14 @@ const GetAppointmentForm = () => {
                     <option value="O-">O-</option>
 
                 </Form.Select>
+                <Form.Select aria-label="Default select example" name="timeSlot" onChange={handleOnChange}>
+                    <option>Select a Timeslot</option>
+                    <option value={selectedDoctor.timeSlot1}>{selectedDoctor.timeSlot1}</option>
+                    <option value={selectedDoctor.timeSlot2}>{selectedDoctor.timeSlot2}</option>
+                    <option value={selectedDoctor.timeSlot3}>{selectedDoctor.timeSlot3}</option>
+                    
+
+                </Form.Select>
                 <Form.Control type="number" placeholder="High BP"  name="highBP" onChange={handleOnChange} />
                 <Form.Control type="number" placeholder="Low BP"  name="lowBP" onChange={handleOnChange}/>
                 <Form.Control type="number" placeholder="Weight"  name="weight" onChange={handleOnChange}/>
