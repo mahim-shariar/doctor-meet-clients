@@ -1,15 +1,14 @@
-import { Suspense, lazy } from "react";
+import { lazy, Suspense } from "react";
 // import { HashLink } from "react-router-hash-link";
-import { Navigate, useRoutes, useLocation } from "react-router-dom";
-// layouts
-import DashboardLayout from "../layouts/dashboard/index";
-import LogoOnlyLayout from "../layouts/LogoOnlyLayout";
+import { Navigate, useLocation, useRoutes } from "react-router-dom";
+import { DiagnosicPay, DiagnosticAppointmentForm } from "../components/diagnostic-center";
+import DiagnosticCenter from "../components/diagnostic-center/DiagnosticCenter";
 // components
 import LoadingScreen from "../components/LoadingScreen";
-import MainLayout from "../layouts/main/index";
 import UserReview from "../components/user-review/UserReview";
-import DiagnosticCenter from "../components/diagnostic-center/DiagnosticCenter";
-import { DiagnosicPay,  DiagnosticAppointmentForm } from "../components/diagnostic-center";
+// layouts
+import DashboardLayout from "../layouts/dashboard/index";
+import MainLayout from "../layouts/main/index";
 
 
 
@@ -45,16 +44,16 @@ export default function Router() {
                 },
                 {
                     path: "register",
-                    element: (
-                        // <GuestGuard>
-                        <Register />
-                        // </GuestGuard>
-                    ),
+                    // element: (
+                    //     // <GuestGuard>
+                    //     <Register />
+                    //     // </GuestGuard>
+                    // ),
                 },
                 { path: "login-unprotected", element: <Login /> },
-                { path: "register-unprotected", element: <Register /> },
-                { path: "reset-password", element: <ResetPassword /> },
-                { path: "verify", element: <VerifyCode /> },
+                // { path: "register-unprotected", element: <Register /> },
+                // { path: "reset-password", element: <ResetPassword /> },
+                // { path: "verify", element: <VerifyCode /> },
             ],
         },
         // // Dashboard Routes
@@ -177,18 +176,18 @@ export default function Router() {
                         },
                         {
                             path: "Report-section",
-                            element: <ReportSection/>,
+                            element: <ReportSection />,
                         },
                         {
-                            
+
                             path: "add-review",
                             element: <UserReview />,
                         },
                         {
-                            path:"my-diagnosises",
-                            element:<MyDiagnosises />,
+                            path: "my-diagnosises",
+                            element: <MyDiagnosises />,
                         }
-                        
+
                     ],
                 },
                 {
@@ -209,10 +208,10 @@ export default function Router() {
                             path: "all-appointments",
                             element: <AllAppointments />
                         },
-                         {
-                             path: "all-diagnosis",
-                             element: <AllDiagnosis/>,
-                         }
+                        {
+                            path: "all-diagnosis",
+                            element: <AllDiagnosis />,
+                        }
                     ],
                 },
             ],
@@ -247,7 +246,7 @@ export default function Router() {
                 { path: "virtual-meet", element: <VideoChatRoute /> },
                 { path: "login", element: <Login /> },
                 { path: "profile", element: <Profile /> },
-                { path: "sign-up", element: <Registration /> },
+                { path: "signUp", element: <Registration /> },
                 { path: "medicine/:id", element: <PharmacyProductView /> },
                 { path: "cart", element: <PharmacyCart /> },
                 { path: "shop", element: <PharmacyAllProduct /> },
@@ -267,18 +266,18 @@ export default function Router() {
                 },
                 {
                     path: "diagnostic-center",
-                    element: <DiagnosticCenter/>,
+                    element: <DiagnosticCenter />,
                 },
                 {
                     path: "/diagnostic-appointment-form/:category/:id",
-                    element: <DiagnosticAppointmentForm/>,
+                    element: <DiagnosticAppointmentForm />,
                 },
                 {
-                    path:"/diagnostic-pay/:id",
-                    element:<DiagnosicPay />,
+                    path: "/diagnostic-pay/:id",
+                    element: <DiagnosicPay />,
                 },
-               
-                
+
+
             ],
         },
         // { path: "*", element: <Navigate to="/404" replace /> },
@@ -298,11 +297,6 @@ const PageThree = Loadable(lazy(() => import("../pages/PageThree")));
 // const NotFound = Loadable(lazy(() => import('../pages/Page404')));
 // AUTHENTICATION
 const Login = Loadable(lazy(() => import("../pages/security/login/Login")));
-const Register = Loadable(lazy(() => import("../pages/auth/Register")));
-const ResetPassword = Loadable(
-    lazy(() => import("../pages/auth/ResetPassword"))
-);
-const VerifyCode = Loadable(lazy(() => import("../pages/auth/VerifyCode")));
 const CovidPortal = Loadable(
     lazy(() => import("../pages/covid-portal/CovidPortal"))
 );

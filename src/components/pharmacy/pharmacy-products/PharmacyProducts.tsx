@@ -1,25 +1,25 @@
 /* eslint-disable react/jsx-pascal-case */
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import pharma_text_6 from "../../../assets/pharmacy/banner-10-text.png";
+import Pharma_7 from "../../../assets/pharmacy/banner-10.jpg";
+import pharma_text_7 from "../../../assets/pharmacy/banner-11-text.png";
+import Pharma_8 from "../../../assets/pharmacy/banner-11.jpg";
+import pharma_text_8 from "../../../assets/pharmacy/banner-12-text.png";
+import Pharma_9 from "../../../assets/pharmacy/banner-12.jpg";
+import pharma_text_2 from "../../../assets/pharmacy/banner-6-text.png";
+import Pharma_3 from "../../../assets/pharmacy/banner-6.png";
+import Pharma_4 from "../../../assets/pharmacy/banner-7-1.jpg";
+import pharma_text_3 from "../../../assets/pharmacy/banner-7-text.png";
+import Pharma_5 from "../../../assets/pharmacy/banner-8-1.jpg";
+import pharma_text_4 from "../../../assets/pharmacy/banner-8-text.png";
+import pharma_text_5 from "../../../assets/pharmacy/banner-9-text.png";
+import Pharma_6 from "../../../assets/pharmacy/banner-9.jpg";
+import PharmacyBestProduct from "../pharmacy-best-product/PharmacyBestProduct";
+import PharmacyCardSlider from "../pharmacy-card-slider/PharmacyCardSlider";
 import PharmacySingleProduct from "../pharmacy-single-product/PharmacySingleProduct";
 import PharmacyTimer from "../pharmacy-timer/PharmacyTimer";
 import "./PharmacyProducts.css";
-import Pharma_3 from "../../../assets/pharmacy/banner-6.png";
-import Pharma_4 from "../../../assets/pharmacy/banner-7-1.jpg";
-import Pharma_5 from "../../../assets/pharmacy/banner-8-1.jpg";
-import Pharma_6 from "../../../assets/pharmacy/banner-9.jpg";
-import Pharma_7 from "../../../assets/pharmacy/banner-10.jpg";
-import Pharma_8 from "../../../assets/pharmacy/banner-11.jpg";
-import Pharma_9 from "../../../assets/pharmacy/banner-12.jpg";
-import pharma_text_2 from "../../../assets/pharmacy/banner-6-text.png";
-import pharma_text_3 from "../../../assets/pharmacy/banner-7-text.png";
-import pharma_text_4 from "../../../assets/pharmacy/banner-8-text.png";
-import pharma_text_5 from "../../../assets/pharmacy/banner-9-text.png";
-import pharma_text_6 from "../../../assets/pharmacy/banner-10-text.png";
-import pharma_text_7 from "../../../assets/pharmacy/banner-11-text.png";
-import pharma_text_8 from "../../../assets/pharmacy/banner-12-text.png";
-import PharmacyCardSlider from "../pharmacy-card-slider/PharmacyCardSlider";
-import PharmacyBestProduct from "../pharmacy-best-product/PharmacyBestProduct";
-import { Link } from "react-router-dom";
 
 export interface productsType {
   Sku: string;
@@ -49,7 +49,6 @@ const PharmacyProducts = () => {
       .then((res) => res.json())
       .then((data) => {
         setProducts(data.result);
-        console.log(data);
       });
   }, []);
 

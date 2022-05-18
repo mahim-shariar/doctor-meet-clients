@@ -17,8 +17,8 @@ const Login = () => {
         // signUsingEmail(mailE, passE);
         dispatch(login(email, password))
         // console.log(mailE,passE);
-        mail.current.value = '';
-        pass.current.value = '';
+        // mail.current.value = '';
+        // pass.current.value = '';
     };
     return (
         <div className="container">
@@ -46,7 +46,7 @@ const Login = () => {
                             controlId="formBasicCheckbox"
                         >
                             <Form.Check type="checkbox" label="Remember me" />{' '}
-                            <a href=""> Forgot password? </a>
+                            <a href="/"> Forgot password? </a>
                         </Form.Group>
                         <Button onClick={handelSubmit} variant="primary px-4" type="submit">
                             Login

@@ -1,21 +1,21 @@
 /* eslint-disable react/jsx-no-undef */
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { NavLink } from "react-router-dom";
-import "./PharmacyAllProduct.css";
-import React, { useEffect, useState } from "react";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import PopupState, { bindTrigger, bindMenu } from "material-ui-popup-state";
-import PharmacyPriceSlide from "../pharmacy-price-slide/PharmacyPriceSlide";
-import { productsType } from "../pharmacy-products/PharmacyProducts";
-import PharmacyShop from "../pharmacy-shop/PharmacyShop";
 import Pagination from "@mui/material/Pagination";
 import PaginationItem from "@mui/material/PaginationItem";
 import Stack from "@mui/material/Stack";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import PopupState, { bindMenu, bindTrigger } from "material-ui-popup-state";
+import React, { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
+import PharmacyPriceSlide from "../pharmacy-price-slide/PharmacyPriceSlide";
+import { productsType } from "../pharmacy-products/PharmacyProducts";
+import PharmacyShop from "../pharmacy-shop/PharmacyShop";
+import "./PharmacyAllProduct.css";
 
 const PharmacyAllProduct = () => {
   let [products, setProducts] = useState<productsType[]>([]);
@@ -100,7 +100,7 @@ const PharmacyAllProduct = () => {
                 <p> Showing 1–12 of 17 results </p>
               </div>
               <div className="col-lg-2">
-                <PopupState variant="popover" popupId="demo-popup-menu">
+                {/* <PopupState variant="popover" popupId="demo-popup-menu">
                   {(popupState) => (
                     <React.Fragment>
                       <Button
@@ -129,7 +129,7 @@ const PharmacyAllProduct = () => {
                       </Menu>
                     </React.Fragment>
                   )}
-                </PopupState>
+                </PopupState> */}
               </div>
             </div>
             <div className="row">
