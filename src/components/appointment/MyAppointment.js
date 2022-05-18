@@ -6,11 +6,14 @@ const MyAppointment = ({appointment}) => {
     const {date,time,hour,miniute,fullDate}=useTime();
     const [disabled, setDisabled] = useState(true);
     console.log(appointment.date);
+
     useEffect(()=>{
         if(appointment.date===date){
             setDisabled(false);
         }
     },[appointment.date,date])
+
+
     console.log(time,hour,miniute,fullDate)
     console.log(parseFloat(time));
     return (
@@ -19,7 +22,7 @@ const MyAppointment = ({appointment}) => {
       <td>{appointment.doctorInfo.timeSlot||appointment.doctorInfo.timeSlot1||appointment.doctorInfo.timeSlot2||appointment.doctorInfo.timeSlot3} pm </td>
       <td>{appointment.status}</td>
       <td>{appointment.doctorInfo.visit}</td>
-      <td><button disabled={disabled}>Call</button></td>
+      <td><button disabled={disabled} className="btn btn-danger">Call</button></td>
       <td>
           <Link to={`/pay-appointment-fee/${appointment._id}`}>
           <button className='btn btn-warning'>Pay</button>
