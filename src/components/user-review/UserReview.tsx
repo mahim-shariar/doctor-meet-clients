@@ -12,6 +12,7 @@ import {
 import { Box } from "@mui/system";
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
+import { useAppSelector } from "../../redux/store";
 
 export interface IReview {
     name: string;
@@ -22,7 +23,8 @@ export interface IReview {
 }
 
 const UserReview = () => {
-    const { user } = useAuth();
+    const { user }: any = useAppSelector((state) => state.user);
+
     const [rating, setRating] = React.useState<number | null>(5);
 
     const handleReviewSubmit = (e: React.SyntheticEvent) => {
@@ -86,7 +88,7 @@ const UserReview = () => {
                 <Divider />
                 <form onSubmit={handleReviewSubmit}>
                     <TextField
-                        defaultValue={user?.displayName || ""}
+                        defaultValue={user?.email || ""}
                         label="Name"
                         name="name"
                         variant="standard"
