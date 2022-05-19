@@ -1,6 +1,7 @@
 import React from 'react';
 import { TableCell, tableCellClasses, TableRow } from '@mui/material';
 import styled from '@emotion/styled';
+import { Link } from 'react-router-dom';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -22,8 +23,28 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 const ControlDoctor = ({doctor}) => {
-    console.log(doctor)
-  
+  const deleteADoctor=(e)=>{
+    e.preventDefault();
+    const isConfirm=window.confirm("Are you Sure to Delete this Data?")
+    if(isConfirm){
+      fetch(
+        `https://floating-basin-02241.herokuapp.com/doctors/${doctor._id}`,
+        {
+            method: "delete",
+            
+        }
+    )
+    .then(res=>res.json())
+    .then(data=>{
+      if(data.deletedCount){
+        alert("Data is Deleted Successfully");
+        
+      }
+    })
+    }
+    
+    
+  }
     return (
       <StyledTableRow>
         <StyledTableCell component="th" scope="row">
@@ -32,9 +53,16 @@ const ControlDoctor = ({doctor}) => {
               <StyledTableCell align="right">{doctor.name}</StyledTableCell>
               <StyledTableCell align="right">{doctor.email}</StyledTableCell>
               <StyledTableCell align="right"> {doctor.specialist}</StyledTableCell>
-              <StyledTableCell align="right"><button className="btn btn-warning">Edit</button></StyledTableCell>
               <StyledTableCell align="right">
-            <button className='btn-doctor-pay'>Delete</button>
+                <Link to={`edit-single-doctor/${doctor._id}`}>
+                <button className="btn btn-warning">
+                  Edit
+                </button>
+                </Link>
+                
+              </StyledTableCell>
+              <StyledTableCell align="right">
+            <button className='btn-doctor-pay' onClick={deleteADoctor}>Delete</button>
              
               </StyledTableCell>
       </StyledTableRow>

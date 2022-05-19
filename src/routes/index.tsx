@@ -14,6 +14,7 @@ import { DiagnosicPay,  DiagnosticAppointmentForm } from "../components/diagnost
 import UserReview from "../components/user-review/UserReview";
 import { DiagnosticCenter } from "../components/diagnostic-center";
 import ControlDoctors from "../components/AdminDatabase/ControlDoctors";
+import EditSingleDoctor from "../components/AdminDatabase/EditSingleDoctor";
 
 
 // ----------------------------------------------------------------------
@@ -213,6 +214,10 @@ export default function Router() {
                          {
                              path: "edit-doctors",
                              element: <ControlDoctors/>,
+                         },
+                         {
+                             path: "edit-doctors/edit-single-doctor/:id",
+                             element: <EditSingleDoctor/>,
                          },
                         
                     ],

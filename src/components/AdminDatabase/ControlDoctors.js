@@ -22,7 +22,7 @@ const ControlDoctors = () => {
         fetch('https://floating-basin-02241.herokuapp.com/doctors')
         .then(res=>res.json())
         .then(data=>setDoctors(data))
-    },[])
+    },[doctors])
     
     return (
         <TableContainer component={Paper} className="mt-5">

@@ -6,31 +6,13 @@
         "email": "Sincere@april.biz",
         "img": "https://i.ibb.co/xJqmGKM/Confident-young-Asia-female-doctor-in-white-medical-uniform-with-stethoscope-looking-at-camera-and-s.jpg",
         "specialist": "Neurologist",
-        "timeSlot1":"4:00-4:15",
-        "timeSlot1Type":"pm",
-        "timeSlot2":"4:20-4:35",
-        "timeSlot2Type":"pm",
-        "timeSlot3":"4:40-4:55",
-        "timeSlot3Type":"pm",
-        "availableDays":"Saturday,Sunday,Monday,Tuesday",
-        "visit":"10",
-        "address": {
-            "street": "Kulas Light",
-            "suite": "Apt. 556",
-            "city": "Gwenborough",
-            "zipcode": "92998-3874",
-            "geo": {
-                "lat": "-37.3159",
-                "lng": "81.1496"
-            }
-        },
+        "timeSlot1": "4:00-4:15",
+        "timeSlot2": "4:20-4:35",
+        "timeSlot3": "4:40-4:55",
+        "availableDays": "Saturday,Sunday,Monday,Tuesday",
+        "visit": "10",
         "phone": "1-770-736-8031 x56442",
-        "website": "hildegard.org",
-        "company": {
-            "name": "Romaguera-Crona",
-            "catchPhrase": "Multi-layered client-server neural-net",
-            "bs": "harness real-time e-markets"
-        }
+        "website": "hildegard.org"
     },
     {
         "id": 2,
@@ -39,31 +21,13 @@
         "email": "Shanna@melissa.tv",
         "img": "https://i.ibb.co/7VbWbw4/Portrait-of-smiling-doctor-standing-in-hospital-premises.jpg",
         "specialist": "Cardiologist",
-        "timeSlot1":"5:00-5:15",
-        "timeSlot1Type":"pm",
-        "timeSlot2":"5:20-5:35",
-        "timeSlot2Type":"pm",
-        "timeSlot3":"6:00-6:15",
-        "timeSlot3Type":"pm",
-        "availableDays":"Saturday,Sunday,Monday,Wednesday",
-        "visit":"15",
-        "address": {
-            "street": "Victor Plains",
-            "suite": "Suite 879",
-            "city": "Wisokyburgh",
-            "zipcode": "90566-7771",
-            "geo": {
-                "lat": "-43.9509",
-                "lng": "-34.4618"
-            }
-        },
+        "timeSlot1": "5:00-5:15",
+        "timeSlot2": "5:20-5:35",
+        "timeSlot3": "6:00-6:15",
+        "availableDays": "Saturday,Sunday,Monday,Wednesday",
+        "visit": "15",
         "phone": "010-692-6593 x09125",
-        "website": "anastasia.net",
-        "company": {
-            "name": "Deckow-Crist",
-            "catchPhrase": "Proactive didactic contingency",
-            "bs": "synergize scalable supply-chains"
-        }
+        "website": "anastasia.net"
     },
     {
         "id": 3,
@@ -72,31 +36,13 @@
         "email": "Nathan@yesenia.net",
         "img": "https://i.ibb.co/fXSS20N/doctor-standing-with-folder-stethoscope.jpg",
         "specialist": "Cancer Specialist",
-        "timeSlot1":"3:00-3:15",
-        "timeSlot1Type":"pm",
-        "timeSlot2":"3:20-3:35",
-        "timeSlot2Type":"pm",
-        "timeSlot3":"3:40-3:55",
-        "timeSlot3Type":"pm",
-        "availableDays":"Sunday,Monday,Tuesday",
-        "visit":"12",
-        "address": {
-            "street": "Douglas Extension",
-            "suite": "Suite 847",
-            "city": "McKenziehaven",
-            "zipcode": "59590-4157",
-            "geo": {
-                "lat": "-68.6102",
-                "lng": "-47.0653"
-            }
-        },
+        "timeSlot1": "3:00-3:15",
+        "timeSlot2": "3:20-3:35",
+        "timeSlot3": "3:40-3:55",
+        "availableDays": "Sunday,Monday,Tuesday",
+        "visit": "12",
         "phone": "1-463-123-4447",
-        "website": "ramiro.info",
-        "company": {
-            "name": "Romaguera-Jacobson",
-            "catchPhrase": "Face to face bifurcated interface",
-            "bs": "e-enable strategic applications"
-        }
+        "website": "ramiro.info"
     },
     {
         "id": 4,
@@ -105,31 +51,13 @@
         "email": "Julianne@kory.org",
         "img": "https://i.ibb.co/KV0Cx3K/Portrait-of-smiling-doctor-looking-at-camera-on-background-of-his-working-colleagues.jpg",
         "specialist": "Nephrologist",
-        "timeSlot1":"2:00-2:15",
-        "timeSlot1Type":"pm",
-        "timeSlot2":"2:20-2:35",
-        "timeSlot2Type":"pm",
-        "timeSlot3":"2:40-2:55",
-        "timeSlot3Type":"pm",
-        "availableDays":"Saturday,Sunday,Monday,Tuesday,Wednesday",
-        "visit":"20",
-        "address": {
-            "street": "Hoeger Mall",
-            "suite": "Apt. 692",
-            "city": "South Elvis",
-            "zipcode": "53919-4257",
-            "geo": {
-                "lat": "29.4572",
-                "lng": "-164.2990"
-            }
-        },
+        "timeSlot1": "2:00-2:15",
+        "timeSlot2": "2:20-2:35",
+        "timeSlot3": "2:40-2:55",
+        "availableDays": "Saturday,Sunday,Monday,Tuesday,Wednesday",
+        "visit": "20",
         "phone": "493-170-9623 x156",
-        "website": "kale.biz",
-        "company": {
-            "name": "Robel-Corkery",
-            "catchPhrase": "Multi-tiered zero tolerance productivity",
-            "bs": "transition cutting-edge web services"
-        }
+        "website": "kale.biz"
     },
     {
         "id": 5,
@@ -138,31 +66,13 @@
         "email": "Lucio_Hett@annie.ca",
         "img": "https://i.ibb.co/tCCSnB9/Happy-young-male-doctor-using-tablet-computer-Guy-wearing-white-coat-and-standing-Medicine-and-techn.jpg",
         "specialist": "Nephrologist",
-        "timeSlot1":"3:15-3:30",
-        "timeSlot1Type":"pm",
-        "timeSlot2":"3:35-3:50",
-        "timeSlot2Type":"pm",
-        "timeSlot3":"3:55-4:10",
-        "timeSlot3Type":"pm",
-        "availableDays":"Saturday,Sunday,Monday",
-        "visit":"25",
-        "address": {
-            "street": "Skiles Walks",
-            "suite": "Suite 351",
-            "city": "Roscoeview",
-            "zipcode": "33263",
-            "geo": {
-                "lat": "-31.8129",
-                "lng": "62.5342"
-            }
-        },
+        "timeSlot1": "3:15-3:30",
+        "timeSlot2": "3:35-3:50",
+        "timeSlot3": "3:55-4:10",
+        "availableDays": "Saturday,Sunday,Monday",
+        "visit": "25",
         "phone": "(254)954-1289",
-        "website": "demarco.info",
-        "company": {
-            "name": "Keebler LLC",
-            "catchPhrase": "User-centric fault-tolerant solution",
-            "bs": "revolutionize end-to-end systems"
-        }
+        "website": "demarco.info"
     },
     {
         "id": 6,
@@ -171,30 +81,13 @@
         "email": "Karley_Dach@jasper.info",
         "img": "https://i.ibb.co/3f1t87f/Hospital-healthcare-workers-covid-19-treatment-concept-Young-doctor-in-scrubs-making-daily-errands-c.jpg",
         "specialist": "Orthopedics",
-        "timeSlot1":"4:00-4:15",
-        "timeSlot1Type":"pm",
-        "timeSlot2":"4:20-4:35",
-        "timeSlot2Type":"pm",
-        "timeSlot3":"4:40-4:55",
-        "timeSlot3Type":"pm",
-        "availableDays":"Saturday,Sunday,Monday,Tuesday,Wednesday",        "visit":"18",
-        "address": {
-            "street": "Norberto Crossing",
-            "suite": "Apt. 950",
-            "city": "South Christy",
-            "zipcode": "23505-1337",
-            "geo": {
-                "lat": "-71.4197",
-                "lng": "71.7478"
-            }
-        },
+        "timeSlot1": "4:00-4:15",
+        "timeSlot2": "4:20-4:35",
+        "timeSlot3": "4:40-4:55",
+        "availableDays": "Saturday,Sunday,Monday,Tuesday,Wednesday",
+        "visit": "18",
         "phone": "1-477-935-8478 x6430",
-        "website": "ola.org",
-        "company": {
-            "name": "Considine-Lockman",
-            "catchPhrase": "Synchronised bottom-line interface",
-            "bs": "e-enable innovative applications"
-        }
+        "website": "ola.org"
     },
     {
         "id": 7,
@@ -203,30 +96,13 @@
         "email": "Telly.Hoeger@billy.biz",
         "img": "https://i.ibb.co/G7tfS0C/Japanese-doctor-with-short-grey-hair-and-glasses-smiling-towards-camera-in-hospital-corridor-confide.jpg",
         "specialist": "Psychiartist",
-        "timeSlot1":"5:00-5:15",
-        "timeSlot1Type":"pm",
-        "timeSlot2":"5:20-5:35",
-        "timeSlot2Type":"pm",
-        "timeSlot3":"5:40-5:55",
-        "timeSlot3Type":"pm",
-        "availableDays":"Saturday,Sunday,Tuesday",        "visit":"10",
-        "address": {
-            "street": "Rex Trail",
-            "suite": "Suite 280",
-            "city": "Howemouth",
-            "zipcode": "58804-1099",
-            "geo": {
-                "lat": "24.8918",
-                "lng": "21.8984"
-            }
-        },
+        "timeSlot1": "5:00-5:15",
+        "timeSlot2": "5:20-5:35",
+        "timeSlot3": "5:40-5:55",
+        "availableDays": "Saturday,Sunday,Tuesday",
+        "visit": "10",
         "phone": "210.067.6132",
-        "website": "elvis.io",
-        "company": {
-            "name": "Johns Group",
-            "catchPhrase": "Configurable multimedia task-force",
-            "bs": "generate enterprise e-tailers"
-        }
+        "website": "elvis.io"
     },
     {
         "id": 8,
@@ -235,30 +111,13 @@
         "email": "Sherwood@rosamond.me",
         "img": "https://i.ibb.co/WDjXRPZ/Digital-composition-of-a-confident-male-doctor-standing-against-blue-background.jpg",
         "specialist": "Dermatologist",
-        "timeSlot1":"4:00-4:15",
-        "timeSlot1Type":"pm",
-        "timeSlot2":"4:20-4:35",
-        "timeSlot2Type":"pm",
-        "timeSlot3":"4:40-4:55",
-        "timeSlot3Type":"pm",
-        "availableDays":"Saturday,Sunday,Monday,Tuesday,Friday",        "visit":"12",
-        "address": {
-            "street": "Ellsworth Summit",
-            "suite": "Suite 729",
-            "city": "Aliyaview",
-            "zipcode": "45169",
-            "geo": {
-                "lat": "-14.3990",
-                "lng": "-120.7677"
-            }
-        },
+        "timeSlot1": "4:00-4:15",
+        "timeSlot2": "4:20-4:35",
+        "timeSlot3": "4:40-4:55",
+        "availableDays": "Saturday,Sunday,Monday,Tuesday,Friday",
+        "visit": "12",
         "phone": "586.493.6943 x140",
-        "website": "jacynthe.com",
-        "company": {
-            "name": "Abernathy Group",
-            "catchPhrase": "Implemented secondary concept",
-            "bs": "e-enable extensible e-tailers"
-        }
+        "website": "jacynthe.com"
     },
     {
         "id": 9,
@@ -267,30 +126,13 @@
         "email": "Chaim_@dana.io",
         "img": "https://i.ibb.co/QK0jNvt/mike.jpg",
         "specialist": "Orthopedics",
-        "timeSlot1":"3:00-3:15",
-        "timeSlot1Type":"pm",
-        "timeSlot2":"3:20-3:35",
-        "timeSlot2Type":"pm",
-        "timeSlot3":"3:40-3:55",
-        "timeSlot3Type":"pm",
-        "availableDays":"Sunday,Monday,Tuesday",        "visit":"16",
-        "address": {
-            "street": "Dayna Park",
-            "suite": "Suite 449",
-            "city": "Bartholomebury",
-            "zipcode": "76495-3109",
-            "geo": {
-                "lat": "24.6463",
-                "lng": "-168.8889"
-            }
-        },
+        "timeSlot1": "3:00-3:15",
+        "timeSlot2": "3:20-3:35",
+        "timeSlot3": "3:40-3:55",
+        "availableDays": "Sunday,Monday,Tuesday",
+        "visit": "16",
         "phone": "(775)976-6794 x41206",
-        "website": "conrad.com",
-        "company": {
-            "name": "Yost and Sons",
-            "catchPhrase": "Switchable contextually-based project",
-            "bs": "aggregate real-time technologies"
-        }
+        "website": "conrad.com"
     },
     {
         "id": 10,
@@ -299,29 +141,12 @@
         "email": "Rey.Padberg@karina.biz",
         "img": "https://i.ibb.co/980rCdF/Portrait-of-successful-young-doctor-with-folder-and-stethoscope-African-American-general-practitione.jpg",
         "specialist": "Gynochologist",
-        "timeSlot1":"4:00-4:15",
-        "timeSlot1Type":"pm",
-        "timeSlot2":"4:20-4:35",
-        "timeSlot2Type":"pm",
-        "timeSlot3":"4:40-4:55",
-        "timeSlot3Type":"pm",
-        "availableDays":"Saturday,Sunday,Monday,Tuesday",        "visit":"30",
-        "address": {
-            "street": "Kattie Turnpike",
-            "suite": "Suite 198",
-            "city": "Lebsackbury",
-            "zipcode": "31428-2261",
-            "geo": {
-                "lat": "-38.2386",
-                "lng": "57.2232"
-            }
-        },
+        "timeSlot1": "4:00-4:15",
+        "timeSlot2": "4:20-4:35",
+        "timeSlot3": "4:40-4:55",
+        "availableDays": "Saturday,Sunday,Monday,Tuesday",
+        "visit": "30",
         "phone": "024-648-3804",
-        "website": "ambrose.net",
-        "company": {
-            "name": "Hoeger LLC",
-            "catchPhrase": "Centralized empowering task-force",
-            "bs": "target end-to-end models"
-        }
+        "website": "ambrose.net"
     }
 ]
