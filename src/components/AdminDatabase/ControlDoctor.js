@@ -55,14 +55,14 @@ const ControlDoctor = ({doctor}) => {
               <StyledTableCell align="right"> {doctor.specialist}</StyledTableCell>
               <StyledTableCell align="right">
                 <Link to={`edit-single-doctor/${doctor._id}`}>
-                <button className="btn btn-warning">
+                <button className="btn btn-success">
                   Edit
                 </button>
                 </Link>
                 
               </StyledTableCell>
               <StyledTableCell align="right">
-            <button className='btn-doctor-pay' onClick={deleteADoctor}>Delete</button>
+            <button className="btn btn-primary" onClick={deleteADoctor}>Delete</button>
              
               </StyledTableCell>
       </StyledTableRow>

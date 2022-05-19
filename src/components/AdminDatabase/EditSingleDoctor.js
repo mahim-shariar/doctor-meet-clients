@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import './EditSingleDoctor.css'
 
 const EditSingleDoctor = () => {
     const params=useParams();
@@ -50,45 +51,102 @@ const EditSingleDoctor = () => {
 
     const changeDoctorInfo=(e)=>{
         e.preventDefault();
-        console.log(name);
         const newDoctor={id,name,username,email,img,specialist,timeSlot1,timeSlot2,timeSlot3,availableDays,visit,phone,website};
-        console.log(newDoctor);
         setDoctor(newDoctor);
-        fetch(
-            `https://floating-basin-02241.herokuapp.com/doctors/${params.id}`,
-            {
-                method: "PUT",
-                headers: {
-                    "content-type": "application/json",
-                },
-                body: JSON.stringify(newDoctor),
-            }
-        )
-        .then(res=>res.json())
-        .then(data=>console.log(data))
+        const isConfirm=window.confirm("Are you sure to update the info?");
+        if(isConfirm){
+            fetch(
+                `https://floating-basin-02241.herokuapp.com/doctors/${params.id}`,
+                {
+                    method: "PUT",
+                    headers: {
+                        "content-type": "application/json",
+                    },
+                    body: JSON.stringify(newDoctor),
+                }
+            )
+            .then(res=>res.json())
+            .then(data=>{
+                if(data.acknowledged){
+                    alert("Data is updated successfully");
+                    window.location.reload();
+
+                }
+                
+            })
+        }
+        
     }
 
     return (
-        <div>
+        <div className='d-lg-flex d-md-flex justify-content-between align-items-center'>
+        <div className='edit-single-doctor-form-container'>
             
         <form onSubmit={changeDoctorInfo}>
-            <input type="text" onChange={(e)=>set_id(e.target.value)} value={_id} disabled/>
-            <input type="text" onChange={(e)=>setId(e.target.value)} value={id} />
-            <input type="text" onChange={(e)=>setName(e.target.value)} value={name} />
-            <input type="text" onChange={(e)=>setUsername(e.target.value)} value={username} />
-            <input type="text" onChange={(e)=>setEmail(e.target.value)} value={email} />
-            <input type="text" onChange={(e)=>setImg(e.target.value)} value={img} />
-            <input type="text" onChange={(e)=>setSpecialist(e.target.value)} value={specialist} />
-            <input type="text" onChange={(e)=>setTimeSlot1(e.target.value)} value={timeSlot1} />
-            <input type="text" onChange={(e)=>setTimeSlot2(e.target.value)} value={timeSlot2} />
-            <input type="text" onChange={(e)=>setTimeSlot3(e.target.value)} value={timeSlot3} />
-            <input type="text" onChange={(e)=>setAvailableDays(e.target.value)} value={availableDays} />
-            <input type="text" onChange={(e)=>setVisit(e.target.value)} value={visit} />
-            <input type="text" onChange={(e)=>setPhone(e.target.value)} value={phone} />
-            <input type="text" onChange={(e)=>setWebsite(e.target.value)} value={website} />
-            <input type="submit"/>
+            <div className='edit-doctor-input-container' >
+                <span className="doctor-key-name">Id : </span>
+                <input className="edit-doctor-input" type="text" onChange={(e)=>set_id(e.target.value)} value={_id} disabled/>
+            </div>
+            <div className='edit-doctor-input-container'>
+                <span className="doctor-key-name">Serial Number : </span>
+                <input className="edit-doctor-input" type="text" onChange={(e)=>setId(e.target.value)} value={id} />
+
+            </div>
+            <div className='edit-doctor-input-container'>
+                <span className="doctor-key-name">Name : </span>
+                <input className="edit-doctor-input" type="text" onChange={(e)=>setName(e.target.value)} value={name} />
+            </div>
+            <div className='edit-doctor-input-container'>
+                <span className="doctor-key-name">Username : </span>
+                <input className="edit-doctor-input" type="text" onChange={(e)=>setUsername(e.target.value)} value={username} />
+            </div>
+            <div className='edit-doctor-input-container'>
+                <span className="doctor-key-name">Email : </span>
+                <input className="edit-doctor-input" type="text" onChange={(e)=>setEmail(e.target.value)} value={email} />
+            </div>
+            <div className='edit-doctor-input-container'>
+                <span className="doctor-key-name">Image Link : </span>
+                <input className="edit-doctor-input" type="text" onChange={(e)=>setImg(e.target.value)} value={img} />
+            </div>
+            <div className='edit-doctor-input-container'>
+                <span className="doctor-key-name">Specialist Category : </span>
+                <input className="edit-doctor-input" type="text" onChange={(e)=>setSpecialist(e.target.value)} value={specialist} />
+            </div>
+            <div className='edit-doctor-input-container'>
+                <span className="doctor-key-name">First Timeslot : </span>
+                <input className="edit-doctor-input" type="text" onChange={(e)=>setTimeSlot1(e.target.value)} value={timeSlot1} />
+            </div>
+            <div className='edit-doctor-input-container'>
+                <span className="doctor-key-name">Second Timeslot : </span>
+                <input className="edit-doctor-input" type="text" onChange={(e)=>setTimeSlot2(e.target.value)} value={timeSlot2} />
+            </div>
+            <div className='edit-doctor-input-container'>
+                <span className="doctor-key-name">Third Timeslot : </span>
+                <input className="edit-doctor-input" type="text" onChange={(e)=>setTimeSlot3(e.target.value)} value={timeSlot3} />
+            </div>
+            <div className='edit-doctor-input-container'>
+                <span className="doctor-key-name">Available Days : </span>
+                <input className="edit-doctor-input" type="text" onChange={(e)=>setAvailableDays(e.target.value)} value={availableDays} />
+            </div>
+            <div className='edit-doctor-input-container'>
+                <span className="doctor-key-name">Visit : </span>
+                <input className="edit-doctor-input" type="text" onChange={(e)=>setVisit(e.target.value)} value={visit} />
+            </div>
+            <div className='edit-doctor-input-container'>
+                <span className="doctor-key-name">Phone : </span>
+                <input className="edit-doctor-input" type="text" onChange={(e)=>setPhone(e.target.value)} value={phone} />
+            </div>
+            <div className='edit-doctor-input-container'>
+                <span className="doctor-key-name">Website : </span>
+                <input className="edit-doctor-input" type="text" onChange={(e)=>setWebsite(e.target.value)} value={website} />
+            </div>      
+            <input type="submit" className='btn-edit-doctor-submit'/>
         </form>
 
+        </div>
+        <div className='edit-doctor-bg-image-container'>
+    <img src="https://img.freepik.com/free-vector/data-extraction-concept-illustration_114360-4876.jpg?w=740&t=st=1652989249~exp=1652989849~hmac=1c17bc90c0eec59e3d9e8162d9b9d322c1df32ea05c48778fec4974b3cbcdb82" alt="" className='edit-doctor-bg-image'/>
+</div>
         </div>
     );
 };
