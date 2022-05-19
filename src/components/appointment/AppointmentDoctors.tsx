@@ -5,7 +5,7 @@ import './appointment-style/style.css';
 const AppointmentDoctors = () => {
     const [doctors,setDoctors]=useState([]);
     useEffect(()=>{
-        fetch("./doctors.json")
+        fetch("https://floating-basin-02241.herokuapp.com/doctors")
         .then(res=>res.json())
         .then(data=>setDoctors(data))
 
@@ -17,7 +17,7 @@ const AppointmentDoctors = () => {
             <Container>
             <Grid container spacing={1}>         
             {
-                doctors.map((doctor:any,id)=>(<AppointmentDoctor key={id} doctor={doctor}/>
+                doctors.map((doctor:any,_id)=>(<AppointmentDoctor key={_id} doctor={doctor}/>
                 ))
             }
             </Grid>  

@@ -11,11 +11,11 @@ const GetAppointmentForm = () => {
     const [data,setData]=useState({});
     useEffect(() => {
         //Here a specific doctor has to be fetched using params.id
-        fetch("/doctors.json")
+        fetch("https://floating-basin-02241.herokuapp.com/doctors")
             .then(res => res.json())
             .then(data => {
                 for (const d of data) {
-                    if (d.id === Number(params.id)) {
+                    if (d._id === params.id){
                         setSelectedDoctor(d);
                     }
                 }

@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './appointment-style/style.css'
 export interface doctor {
-    id: string;
+    _id: string;
    name:string;
    img:string;
    specialist:string;
@@ -21,7 +21,7 @@ export interface doctor {
     
   };
 const AppointmentDoctor: React.FC<Props>  = ({doctor}) => {
-    const {id,name,img,specialist,phone,website,email,timeSlot,availableDays,visit,experience,review}=doctor;
+    const {_id,name,img,specialist,phone,website,email,timeSlot,availableDays,visit,experience,review}=doctor;
     const rating=Number(review);
     return (
       <Grid item xs={12} md={6} lg={4}>
@@ -58,7 +58,7 @@ const AppointmentDoctor: React.FC<Props>  = ({doctor}) => {
         </CardContent>
       </CardActionArea>
       <CardActions>
-      <Link to={`/get-appointment-form/${id}`}>
+      <Link to={`/get-appointment-form/${_id}`}>
         <button className="btn-get-appointment" >
           Book Now
         </button>
