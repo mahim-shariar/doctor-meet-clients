@@ -4,6 +4,7 @@ import useFirebase from "../../firebase/useFirebase/useFirebase";
 import MyAppointment from "./MyAppointment";
 import Page from "../Page";
 
+
 const MyAppointments = () => {
     const { user } = useFirebase();
     const [appointments, setAppointments] = useState([]);
@@ -21,7 +22,7 @@ const MyAppointments = () => {
 
     return (
         <Page title="All Appointments">
-
+{/* <AppointmentNotifications></AppointmentNotifications> */}
         <div>
             <h1>Hello From My Appointments</h1>
             
