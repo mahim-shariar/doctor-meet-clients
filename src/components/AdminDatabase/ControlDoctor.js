@@ -1,7 +1,6 @@
 import React from 'react';
 import { TableCell, tableCellClasses, TableRow } from '@mui/material';
 import styled from '@emotion/styled';
-import { Link } from 'react-router-dom';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
