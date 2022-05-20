@@ -21,7 +21,7 @@ export interface doctor {
     
   };
 const AppointmentDoctor: React.FC<Props>  = ({doctor}) => {
-    const {_id,name,img,specialist,phone,website,email,timeSlot,availableDays,visit,experience,review}=doctor;
+    const {_id,name,img,specialist,phone,website,email,availableDays,visit,experience,review}=doctor;
     const rating=Number(review);
     return (
       <Grid item xs={12} md={6} lg={4}>
@@ -45,7 +45,6 @@ const AppointmentDoctor: React.FC<Props>  = ({doctor}) => {
           </Typography>
           <hr className="my-3"/>
           {/* <Typography variant="body2" color="text.secondary"> */}
-          <h4 className="appointment-doctor-info">Available Hours : {timeSlot}</h4>
           <h4 className="appointment-doctor-info">Available Days : {availableDays}</h4>
           <h4 className="appointment-doctor-info">Experience : {experience} years</h4>
           

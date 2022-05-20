@@ -13,7 +13,7 @@ const AppointmentDoctors = () => {
    
     return (
         <div>
-            <h1 className="appointment-title text-center my-5">Book an Appointment</h1>
+            <h1 className="appointment-title text-center" style={{marginTop:"100px",marginBottom:"100px"}}>Book an Appointment</h1>
             <Container>
             <Grid container spacing={1}>         
             {

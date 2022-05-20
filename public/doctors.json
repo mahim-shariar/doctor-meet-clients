@@ -12,7 +12,10 @@
         "availableDays": "Saturday,Sunday,Monday,Tuesday",
         "visit": "10",
         "phone": "1-770-736-8031 x56442",
-        "website": "hildegard.org"
+        "website": "hildegard.org",
+        "experience":3,
+        "review":4,
+        "room":"room101"
     },
     {
         "id": 2,
@@ -27,7 +30,10 @@
         "availableDays": "Saturday,Sunday,Monday,Wednesday",
         "visit": "15",
         "phone": "010-692-6593 x09125",
-        "website": "anastasia.net"
+        "website": "anastasia.net",
+        "experience":8,
+        "review":5,
+        "room":"room102"
     },
     {
         "id": 3,
@@ -42,7 +48,10 @@
         "availableDays": "Sunday,Monday,Tuesday",
         "visit": "12",
         "phone": "1-463-123-4447",
-        "website": "ramiro.info"
+        "website": "ramiro.info",
+        "experience":5,
+        "review":3,
+        "room":"room103"
     },
     {
         "id": 4,
@@ -57,7 +66,10 @@
         "availableDays": "Saturday,Sunday,Monday,Tuesday,Wednesday",
         "visit": "20",
         "phone": "493-170-9623 x156",
-        "website": "kale.biz"
+        "website": "kale.biz",
+        "experience":6,
+        "review":4,
+        "room":"room104"
     },
     {
         "id": 5,
@@ -72,7 +84,10 @@
         "availableDays": "Saturday,Sunday,Monday",
         "visit": "25",
         "phone": "(254)954-1289",
-        "website": "demarco.info"
+        "website": "demarco.info",
+        "experience":3,
+        "review":3,
+        "room":"room105"
     },
     {
         "id": 6,
@@ -87,7 +102,10 @@
         "availableDays": "Saturday,Sunday,Monday,Tuesday,Wednesday",
         "visit": "18",
         "phone": "1-477-935-8478 x6430",
-        "website": "ola.org"
+        "website": "ola.org",
+        "experience":8,
+        "review":4,
+        "room":"room106"
     },
     {
         "id": 7,
@@ -102,7 +120,10 @@
         "availableDays": "Saturday,Sunday,Tuesday",
         "visit": "10",
         "phone": "210.067.6132",
-        "website": "elvis.io"
+        "website": "elvis.io",
+        "experience":4,
+        "review":3,
+        "room":"room107"
     },
     {
         "id": 8,
@@ -117,7 +138,11 @@
         "availableDays": "Saturday,Sunday,Monday,Tuesday,Friday",
         "visit": "12",
         "phone": "586.493.6943 x140",
-        "website": "jacynthe.com"
+        "website": "jacynthe.com",
+        "experience":3,
+        "review":4,
+        "room":"room108"
+        
     },
     {
         "id": 9,
@@ -132,7 +157,10 @@
         "availableDays": "Sunday,Monday,Tuesday",
         "visit": "16",
         "phone": "(775)976-6794 x41206",
-        "website": "conrad.com"
+        "website": "conrad.com",
+        "experience":8,
+        "review":3,
+        "room":"room109"
     },
     {
         "id": 10,
@@ -147,6 +175,9 @@
         "availableDays": "Saturday,Sunday,Monday,Tuesday",
         "visit": "30",
         "phone": "024-648-3804",
-        "website": "ambrose.net"
+        "website": "ambrose.net",
+        "experience":5,
+        "review":4,
+        "room":"room110"
     }
 ]

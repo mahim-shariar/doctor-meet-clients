@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useNavigate } from "react-router-dom";
 
 const PayAppointmentFeeFrom = ({ appointment }) => {
     const stripe = useStripe();
     const elements = useElements();
+    const [paymentMethod,setPaymentMethod]=useState({});
+    const [error,setError]=useState("");
 const navigate=useNavigate();
     const handleSubmit = async (event) => {
         // Block native form submission.
@@ -32,9 +34,10 @@ const navigate=useNavigate();
 
         if (error) {
             console.log("[error]", error);
+            setError(error.message);
         } else {
-            console.log("[PaymentMethod]", paymentMethod);
             
+            setPaymentMethod(paymentMethod);
             if (paymentMethod.id) {
                 fetch(
                     `https://floating-basin-02241.herokuapp.com/allAppointments/${appointment._id}`,
@@ -43,11 +46,10 @@ const navigate=useNavigate();
                     }
                 )
                     .then((res) =>res.json())
-                    .then(data =>{
-                        if(data?.id){
-                            console.log(data)
-                            alert("Payment is successful!");
-                            navigate('/');
+                    .then((data) =>{
+                        if(data.acknowledged){
+                            alert("Payment is successful");
+                            navigate("/dashboard/user/my-appointments")
                         }
                     });
             }

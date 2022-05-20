@@ -1,47 +1,66 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import useTime from '../../hooks/useTime';
-const MyAppointment = ({appointment}) => {
-    const {date}=useTime();
+import enabledIcon from '../../../src/assets/my-appointments-video -enable.png';
+import disabledIcon from '../../../src/assets/my-appointments-video-disable.png';
+import './appointment-style/style.css';
+import { CopyToClipboard } from "react-copy-to-clipboard";
+
+
+const MyAppointment = ({ appointment }) => {
+    const { date } = useTime();
     const [disabled, setDisabled] = useState(true);
 
-    useEffect(()=>{
-        if(appointment.date===date){
+    useEffect(() => {
+        if (appointment.date === date && appointment.status === "paid") {
             setDisabled(false);
-            
-        }    
-    },[appointment.date,date])
-    
-      
+
+        }
+    }, [appointment.date, date, appointment.status])
+    const copyId = () => {
+        alert(`Id "${appointment.doctorInfo?.room}" is copied successfully`);
+    }
     return (
-        <tr>
-      <td>{appointment.doctorInfo.name}</td>
-      <td>{appointment.doctorInfo.timeSlot||appointment.doctorInfo.timeSlot1||appointment.doctorInfo.timeSlot2||appointment.doctorInfo.timeSlot3} pm </td>
-      <td>{appointment.status}</td>
-      <td>{appointment.doctorInfo.visit}</td>
-      {/* <td><button disabled={disabled} className="btn btn-danger" title={`Available at ${appointment.doctorInfo.timeSlot1||appointment.doctorInfo.timeSlot2||appointment.doctorInfo.timeSlot3||appointment.doctorInfo.timeSlot}`}>
-          <img src="https://cdn-icons.flaticon.com/png/512/2875/premium/2875405.png?token=exp=1652940429~hmac=995b427d3e0a856c05a38736ffa2358f" alt="meet-icon" style={{width:"40px",height:"40px"}}
-          disabled={disabled} className="btn btn-danger" title={`Available at ${appointment.doctorInfo.timeSlot1||appointment.doctorInfo.timeSlot2||appointment.doctorInfo.timeSlot3||appointment.doctorInfo.timeSlot}`}
-          />
-          </button></td> */}
-          {
-              !disabled?<td>
-              <img src="https://cdn-icons.flaticon.com/png/512/2875/premium/2875405.png?token=exp=1652940429~hmac=995b427d3e0a856c05a38736ffa2358f" alt="meet-icon" style={{width:"40px",height:"40px"}}
-              disabled={disabled} title={`Available at ${appointment.doctorInfo.timeSlot1||appointment.doctorInfo.timeSlot2||appointment.doctorInfo.timeSlot3||appointment.doctorInfo.timeSlot}`}
-              /> 
-              </td>:<td>
-          <img src="https://cdn-icons.flaticon.com/png/512/2875/premium/2875374.png?token=exp=1652940617~hmac=e2f2c95678b482d296eff5b5966359be" alt="meet-icon" style={{width:"40px",height:"40px"}}
-          disabled={disabled} title={`Available at ${appointment.doctorInfo.timeSlot1||appointment.doctorInfo.timeSlot2||appointment.doctorInfo.timeSlot3||appointment.doctorInfo.timeSlot}`}
-          /> 
-          </td>
-          }
-          
-      <td>
-          <Link to={`/pay-appointment-fee/${appointment._id}`}>
-          <button className='btn btn-warning'>Pay</button>
-          </Link>
-        </td>
-    </tr>
+        <tr style={{backgroundColor:"#EFF6FF"}}>
+            <td className="appointment-table-row-data">{appointment.doctorInfo.name}</td>
+            <td className="appointment-table-row-data">{appointment.doctorInfo.timeSlot || appointment.doctorInfo.timeSlot1 || appointment.doctorInfo.timeSlot2 || appointment.doctorInfo.timeSlot3}</td>
+            <td className="appointment-table-row-data">{appointment.status}</td>
+            <td className="appointment-table-row-data">${appointment.doctorInfo.visit}</td>
+
+            {
+                !disabled ? <td className="appointment-table-row-data">
+                    <CopyToClipboard text={appointment.doctorInfo?.room}>
+
+                        <img src={enabledIcon} alt="meet-icon" style={{ width: "40px", height: "40px" }}
+                            onClick={copyId}
+                            disabled={disabled} title={`Available at ${appointment.doctorInfo.timeSlot1 || appointment.doctorInfo.timeSlot2 || appointment.doctorInfo.timeSlot3 || appointment.doctorInfo.timeSlot}`} className="hover-cursor"
+                        />
+                    </CopyToClipboard>
+                    {/* <img src={enabledIcon} alt="meet-icon" style={{ width: "40px", height: "40px" }}
+                        disabled={disabled} title={`Available at ${appointment.doctorInfo.timeSlot1 || appointment.doctorInfo.timeSlot2 || appointment.doctorInfo.timeSlot3 || appointment.doctorInfo.timeSlot}`} className="hover-cursor"
+                    /> */}
+
+
+
+
+                </td> : <td className="appointment-table-row-data">
+                    <img src={disabledIcon} alt="meet-icon" style={{ width: "40px", height: "40px" }}
+                        disabled={disabled} title={`Available at ${appointment.doctorInfo.timeSlot1 || appointment.doctorInfo.timeSlot2 || appointment.doctorInfo.timeSlot3 || appointment.doctorInfo.timeSlot}`}
+                    />
+
+
+
+                </td>
+            }
+
+            <td className="appointment-table-row-data">
+                <Link to={`/pay-appointment-fee/${appointment._id}`}>
+                    <button className='btn-appointment-pay'>
+                        Pay
+                    </button>
+                </Link>
+            </td>
+        </tr>
     );
 };
 

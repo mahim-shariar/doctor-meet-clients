@@ -7,6 +7,18 @@
     font-size: 20px;
     font-family: 'Source Sans Pro', sans-serif;
 }
+.appointment-table-header-container .appointment-table-header{
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  color:#222f3e;
+  font-weight: 600;
+}
+.appointment-table-row-data{
+  font-family: 'Radio Canada', sans-serif;
+  font-size: 16px;
+  color:#222f3e;
+  font-weight: 500;
+}
 
 .btn-get-appointment {background-image: linear-gradient(to right, #77A1D3 0%, #79CBCA  51%, #77A1D3  100%)}
 .btn-get-appointment {
@@ -30,3 +42,28 @@
    color: #fff;
    text-decoration: none;
  }
+.hover-cursor:hover{
+cursor: pointer;
+}
+
+         
+.btn-appointment-pay {
+  background-image: linear-gradient(to right, #780206 0%, #061161  51%, #780206  100%);
+  margin: 0px;
+  padding: 10px 35px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;            
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  font-family: 'Radio Canada', sans-serif;
+  display: block;
+}
+
+.btn-appointment-pay:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}

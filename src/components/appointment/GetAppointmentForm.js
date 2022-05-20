@@ -45,7 +45,7 @@ const GetAppointmentForm = () => {
                 .then(data => {
                     if (data.insertedId) {
                         alert("Appointment is booked successfully");
-                        navigate("/");
+                        navigate("/dashboard/user/my-appointments");
                     }
                 })
         
