@@ -1,6 +1,7 @@
 import { lazy, Suspense } from "react";
 // import { HashLink } from "react-router-hash-link";
 import { Navigate, useLocation, useRoutes } from "react-router-dom";
+// import AddArticle from "../components/add-article/AddArticle";
 import { DiagnosicPay, DiagnosticAppointmentForm } from "../components/diagnostic-center";
 import DiagnosticCenter from "../components/diagnostic-center/DiagnosticCenter";
 // components
@@ -9,6 +10,7 @@ import UserReview from "../components/user-review/UserReview";
 // layouts
 import DashboardLayout from "../layouts/dashboard/index";
 import MainLayout from "../layouts/main/index";
+
 
 
 
@@ -179,15 +181,21 @@ export default function Router() {
                             element: <ReportSection />,
                         },
                         {
-
+                            path: "Report-status",
+                            element: <ReportStatus />,
+                        },
+                        {
                             path: "add-review",
                             element: <UserReview />,
                         },
                         {
+                            path: "add-article",
+                            element: <AddArticle />,
+                        },
+                        {
                             path: "my-diagnosises",
                             element: <MyDiagnosises />,
-                        }
-
+                        },
                     ],
                 },
                 {
@@ -206,12 +214,12 @@ export default function Router() {
                         { path: "manage-donors", element: <ManageDonors /> },
                         {
                             path: "all-appointments",
-                            element: <AllAppointments />
+                            element: <AllAppointments />,
                         },
                         {
                             path: "all-diagnosis",
                             element: <AllDiagnosis />,
-                        }
+                        },
                     ],
                 },
             ],
@@ -380,9 +388,19 @@ const PayAppointmentFee = Loadable(
     lazy(() => import("../components/appointment/PayAppointmentFee"))
 );
 const MyDiagnosises = Loadable(
-    lazy(() => import("../components/diagnostic-center/my-diagnosis/MyDiagnosises"))
+    lazy(
+        () =>
+            import("../components/diagnostic-center/my-diagnosis/MyDiagnosises")
+    )
 );
-
+const ReportStatus = Loadable(
+    lazy(
+        () =>
+            import(
+                "../components/report-review-section/report-status-section/ReportStatus"
+            )
+    )
+);
 
 // DASHBOARD
 
@@ -435,3 +453,4 @@ const Maintenance = Loadable(lazy(() => import("../pages/Maintenance")));
 
 const Page500 = Loadable(lazy(() => import("../pages/Page500")));
 const About = Loadable(lazy(() => import("../pages/about/About")));
+const AddArticle = Loadable(lazy(() => import("../components/add-article/AddArticle")));

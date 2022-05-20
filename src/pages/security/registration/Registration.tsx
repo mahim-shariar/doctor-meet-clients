@@ -1,42 +1,44 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate, unstable_HistoryRouter as HistoryRouter } from 'react-router-dom';
 import { register } from '../../../redux/actions/userAction';
-import { useAppDispatch } from '../../../redux/store';
+import { useAppDispatch, useAppSelector } from '../../../redux/store';
+
+import { createBrowserHistory } from "history";
+
+const history = createBrowserHistory({ window });
 
 const Registation = () => {
-
+    const { user }: any = useAppSelector((state) => state);
+    useEffect(() => { }, [user]);
     const [message, setMessage] = useState("")
     const dispatch = useAppDispatch();
-
+    const navigate = useNavigate();
     const Name = useRef<HTMLInputElement>(null!);
     const Email = useRef<HTMLInputElement>(null!);
     const pass = useRef<HTMLInputElement>(null!);
     const Cpass = useRef<HTMLInputElement>(null!);
-    const Image = useRef<HTMLInputElement>(null!);
     const handelSubmit = (e: any): void => {
         e.preventDefault();
         const email: string = Email.current.value;
         const password: string = pass.current.value;
         const confirmPassword: string = Cpass.current.value;
         const name: string = Name.current.value;
-        const image: string = Image.current.value;
 
         if (password !== confirmPassword) {
             setMessage('Confirm Password doest Matched');
         } else {
-            // createUsingEmail(mailE, passE, name );
-            console.log(email, password, name, image);
             dispatch(register({
                 name,
                 email,
                 password,
-                image
             }))
-            // Email.current.value = '';
-            // pass.current.value = '';
-            // Cpass.current.value = '';
-            // setMessage('');
+            if (user.success) {
+                for (let i = 1; i <= 2; i++) {
+                    //@ts-ignore
+                    navigate(history.back())
+                }
+            }
         }
     };
     return (
@@ -65,10 +67,6 @@ const Registation = () => {
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             <Form.Label>Email address</Form.Label>
                             <Form.Control ref={Email} type="email" placeholder="Enter email" />
-                        </Form.Group>
-                        <Form.Group className="mb-3" controlId="formBasicImage">
-                            <Form.Label>Image Link</Form.Label>
-                            <Form.Control ref={Image} type="text" placeholder="Enter Image" />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicPassword">
                             <Form.Label>Password</Form.Label>

@@ -43,17 +43,23 @@ import { AppDispatch } from "./../store";
 export const login =
   (email: string, password: string) => async (dispatch: AppDispatch) => {
     try {
-      console.log(email, password);
+      let token = window.localStorage.getItem("token");
+      // if (!token) {
+      //   token = document.cookie.split("=")[1];
+      // }
       dispatch({ type: LOGIN_REQUEST });
 
       const config = { headers: { "Content-Type": "application/json" } };
 
+      // console.log(token);
       const { data } = await axios.post(
         `http://localhost:5000/api/v1/login`,
         { email, password },
-        config
+        config,
+        //@ts-ignore
+        token
       );
-      console.log(data);
+      localStorage.setItem("token", data.token);
       dispatch({ type: LOGIN_SUCCESS, payload: data.user });
     } catch (error: any) {
       dispatch({ type: LOGIN_FAIL, payload: error.response.data.message });
@@ -73,6 +79,9 @@ export const register = (userData: any) => async (dispatch: AppDispatch) => {
       config
     );
     window.localStorage.setItem("token", data.token);
+    // const token = window.localStorage.getItem("token");
+    //@ts-ignore
+    // document.cookie = `token=${token}`;
     dispatch({ type: REGISTER_USER_SUCCESS, payload: data.user });
   } catch (error: any) {
     dispatch({
@@ -86,8 +95,10 @@ export const register = (userData: any) => async (dispatch: AppDispatch) => {
 export const loadUser = () => async (dispatch: AppDispatch) => {
   try {
     let token = window.localStorage.getItem("token");
+    // if (!token) {
+    //   token = document.cookie.split("=")[1];
+    // }
     dispatch({ type: LOAD_USER_REQUEST });
-
     const { data } = await axios.get(
       `http://localhost:5000/api/v1/me`,
       //@ts-ignore
@@ -104,7 +115,7 @@ export const loadUser = () => async (dispatch: AppDispatch) => {
 export const logout = () => async (dispatch: AppDispatch) => {
   try {
     await axios.get(`http://localhost:5000/api/v1/logout`);
-
+    window.localStorage.removeItem("token");
     dispatch({ type: LOGOUT_SUCCESS });
   } catch (error: any) {
     dispatch({ type: LOGOUT_FAIL, payload: error.response.data.message });

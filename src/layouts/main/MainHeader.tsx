@@ -43,7 +43,7 @@ function HideOnScroll(props: any) {
     </Slide>
   );
 }
-const ToolbarStyle = styled(Toolbar)(({ theme }) => ({
+const ToolbarStyle = styled(Toolbar)(({ theme }: any) => ({
   height: HEADER.MOBILE_HEIGHT,
   transition: theme.transitions.create(["height", "background-color"], {
     easing: theme.transitions.easing.easeInOut,

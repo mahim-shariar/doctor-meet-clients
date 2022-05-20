@@ -1,13 +1,19 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate, unstable_HistoryRouter as HistoryRouter } from 'react-router-dom';
 import { login } from '../../../redux/actions/userAction';
-import { useAppDispatch } from '../../../redux/store';
+import { useAppDispatch, useAppSelector } from '../../../redux/store';
 import './Login.css';
 
+import { createBrowserHistory } from "history";
+
+const history = createBrowserHistory({ window });
+
 const Login = () => {
-    //   let { signUsingGoogle, signUsingEmail } = useFirebase();
+    const { user }: any = useAppSelector((state) => state);
+    useEffect(() => { }, [user]);
     const dispatch = useAppDispatch();
+    const navigate = useNavigate();
     const mail = useRef<HTMLInputElement>(null!);
     const pass = useRef<HTMLInputElement>(null!);
     const handelSubmit = (e: any): void => {
@@ -15,10 +21,13 @@ const Login = () => {
         const email: string = mail.current.value;
         const password: string = pass.current.value;
         // signUsingEmail(mailE, passE);
-        dispatch(login(email, password))
-        // console.log(mailE,passE);
-        // mail.current.value = '';
-        // pass.current.value = '';
+        dispatch(login(email, password));
+        if (user.success) {
+            for (let i = 1; i <= 2; i++) {
+                //@ts-ignore
+                navigate(history.back())
+            }
+        }
     };
     return (
         <div className="container">

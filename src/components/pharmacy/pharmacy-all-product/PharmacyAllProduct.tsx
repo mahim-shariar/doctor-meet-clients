@@ -143,7 +143,7 @@ const PharmacyAllProduct = () => {
             <Stack spacing={2}>
               <Pagination
                 count={10}
-                renderItem={(item) => (
+                renderItem={(item: any) => (
                   <PaginationItem
                     components={{
                       previous: ArrowBackIcon,

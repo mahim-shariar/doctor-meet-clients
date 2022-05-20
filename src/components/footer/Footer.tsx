@@ -14,12 +14,13 @@ const Footer = () => {
     else if (pathname === "/dashboard/doctor") return null;
     else if (pathname === "/dashboard/admin") return null;
 
+
     return (
         <div className="footer-bg-color">
             {window.location.pathname === "/dashboard/dashboarHome" ||
-            window.location.pathname === "/dashboard/doctors" ||
-            window.location.pathname === "/dashboard/admin" ||
-            window.location.pathname === "/dashboard/favdoc" ? (
+                window.location.pathname === "/dashboard/doctors" ||
+                window.location.pathname === "/dashboard/admin" ||
+                window.location.pathname === "/dashboard/favdoc" ? (
                 <div></div>
             ) : (
                 <div>

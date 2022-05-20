@@ -20,6 +20,8 @@ import PharmacyCardSlider from "../pharmacy-card-slider/PharmacyCardSlider";
 import PharmacySingleProduct from "../pharmacy-single-product/PharmacySingleProduct";
 import PharmacyTimer from "../pharmacy-timer/PharmacyTimer";
 import "./PharmacyProducts.css";
+import { useAppDispatch, useAppSelector } from "../../../redux/store"
+import { getProduct } from "../../../redux/actions/productAction";
 
 export interface productsType {
   Sku: string;
@@ -39,27 +41,49 @@ export interface productsType {
   _id: string;
 }
 
+
 const PharmacyProducts = () => {
-  let [products, setProducts] = useState<productsType[]>([]);
+  // let [images, setImages] = useState<productsType[]>([]);
+  // console.log(productsP)
+  const dispatch = useAppDispatch();
+  const { products }: any = useAppSelector((state) => state.products)
+  // const { products } = productArray;
+  // console.log(products)
+  // const { images } = products;
+  // console.log(images)
+
+  // if (products) {
+  //   products.map((product: any) => setImages(product.images[0]));
+  // }
+
   const time = new Date();
   time.setSeconds(time.getMonth() + 19890);
 
   useEffect(() => {
-    fetch("https://immense-beyond-64415.herokuapp.com/medicine/all")
-      .then((res) => res.json())
-      .then((data) => {
-        setProducts(data.result);
-      });
+
+    //@ts-ignore
+    dispatch(getProduct());
+
+    // fetch("https://immense-beyond-64415.herokuapp.com/medicine/all")
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     setProductsP(data.result);
+    //   });
   }, []);
+
+  if (!products) {
+    return <h1>Loading...</h1>
+  }
+
 
   return (
     <div className="container">
       <h1 className=" text-center my-5"> Latest products </h1>
       <div className="row">
-        {products.slice(0, 12).map((product) => (
+        {products.length && products.map((product: any) => (
           <PharmacySingleProduct
             key={product._id}
-            products={product}
+            product={product}
           ></PharmacySingleProduct>
         ))}
       </div>
@@ -172,10 +196,10 @@ const PharmacyProducts = () => {
         <PharmacyTimer expiryTimestamp={time}></PharmacyTimer>
       </div>
       <div className="row">
-        {products.slice(0, 6).map((product) => (
+        {products.length && products.map((product: any) => (
           <PharmacyCardSlider
             key={product._id}
-            products={product}
+            product={product}
           ></PharmacyCardSlider>
         ))}
       </div>
@@ -183,10 +207,10 @@ const PharmacyProducts = () => {
         <h1 className="text-center my-5"> Bestsellers </h1>
       </div>
       <div className="row">
-        {products.slice(0, 6).map((product) => (
+        {products.length && products.slice(0, 6).map((product: any) => (
           <PharmacyBestProduct
             key={product._id}
-            products={product}
+            product={product}
           ></PharmacyBestProduct>
         ))}
       </div>
