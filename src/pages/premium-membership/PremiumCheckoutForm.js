@@ -1,16 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
+import { useNavigate } from 'react-router-dom';
+import useTime from '../../hooks/useTime';
 
-const PremiumCheckoutForm = ({choosenCategory}) => {
-  
-  
-    const stripe = useStripe();
+const PremiumCheckoutForm = ({ choosenCategory }) => {
+  const [error, setError] = useState('');
+const navigate=useNavigate();
+  const stripe = useStripe();
   const elements = useElements();
-
+const {date}=useTime();
   const handleSubmit = async (event) => {
     // Block native form submission.
     event.preventDefault();
-    
+
 
     if (!stripe || !elements) {
       // Stripe.js has not loaded yet. Make sure to disable
@@ -27,23 +29,43 @@ const PremiumCheckoutForm = ({choosenCategory}) => {
     }
 
     // Use your card Element with other Stripe.js APIs
-    const {error, paymentMethod} = await stripe.createPaymentMethod({
+    const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: 'card',
       card,
     });
-
+    
+    const invoice={
+      invoiceName:"Appointment Fee",
+      category:{...choosenCategory},
+      paymentMethod,
+      amount:parseFloat(choosenCategory.amount),
+      purchasedDate:date
+    }
     if (error) {
-      console.log('[error]', error);
+      setError(error.message);
     } else {
-      console.log('[PaymentMethod]', paymentMethod);
-      if(paymentMethod.id){
-        console.log("Payment is Successful");
-      }
+      
+        fetch(`https://floating-basin-02241.herokuapp.com/allInvoices`, {
+          method: "POST",
+          headers: {
+            "content-type": "application/json"
+          },
+          body: JSON.stringify(invoice)
+        })
+          .then(res => res.json())
+          .then(data => {
+
+            if (data.insertedId) {
+              alert("Congratulations! You are a Premium Member Now");
+              navigate("/")
+            }
+          })
+      
     }
 
   };
-    return (
-        <form onSubmit={handleSubmit} className="mt-5">
+  return (
+    <form onSubmit={handleSubmit} className="mt-5">
       <CardElement
         options={{
           style: {
@@ -60,11 +82,14 @@ const PremiumCheckoutForm = ({choosenCategory}) => {
           },
         }}
       />
-      <button type="submit" disabled={!stripe}  className="btn btn-danger mt-4">
-        Pay
-      </button>
+     {error&&<p className="my-3">{error}</p>}
+            <button
+                 type="submit" className="btn-diagnosis-pay my-5" disabled={!stripe}
+            >
+                Pay
+            </button>
     </form>
-    ); 
+  );
 };
 
 export default PremiumCheckoutForm;

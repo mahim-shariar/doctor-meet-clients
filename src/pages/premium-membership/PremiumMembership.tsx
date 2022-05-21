@@ -1,10 +1,10 @@
 import React from "react";
-import { Card, CardGroup, Container } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./PremiumMembership.css";
 
 export interface premiumMembership {
-  id: string;
+  _id: string;
   amount: string;
   duration: string;
   category: string;
@@ -18,8 +18,9 @@ type Props = {
 };
 
 const PremiumMembership: React.FC<Props> = ({ premiumMembership }) => {
+  
   const {
-    id,
+    _id,
     amount,
     duration,
     category,
@@ -27,6 +28,7 @@ const PremiumMembership: React.FC<Props> = ({ premiumMembership }) => {
     appointmentDiscount,
     labTestDiscount,
   } = premiumMembership;
+  console.log(_id)
   return (
     <Card className="premium-membership-card">
       <Card.Body>
@@ -62,7 +64,7 @@ const PremiumMembership: React.FC<Props> = ({ premiumMembership }) => {
       
       </Card.Body>
       <Card.Footer className="premium-member-card-footer">
-        <Link to={`/premiumPayment/${id}`}>
+        <Link to={`/premium-payment/${_id}`}>
           <button className="btn-premium-member">Bill Now</button>
         </Link>
       </Card.Footer>

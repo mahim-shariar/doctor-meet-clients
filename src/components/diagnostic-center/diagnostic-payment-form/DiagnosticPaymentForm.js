@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import {  useNavigate } from 'react-router-dom';
-
+import useTime from '../../../hooks/useTime';
 const DiagnosticPaymentForm = ({diagnostic}) => {
     const stripe = useStripe();
     const elements = useElements();
 const navigate=useNavigate();
 const [error,setError]=useState('');
-
+const {date}=useTime();
 const intPrice=diagnostic?.selectedDiagnosis?.price;
 const intDiscount=diagnostic?.selectedDiagnosis?.discount;
   const floatDiscount=parseFloat(intDiscount).toFixed(2);
@@ -40,9 +40,11 @@ const floatPrice=intPrice-(intPrice*dd);
             card,
         });
         const invoice={
+          invoiceName:"Diagnostic Center",
           category:{...diagnostic},
           paymentMethod,
-          amount:floatPrice
+          amount:floatPrice,
+          purchasedDate:date
         }
     if (error) {
       setError(error.message);
@@ -55,7 +57,7 @@ const floatPrice=intPrice-(intPrice*dd);
         .then(data=>{
           console.log(data)
           if(data.acknowledged){
-            fetch(`http://localhost:5000/allInvoices`, {
+            fetch(`https://floating-basin-02241.herokuapp.com/allInvoices`, {
               method: "POST",
               headers: {
                   "content-type": "application/json"

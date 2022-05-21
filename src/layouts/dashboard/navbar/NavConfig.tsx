@@ -183,6 +183,11 @@ const sidebarConfig = [
                         path: "/dashboard/admin/all-diagnosis",
                         icon: ICONS.analytics,
                     },
+                    {
+                        title: "Invoices",
+                        path: "/dashboard/admin/all-invoices",
+                        icon: ICONS.analytics,
+                    },
                 ],
             },
         ],

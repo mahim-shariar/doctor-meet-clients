@@ -19,7 +19,7 @@ const RootStyle = styled("div")(({ theme }: any) => ({
 const PremiumMemberships = () => {
   const [premiumMemberships, setPremiumMemberships] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/premiumFacilities")
+    fetch("https://floating-basin-02241.herokuapp.com/premiumFacilities")
       .then((res) => res.json())
       .then((data) => setPremiumMemberships(data));
   }, []);

@@ -10,17 +10,16 @@ const MyAppointments = () => {
     // const { user } = useFirebase();
     const { user } = useAppSelector((state) => state.user);
     const [appointments, setAppointments] = useState([]);
-  console.log(user);
     useEffect(() => {
         
 
         fetch(
-            `https://floating-basin-02241.herokuapp.com/allAppointments/single?patientEmail=${user?.email}`
+            `https://floating-basin-02241.herokuapp.com/allAppointments/single?patientEmail=${user.email}`
         )
             .then((res) => res.json())
             .then((data) => setAppointments(data));
            
-    }, [user]);
+    }, [user,appointments]);
 
     return (
         <Page title="All Appointments">

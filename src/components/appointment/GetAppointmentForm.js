@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import {  Card, Col, Form, Row } from 'react-bootstrap';
 import {  useNavigate, useParams } from 'react-router-dom';
-import useFirebase from '../../firebase/useFirebase/useFirebase';
+import { useAppSelector } from '../../redux/store';
 import Page from '../Page';
 import './style/style.css';
 
 
 const GetAppointmentForm = () => {
-    const { user } = useFirebase();
+    const { user } = useAppSelector((state) => state.user);
     const params = useParams();
 const navigate=useNavigate();
     const [selectedDoctor, setSelectedDoctor] = useState({});
@@ -34,7 +34,7 @@ const navigate=useNavigate();
     }
     const submitTheFormOfPatientsInfo = (e) => {
         e.preventDefault();
-        const patientInfo = { patientName: user?.displayName, patientEmail: user?.email, ...data, doctorInfo: selectedDoctor, status: "unpaid" };
+        const patientInfo = { patientName: user?.name, patientEmail: user?.email, ...data, doctorInfo: selectedDoctor, status: "unpaid" };
         
         fetch(`https://floating-basin-02241.herokuapp.com/allAppointments`, {
             method: "POST",
@@ -80,7 +80,7 @@ const navigate=useNavigate();
 
                     <Form.Group className="d-flex justify-content-between align-items-center mt-4">
                         <Form.Label>Patient Name</Form.Label>
-                        <Form.Control type="text" disabled placeholder={user?.displayName} />
+                        <Form.Control type="text" disabled placeholder={user?.name} />
                     </Form.Group>
 
                     <Form.Group className="d-flex justify-content-between align-items-center mt-4">

@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useNavigate } from "react-router-dom";
+import useTime from "../../hooks/useTime";
 
 const PayAppointmentFeeFrom = ({ appointment }) => {
     const stripe = useStripe();
     const elements = useElements();
+    const {date}=useTime();
     const [paymentMethod,setPaymentMethod]=useState({});
     const [error,setError]=useState("");
 const navigate=useNavigate();
@@ -31,9 +33,15 @@ const navigate=useNavigate();
             type: "card",
             card,
         });
-
+        const invoice={
+            invoiceName:"Appointment Fee",
+            category:{...appointment},
+            paymentMethod,
+            amount:parseFloat(appointment.doctorInfo.visit),
+            purchasedDate:date
+          }
         if (error) {
-            console.log("[error]", error);
+           
             setError(error.message);
         } else {
             
@@ -48,8 +56,24 @@ const navigate=useNavigate();
                     .then((res) =>res.json())
                     .then((data) =>{
                         if(data.acknowledged){
-                            alert("Payment is successful");
-                            navigate("/dashboard/user/my-appointments")
+                            if(data.acknowledged){
+                                fetch(`https://floating-basin-02241.herokuapp.com/allInvoices`, {
+                                  method: "POST",
+                                  headers: {
+                                      "content-type": "application/json"
+                                  },
+                                  body: JSON.stringify(invoice)
+                              })
+                                  .then(res=>res.json())
+                                  .then(data=>{
+                                    
+                                    if(data.insertedId){
+                                        alert("Payment is successful");
+                                         navigate("/dashboard/user/my-appointments")
+                                    }
+                                  })
+                              }
+                            
                         }
                     });
             }
@@ -73,6 +97,7 @@ const navigate=useNavigate();
                     },
                 }}
             />
+            {error&&<p className="my-3">{error}</p>}
             <button
                  type="submit" className="btn-diagnosis-pay my-5" disabled={!stripe}
             >

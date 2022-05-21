@@ -20,6 +20,7 @@ import AddArticle from "../components/add-article/AddArticle";
 import VideoApp from "../pages/virtual-meet/VideoApp";
 import ReportPdf from "../components/report-review-section/report-pdf/ReportPdf";
 import AllReports from "../components/all-reports/AllReports";
+import AllInvoices from "../pages/dashboards/invoices/AllInvoices";
 
 // ----------------------------------------------------------------------
 
@@ -275,6 +276,10 @@ export default function Router() {
                             path: "edit-doctors/edit-single-doctor/:id",
                             element: <EditSingleDoctor />,
                         },
+                        {
+                            path: "all-invoices",
+                            element: <AllInvoices />,
+                        },
                     ],
                 },
             ],
@@ -313,7 +318,6 @@ export default function Router() {
                 { path: "medicine/:id", element: <PharmacyProductView /> },
                 { path: "cart", element: <PharmacyCart /> },
                 { path: "shop", element: <PharmacyAllProduct /> },
-                { path: "premium-payment/:id", element: <PremiumPayment /> },
                 { path: "premium-payment/:id", element: <PremiumPayment /> },
                 {
                     path: "appointment-doctors",
