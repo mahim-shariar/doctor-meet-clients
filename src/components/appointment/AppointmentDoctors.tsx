@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import AppointmentDoctor from "./AppointmentDoctor";
 import "./AppointmentStyle.css";
 import { Grid } from "@mui/material";
+import AppointmentDoctor from "./AppointmentDoctor";
 const AppointmentDoctors = () => {
   const [doctors, setDoctors] = useState([]);
   useEffect(() => {
