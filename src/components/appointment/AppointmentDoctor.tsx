@@ -43,7 +43,6 @@ const AppointmentDoctor: React.FC<Props> = ({ doctor }) => {
     review,
   } = doctor;
   const rating = Number(review);
-  console.log(doctor)
   return (
     <Grid item xs={12} md={6} lg={4}>
       <Card sx={{ maxWidth: 345 }} style={{ height: 680 }}>
