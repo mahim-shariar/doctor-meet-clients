@@ -309,7 +309,7 @@ export default function Router() {
                 { path: "virtual-meet", element: <VideoApp /> },
                 { path: "login", element: <Login /> },
                 { path: "profile", element: <Profile /> },
-                { path: "sign-up", element: <Registration /> },
+                { path: "signUp", element: <Registration /> },
                 { path: "medicine/:id", element: <PharmacyProductView /> },
                 { path: "cart", element: <PharmacyCart /> },
                 { path: "shop", element: <PharmacyAllProduct /> },
@@ -347,6 +347,10 @@ export default function Router() {
                     path: "article/:id",
                     element: <ViewArticale />,
                 },
+                {
+                    path: "doctor/:id",
+                    element: <DoctorView />,
+                  },
             ],
         },
         // { path: "*", element: <Navigate to="/404" replace /> },
@@ -512,6 +516,9 @@ const ViewArticale = Loadable(
 const HomePage = Loadable(lazy(() => import("../pages/home/Home")));
 const ContactUs = Loadable(
     lazy(() => import("../components/contact-us/ContactUs"))
+);
+const DoctorView = Loadable(
+  lazy(() => import("../components/all-doctors/DoctorView"))
 );
 const Faqs = Loadable(lazy(() => import("../pages/Faqs")));
 const ComingSoon = Loadable(lazy(() => import("../pages/ComingSoon")));
