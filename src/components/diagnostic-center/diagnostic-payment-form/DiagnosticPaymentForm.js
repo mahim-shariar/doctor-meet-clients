@@ -1,12 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import {  useNavigate } from 'react-router-dom';
 
 const DiagnosticPaymentForm = ({diagnostic}) => {
-  
     const stripe = useStripe();
     const elements = useElements();
 const navigate=useNavigate();
+const [error,setError]=useState('');
+
+const intPrice=diagnostic?.selectedDiagnosis?.price;
+const intDiscount=diagnostic?.selectedDiagnosis?.discount;
+  const floatDiscount=parseFloat(intDiscount).toFixed(2);
+  
+  const dd=floatDiscount/100.00;
+  // console.log(intPrice,dd);
+const floatPrice=intPrice-(intPrice*dd);
+
     const handleSubmit = async (event) => {
         // Block native form submission.
         event.preventDefault();
@@ -30,11 +39,14 @@ const navigate=useNavigate();
             type: "card",
             card,
         });
-
+        const invoice={
+          category:{...diagnostic},
+          paymentMethod,
+          amount:floatPrice
+        }
     if (error) {
-      console.log('[error]', error);
+      setError(error.message);
     } else {
-      console.log('[PaymentMethod]', paymentMethod);
       if(paymentMethod.id){
         fetch(`https://floating-basin-02241.herokuapp.com/bookedDiagnosis/${diagnostic._id}`,{
           method:"PUT"
@@ -42,8 +54,25 @@ const navigate=useNavigate();
         .then(res=>res.json())
         .then(data=>{
           console.log(data)
-          alert("Successfully paid");
-          navigate('/')
+          if(data.acknowledged){
+            fetch(`http://localhost:5000/allInvoices`, {
+              method: "POST",
+              headers: {
+                  "content-type": "application/json"
+              },
+              body: JSON.stringify(invoice)
+          })
+              .then(res=>res.json())
+              .then(data=>{
+                
+                if(data.insertedId){
+                  alert("Successfully paid");
+                  navigate('/');
+                }
+              })
+          }
+       
+          
         })
        
       }
@@ -68,7 +97,8 @@ const navigate=useNavigate();
           },
         }}
       />
-      <button type="submit" className="btn-diagnosis-pay" disabled={!stripe}>
+      {error&&<p className='mt-3'>{error}</p>}
+      <button type="submit" className="btn-diagnosis-pay mt-5" disabled={!stripe}>
         Pay
       </button>
     </form>

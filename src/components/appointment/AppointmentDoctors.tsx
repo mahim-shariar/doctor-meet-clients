@@ -11,7 +11,7 @@ const AppointmentDoctors = () => {
   }, []);
 
   return (
-    <div>
+    <div className="container">
       <h1
         className="appointment-title text-center"
         style={{ marginTop: "100px", marginBottom: "100px" }}
