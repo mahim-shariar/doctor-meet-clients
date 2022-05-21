@@ -26,11 +26,13 @@ const MyAppointments = () => {
         <div>
            
             
-            <Table className="appointment-table">
+            <Table className="appointment-table w-100" >
                 <thead>
                     <tr style={{backgroundColor:"#c8d6e5"}} className="appointment-table-header-container">
+                        
                         <th className="appointment-table-header">Doctor's Name</th>
                         <th className="appointment-table-header">Time Slot</th>
+                        <th className="appointment-table-header">Date</th>
                         <th className="appointment-table-header">Payment Status</th>
                         <th className="appointment-table-header">Payment Fee</th>
                         <th className="appointment-table-header">Call</th>

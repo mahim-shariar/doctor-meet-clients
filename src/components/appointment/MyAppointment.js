@@ -7,11 +7,12 @@ import './AppointmentStyle.css';
 import { CopyToClipboard } from "react-copy-to-clipboard";
 
 
-const MyAppointment = ({ appointment }) => {
+const MyAppointment = ({appointment}) => {
+    
     const { date } = useTime();
     const [disabled, setDisabled] = useState(true);
-
     useEffect(() => {
+        
         if (appointment.date === date && appointment.status === "paid") {
             setDisabled(false);
 
@@ -24,6 +25,7 @@ const MyAppointment = ({ appointment }) => {
         <tr style={{backgroundColor:"#EFF6FF"}}>
             <td className="appointment-table-row-data">{appointment.doctorInfo.name}</td>
             <td className="appointment-table-row-data">{appointment.doctorInfo.timeSlot || appointment.doctorInfo.timeSlot1 || appointment.doctorInfo.timeSlot2 || appointment.doctorInfo.timeSlot3}</td>
+            <td className="appointment-table-row-data">{appointment?.date}</td>
             <td className="appointment-table-row-data">{appointment.status}</td>
             <td className="appointment-table-row-data">${appointment.doctorInfo.visit}</td>
 
