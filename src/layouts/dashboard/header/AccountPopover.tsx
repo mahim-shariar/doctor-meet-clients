@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 // @mui
 import IconButton from "@mui/material/IconButton";
 import { alpha } from "@mui/material/styles";
+import './style/AccountPopover.css'
 import {
   Box,
   Divider,
@@ -36,7 +37,28 @@ const MENU_OPTIONS = [
 export default function AccountPopover() {
   const { user }: any = useAppSelector((state) => state.user);
   const dispatch = useAppDispatch();
-
+  const [premiumMemberStatus,setPrimiumMemberStatus]=useState({});
+  const [imageUrl,setImageUrl]=useState('');
+useEffect(()=>{
+  console.log(user.email)
+  fetch(`http://localhost:5500/premiumMembers/single?email=${user.email}`)
+  .then(res=>res.json())
+  .then(data=>{
+    // console.log(data)
+    if(data.categoryName==="Silver"){
+      setImageUrl("https://i.ibb.co/4FbbqJb/silver-cup.png")
+setPrimiumMemberStatus(true)
+    }
+    else if(data.categoryName==="Gold"){
+      setImageUrl("https://i.ibb.co/RCL70Y2/ingots.png");
+      setPrimiumMemberStatus(true)
+    }
+    else if(data.categoryName==="Diamond"){
+      setImageUrl("https://i.ibb.co/F0BP5V1/diamond.png");
+      setPrimiumMemberStatus(true)
+    }
+  })
+},[user])
   const [open, setOpen] = useState(null);
 
   const handleOpen = (event: any) => {
@@ -55,7 +77,15 @@ export default function AccountPopover() {
           p: 0,
         }}
       >
-        <Avatar src={user?.image || ""} alt="avatar" />
+        <Avatar src={user?.image || ""} alt="avatar" className="badge-container" />
+        {
+          premiumMemberStatus&&<div className="badge">
+          <img src={imageUrl} alt="badge" className="badge-image"/>
+        </div>
+        }
+        
+
+
       </IconButton>
 
       <MenuPopover
