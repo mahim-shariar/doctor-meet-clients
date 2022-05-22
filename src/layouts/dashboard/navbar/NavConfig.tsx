@@ -117,6 +117,7 @@ const sidebarConfig = [
                         path: "/dashboard/doctor/add-article",
                         icon: ICONS.analytics,
                     },
+                    
                 ],
             },
         ],

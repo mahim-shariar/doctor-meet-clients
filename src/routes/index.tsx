@@ -21,6 +21,7 @@ import VideoApp from "../pages/virtual-meet/VideoApp";
 import ReportPdf from "../components/report-review-section/report-pdf/ReportPdf";
 import AllReports from "../components/all-reports/AllReports";
 import AllInvoices from "../pages/dashboards/invoices/AllInvoices";
+import DoctorsSchedules from "../components/manage-doctors/doctors-schedule/DoctorsSchedules";
 
 // ----------------------------------------------------------------------
 
@@ -218,6 +219,10 @@ export default function Router() {
                         {
                             path: "add-article",
                             element: <AddArticle />,
+                        },
+                        {
+                            path: "my-schedule-doctor",
+                            element: <DoctorsSchedules />,
                         },
                     ],
                 },
