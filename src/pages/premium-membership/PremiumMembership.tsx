@@ -23,12 +23,12 @@ const PremiumMembership: React.FC<Props> = ({ premiumMembership }) => {
     _id,
     amount,
     duration,
-    category,
+   
     pharmacyDiscount,
     appointmentDiscount,
     labTestDiscount,
   } = premiumMembership;
-  console.log(_id)
+  
   return (
     <Card className="premium-membership-card">
       <Card.Body>

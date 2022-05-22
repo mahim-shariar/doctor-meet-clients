@@ -1,18 +1,42 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import { useNavigate } from 'react-router-dom';
 import useTime from '../../hooks/useTime';
+import { useAppSelector } from '../../redux/store';
 
 const PremiumCheckoutForm = ({ choosenCategory }) => {
+  const { user } = useAppSelector((state) => state.user);
   const [error, setError] = useState('');
-const navigate=useNavigate();
+
+  const [expirationDate, setExpirationDate] = useState('');
+  const navigate = useNavigate();
   const stripe = useStripe();
   const elements = useElements();
-const {date}=useTime();
+  const { date, expirationDateSilver,expirationDateGold,expirationDateDiamond } = useTime();
+
+ useEffect(()=>{
+    if(choosenCategory.category==="Silver"){
+      setExpirationDate(expirationDateSilver);
+    }
+    if(choosenCategory.category==="Gold"){
+      setExpirationDate(expirationDateGold);
+    }
+    if(choosenCategory.category==="Diamond"){
+      setExpirationDate(expirationDateDiamond);
+    }
+ },[choosenCategory,expirationDateDiamond,expirationDateGold,expirationDateSilver])
+
   const handleSubmit = async (event) => {
     // Block native form submission.
     event.preventDefault();
+    // set the expiration date of premium membership
+    //============================
 
+//     setExpirationMonth(parseInt(choosenCategory.duration) + month > 12 ? (parseInt(choosenCategory.duration) + month) - 12 : parseInt(choosenCategory.duration) + month);
+//     setExpirationYear(parseInt(choosenCategory.duration) + month > 12 ? year + 1 : year);
+//     setExpirationDate(expirationYear + "-" + expirationMonth + "-" + day);
+// console.log(expirationDate)
+    //=============================
 
     if (!stripe || !elements) {
       // Stripe.js has not loaded yet. Make sure to disable
@@ -33,34 +57,62 @@ const {date}=useTime();
       type: 'card',
       card,
     });
-    
-    const invoice={
-      invoiceName:"Appointment Fee",
-      category:{...choosenCategory},
+
+    const invoice = {
+      invoiceName: "Appointment Fee",
+      category: { ...choosenCategory },
       paymentMethod,
-      amount:parseFloat(choosenCategory.amount),
-      purchasedDate:date
+      amount: parseFloat(choosenCategory.amount),
+      purchasedDate: date
+    }
+    const boughtCategoryDetails = {
+      categoryName: choosenCategory.category,
+      categoryDetails: { ...choosenCategory },
+      userName: user.name,
+      userEmail: user.email,
+      paymentMethod,
+      userInfo: user,
+      purchasedDate: date,
+      expirationDate: expirationDate
     }
     if (error) {
       setError(error.message);
     } else {
-      
-        fetch(`https://floating-basin-02241.herokuapp.com/allInvoices`, {
-          method: "POST",
-          headers: {
-            "content-type": "application/json"
-          },
-          body: JSON.stringify(invoice)
-        })
-          .then(res => res.json())
-          .then(data => {
 
-            if (data.insertedId) {
-              alert("Congratulations! You are a Premium Member Now");
-              navigate("/")
-            }
-          })
-      
+
+      fetch(`http://localhost:5500/premiumMembers`, {
+        method: "POST",
+        headers: {
+          "content-type": "application/json"
+        },
+        body: JSON.stringify(boughtCategoryDetails)
+      })
+        .then(res => res.json())
+        .then(data => {
+
+          if (data.insertedId) {
+            //Adding the details and creating an invoice
+            fetch(`https://floating-basin-02241.herokuapp.com/allInvoices`, {
+              method: "POST",
+              headers: {
+                "content-type": "application/json"
+              },
+              body: JSON.stringify(invoice)
+            })
+              .then(res => res.json())
+              .then(data => {
+
+                if (data.insertedId) {
+                  alert("Congratulations! You are a Premium Member Now");
+                  navigate("/")
+                }
+              })
+          }
+        })
+
+
+
+
     }
 
   };
@@ -82,12 +134,12 @@ const {date}=useTime();
           },
         }}
       />
-     {error&&<p className="my-3">{error}</p>}
-            <button
-                 type="submit" className="btn-diagnosis-pay my-5" disabled={!stripe}
-            >
-                Pay
-            </button>
+      {error && <p className="my-3">{error}</p>}
+      <button
+        type="submit" className="btn-diagnosis-pay my-5" disabled={!stripe}
+      >
+        Pay
+      </button>
     </form>
   );
 };

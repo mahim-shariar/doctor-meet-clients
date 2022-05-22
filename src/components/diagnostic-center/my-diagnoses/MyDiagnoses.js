@@ -3,9 +3,10 @@ import styled from '@emotion/styled';
 import { Paper, TableBody, TableCell, tableCellClasses, TableContainer, TableHead, TableRow } from '@mui/material';
 import { Table } from 'react-bootstrap';
 import MyDiagnosis from './MyDiagnosis';
-// import { useAppSelector } from '../../../redux/store';
-import useFirebase from '../../../firebase/useFirebase/useFirebase';
+
+// import useFirebase from '../../../firebase/useFirebase/useFirebase';
 import './Mydiagnoses.css';
+import { useAppSelector } from '../../../redux/store';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -19,8 +20,8 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 
 const MyDiagnoses = () => {
   const [myDiagnosis, setMyDiagnosis] = useState([]);
-  // const { user } = useAppSelector((state) => state.user);
-const {user}=useFirebase();
+  const { user } = useAppSelector((state) => state.user);
+//const {user}=useFirebase();
 
   useEffect(() => {
     
