@@ -18,6 +18,7 @@ import { Link } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import { useAppSelector, useAppDispatch } from "../../../redux/store";
 import { logout } from "../../../redux/actions/userAction";
+import usePremiumMembershipStatus from "../../../hooks/usePremiumMembersipStatus";
 
 // ----------------------------------------------------------------------
 
@@ -39,26 +40,23 @@ export default function AccountPopover() {
   const dispatch = useAppDispatch();
   const [premiumMemberStatus,setPrimiumMemberStatus]=useState({});
   const [imageUrl,setImageUrl]=useState('');
+  const {premiumMemberCategory}=usePremiumMembershipStatus();
+
 useEffect(()=>{
-  console.log(user.email)
-  fetch(`http://localhost:5500/premiumMembers/single?email=${user.email}`)
-  .then(res=>res.json())
-  .then(data=>{
-    // console.log(data)
-    if(data.categoryName==="Silver"){
-      setImageUrl("https://i.ibb.co/4FbbqJb/silver-cup.png")
+  if(premiumMemberCategory==="Silver"){
+    setImageUrl("https://i.ibb.co/4FbbqJb/silver-cup.png")
 setPrimiumMemberStatus(true)
-    }
-    else if(data.categoryName==="Gold"){
-      setImageUrl("https://i.ibb.co/RCL70Y2/ingots.png");
-      setPrimiumMemberStatus(true)
-    }
-    else if(data.categoryName==="Diamond"){
-      setImageUrl("https://i.ibb.co/F0BP5V1/diamond.png");
-      setPrimiumMemberStatus(true)
-    }
-  })
-},[user])
+  }
+  else if(premiumMemberCategory==="Gold"){
+    setImageUrl("https://i.ibb.co/RCL70Y2/ingots.png");
+    setPrimiumMemberStatus(true)
+  }
+  else if(premiumMemberCategory==="Diamond"){
+    setImageUrl("https://i.ibb.co/F0BP5V1/diamond.png");
+    setPrimiumMemberStatus(true)
+  }
+  
+},[user,premiumMemberCategory])
   const [open, setOpen] = useState(null);
 
   const handleOpen = (event: any) => {
