@@ -1,15 +1,38 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useNavigate } from "react-router-dom";
 import useTime from "../../hooks/useTime";
+import usePremiumMembershipStatus from "../../hooks/usePremiumMembersipStatus";
 
 const PayAppointmentFeeFrom = ({ appointment }) => {
     const stripe = useStripe();
     const elements = useElements();
     const {date}=useTime();
-    const [paymentMethod,setPaymentMethod]=useState({});
     const [error,setError]=useState("");
+    const [price,setPrice]=useState(0);
 const navigate=useNavigate();
+const {premiumMemberDetails,premiumMembershipStatus}=usePremiumMembershipStatus();
+// let floatPrice=intPrice-(intPrice*dd);
+// const membershipDiscountPercentage=premiumMemberDetails?.categoryDetails?.labTestDiscount;
+// if(premiumMembershipStatus){
+//   floatPrice=floatPrice-(floatPrice*parseFloat(membershipDiscountPercentage/100));
+// }
+useEffect(()=>{
+    
+    const fetchData=async()=>{
+
+        await setPrice(parseFloat(appointment?.doctorInfo.visit).toFixed(2));
+       
+       if(premiumMembershipStatus){
+        const membershipDiscountPercentage=await premiumMemberDetails?.categoryDetails.appointmentDiscount;
+         setPrice(price-(price*parseFloat(membershipDiscountPercentage/100)).toFixed(2));
+       }
+    }
+    fetchData().catch(console.error);
+    
+},[premiumMembershipStatus,premiumMemberDetails,appointment,price])
+
+
     const handleSubmit = async (event) => {
         // Block native form submission.
         event.preventDefault();
@@ -37,7 +60,7 @@ const navigate=useNavigate();
             invoiceName:"Appointment Fee",
             category:{...appointment},
             paymentMethod,
-            amount:parseFloat(appointment.doctorInfo.visit),
+            amount:price,
             purchasedDate:date
           }
         if (error) {
@@ -45,8 +68,7 @@ const navigate=useNavigate();
             setError(error.message);
         } else {
             
-            setPaymentMethod(paymentMethod);
-            if (paymentMethod.id) {
+            
                 fetch(
                     `https://floating-basin-02241.herokuapp.com/allAppointments/${appointment._id}`,
                     {
@@ -76,7 +98,7 @@ const navigate=useNavigate();
                             
                         }
                     });
-            }
+            
         }
     };
     return (

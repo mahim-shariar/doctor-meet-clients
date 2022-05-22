@@ -24,7 +24,7 @@ const PremiumPayment = () => {
         })
     },[params])
     return (
-        <div className="payment-box mt-5">
+        <div className="payment-box">
         <div className="container">
             <h3>Pay : $ {choosenCategory.amount}</h3>
             <Elements stripe={stripePromise}>

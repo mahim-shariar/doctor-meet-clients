@@ -14,7 +14,7 @@ const MyAppointments = () => {
         
 
         fetch(
-            `https://floating-basin-02241.herokuapp.com/allAppointments/single?patientEmail=${user.email}`
+            `https://floating-basin-02241.herokuapp.com/allAppointments/single?patientEmail=${user?.email}`
         )
             .then((res) => res.json())
             .then((data) => setAppointments(data));

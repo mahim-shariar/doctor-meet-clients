@@ -1,20 +1,31 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import {  useNavigate } from 'react-router-dom';
 import useTime from '../../../hooks/useTime';
+import usePremiumMembershipStatus from '../../../hooks/usePremiumMembersipStatus';
 const DiagnosticPaymentForm = ({diagnostic}) => {
     const stripe = useStripe();
     const elements = useElements();
 const navigate=useNavigate();
 const [error,setError]=useState('');
+const [floatPrice,setFloatPrice]=useState(0);
+const {premiumMemberDetails,premiumMembershipStatus}=usePremiumMembershipStatus();
 const {date}=useTime();
-const intPrice=diagnostic?.selectedDiagnosis?.price;
-const intDiscount=diagnostic?.selectedDiagnosis?.discount;
-  const floatDiscount=parseFloat(intDiscount).toFixed(2);
-  
-  const dd=floatDiscount/100.00;
-  // console.log(intPrice,dd);
-const floatPrice=intPrice-(intPrice*dd);
+useEffect(()=>{
+  const fetchData=async()=>{
+      // const floatDiscount=await (parseFloat(diagnostic?.selectedDiagnosis.discount).toFixed(2));    
+      // const dd= (floatDiscount/100.00);
+    await setFloatPrice((diagnostic?.selectedDiagnosis.price)-((diagnostic?.selectedDiagnosis.price)*((parseFloat(diagnostic?.selectedDiagnosis.discount).toFixed(2))/100.00))).toFixed(2);
+    
+    if(premiumMembershipStatus){
+      const membershipDiscountPercentage=premiumMemberDetails?.categoryDetails.labTestDiscount;
+      setFloatPrice(floatPrice-(floatPrice*parseFloat(membershipDiscountPercentage/100))).toFixed(2);
+    }
+    
+  }
+  fetchData().catch(console.error);
+   
+},[premiumMemberDetails,premiumMembershipStatus,diagnostic,floatPrice])
 
     const handleSubmit = async (event) => {
         // Block native form submission.
@@ -69,7 +80,7 @@ const floatPrice=intPrice-(intPrice*dd);
                 
                 if(data.insertedId){
                   alert("Successfully paid");
-                  navigate('/');
+                  navigate('/dashboard/user/my-diagnosises');
                 }
               })
           }

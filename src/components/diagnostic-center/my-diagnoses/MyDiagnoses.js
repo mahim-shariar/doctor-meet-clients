@@ -29,6 +29,7 @@ const MyDiagnoses = () => {
       .then(res => res.json())
       .then(data => {
         setMyDiagnosis(data)
+        console.log(data)
       })
     
    

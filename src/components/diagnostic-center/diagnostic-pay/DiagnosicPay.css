@@ -1,5 +1,5 @@
 .payment-box{
-    width: 300px;
+    width: 400px;
     margin: 60px auto;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     padding: 20px;
@@ -15,6 +15,14 @@
 .payment-box h3{
     font-family: 'Radio Canada', sans-serif;
     font-weight: 600;
+    font-size: 16px;
+    /* color: red; */
+    color: #222f3e;
+}
+.payment-box h2{
+    font-family: 'Radio Canada', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
     color: #222f3e;
 }
 .payment-box h4{
