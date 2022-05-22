@@ -5,7 +5,6 @@ import { Table } from 'react-bootstrap';
 import MyDiagnosis from './MyDiagnosis';
 
 // import useFirebase from '../../../firebase/useFirebase/useFirebase';
-import './Mydiagnoses.css';
 import { useAppSelector } from '../../../redux/store';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({

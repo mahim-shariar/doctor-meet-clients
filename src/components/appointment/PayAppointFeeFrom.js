@@ -3,7 +3,7 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useNavigate } from "react-router-dom";
 import useTime from "../../hooks/useTime";
 import usePremiumMembershipStatus from "../../hooks/usePremiumMembersipStatus";
-
+import './style/style.css';
 const PayAppointmentFeeFrom = ({ appointment }) => {
     const stripe = useStripe();
     const elements = useElements();
@@ -12,11 +12,7 @@ const PayAppointmentFeeFrom = ({ appointment }) => {
     const [price,setPrice]=useState(0);
 const navigate=useNavigate();
 const {premiumMemberDetails,premiumMembershipStatus}=usePremiumMembershipStatus();
-// let floatPrice=intPrice-(intPrice*dd);
-// const membershipDiscountPercentage=premiumMemberDetails?.categoryDetails?.labTestDiscount;
-// if(premiumMembershipStatus){
-//   floatPrice=floatPrice-(floatPrice*parseFloat(membershipDiscountPercentage/100));
-// }
+
 useEffect(()=>{
     
     const fetchData=async()=>{
@@ -108,20 +104,20 @@ useEffect(()=>{
                     style: {
                         base: {
                             fontSize: "16px",
-                            color: "#424770",
+                            color: "white",
                             "::placeholder": {
                                 color: "#aab7c4",
                             },
                         },
                         invalid: {
-                            color: "#9e2146",
+                            color: "#c8d6e5",
                         },
                     },
                 }}
             />
             {error&&<p className="my-3">{error}</p>}
             <button
-                 type="submit" className="btn-diagnosis-pay my-5" disabled={!stripe}
+                 type="submit" className="btn-diagnosis-pay" disabled={!stripe}
             >
                 Pay
             </button>

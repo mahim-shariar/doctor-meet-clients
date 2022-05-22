@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { TableCell, tableCellClasses, TableRow } from '@mui/material';
 import styled from '@emotion/styled';
-import './MyDiagnosis.css';
+import './style/MyDiagnosis.css';
 import { Link } from 'react-router-dom';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -24,17 +24,10 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 const MyDiagnosis = ({diagnosis}) => {
-    console.log(diagnosis)
     const [floatPrice,setFloatPrice]=useState(0);
     useEffect(()=>{
       const fetchData=async()=>{
-        // const intPrice=;
-        // const intDiscount=(diagnosis.selectedDiagnosis.discount);
-        //   const floatDiscount=(parseFloat(intDiscount).toFixed(2));
-          
-        //   const dd=((parseFloat(intDiscount).toFixed(2))/100.00);
-          // console.log(intPrice,dd);
-      // const floatPrice=intPrice-(intPrice*dd);
+        
       await setFloatPrice(((diagnosis.selectedDiagnosis.price)-((diagnosis.selectedDiagnosis.price)*((parseFloat(diagnosis.selectedDiagnosis.discount).toFixed(2))/100.00))).toFixed(2))
       }
       fetchData().catch(console.error);
@@ -50,7 +43,7 @@ const MyDiagnosis = ({diagnosis}) => {
               <StyledTableCell align="right">$ {floatPrice} </StyledTableCell>
               <StyledTableCell align="right">{diagnosis?.paymentStatus}</StyledTableCell>
               <StyledTableCell align="right"><Link to={`/diagnostic-pay/${diagnosis._id}`}>
-            <button className='btn-diagnosis-pay'>Pay</button>
+            <button className='btn-my-diagnosis-pay'>Pay</button>
              </Link>
               </StyledTableCell>
       </StyledTableRow>
