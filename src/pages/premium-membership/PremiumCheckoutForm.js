@@ -136,7 +136,7 @@ const PremiumCheckoutForm = ({ choosenCategory }) => {
       />
       {error && <p className="my-3">{error}</p>}
       <button
-        type="submit" className="btn-diagnosis-pay my-5" disabled={!stripe}
+        type="submit" className="btn-my-diagnosis-pay" style={{marginTop:"100px",marginBottom:"50px"}} disabled={!stripe}
       >
         Pay
       </button>
