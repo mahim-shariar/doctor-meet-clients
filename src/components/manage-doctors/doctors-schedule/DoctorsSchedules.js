@@ -10,7 +10,7 @@ const DoctorsSchedules = () => {
     // const [appointementInfo,setAppointmentInfo]=useState({});
     const { user } = useAppSelector((state) => state.user);
     useState(()=>{
-        fetch(`http://localhost:5500/allAppointments/doctorSchedule/${user?.email}`)
+        fetch(`http://floating-basin-02241.herokuapp.com/allAppointments/doctorSchedule/${user?.email}`)
         .then(res=>res.json())
         .then(data=>setUpComingAppointments(data))
     },[user])
