@@ -34,7 +34,7 @@ const navigate=useNavigate();
     }
     const submitTheFormOfPatientsInfo = (e) => {
         e.preventDefault();
-        const patientInfo = { patientName: user?.name, patientEmail: user?.email, ...data, doctorInfo: selectedDoctor, status: "unpaid" };
+        const patientInfo = { patientName: user?.name, patientEmail: user?.email, ...data, doctorInfo: selectedDoctor, status: "unpaid",doctorEmail:selectedDoctor.email};
         
         fetch(`https://floating-basin-02241.herokuapp.com/allAppointments`, {
             method: "POST",

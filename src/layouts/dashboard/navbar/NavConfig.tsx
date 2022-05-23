@@ -117,6 +117,11 @@ const sidebarConfig = [
                         path: "/dashboard/doctor/add-article",
                         icon: ICONS.analytics,
                     },
+                    {
+                        title: "My Schedule",
+                        path: "/dashboard/doctor/my-schedule-doctor",
+                        icon: ICONS.analytics,
+                    },
                     
                 ],
             },

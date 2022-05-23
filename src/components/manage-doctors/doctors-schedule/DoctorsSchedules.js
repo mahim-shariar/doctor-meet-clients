@@ -1,31 +1,26 @@
-import React, { useEffect, useState } from 'react';
+import React, {  useState } from 'react';
+import './DoctorSchedule';
 import { useAppSelector } from '../../../redux/store';
 import DoctorSchedule from './DoctorSchedule';
+import { Row } from 'react-bootstrap';
+
 
 const DoctorsSchedules = () => {
     const [upComingAppointments, setUpComingAppointments] = useState([]);
     // const [appointementInfo,setAppointmentInfo]=useState({});
     const { user } = useAppSelector((state) => state.user);
-
-    useEffect(() => {
-        
-            fetch("https://floating-basin-02241.herokuapp.com/allAppointments")
-                .then(res => res.json())
-                .then(data => {
-
-
-                   setUpComingAppointments(data);
-
-                })
-
-        
-    }, [ upComingAppointments,user])
+    useState(()=>{
+        fetch(`http://localhost:5500/allAppointments/doctorSchedule/${user?.email}`)
+        .then(res=>res.json())
+        .then(data=>setUpComingAppointments(data))
+    },[user])
     return (
         <div>
-            <DoctorSchedule></DoctorSchedule>
-            {
-                upComingAppointments.map(upComingAppointment=><DoctorSchedule upComingAppointment={upComingAppointment} key={upComingAppointment._id}></DoctorSchedule>)
-            }
+            <Row>
+                {
+                    upComingAppointments.map(upComingAppointment=><DoctorSchedule upComingAppointment={upComingAppointment} key={upComingAppointment._id}></DoctorSchedule>)
+                }
+            </Row>
         </div>
     );
 };

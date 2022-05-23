@@ -32,11 +32,13 @@ const MyAppointment = ({appointment}) => {
             {
                 !disabled ? <td className="appointment-table-row-data">
                     <CopyToClipboard text={appointment.doctorInfo?.room}>
-
-                        <img src={enabledIcon} alt="meet-icon" style={{ width: "40px", height: "40px" }}
+                    <Link to="/virtual-meet">
+                    <img src={enabledIcon} alt="meet-icon" style={{ width: "40px", height: "40px" }}
                             onClick={copyId}
                             disabled={disabled} title={`Available at ${appointment.doctorInfo.timeSlot1 || appointment.doctorInfo.timeSlot2 || appointment.doctorInfo.timeSlot3 || appointment.doctorInfo.timeSlot}`} className="hover-cursor"
                         />
+                    </Link>
+                        
                     </CopyToClipboard>
                     {/* <img src={enabledIcon} alt="meet-icon" style={{ width: "40px", height: "40px" }}
                         disabled={disabled} title={`Available at ${appointment.doctorInfo.timeSlot1 || appointment.doctorInfo.timeSlot2 || appointment.doctorInfo.timeSlot3 || appointment.doctorInfo.timeSlot}`} className="hover-cursor"

@@ -82,7 +82,7 @@ const PayAppointmentFee = () => {
 
                                 <h3 className="text-left">Subtotal</h3>
                                 <hr className="w-50 mx-auto" style={{ border: "1px solid white" }} />
-                                <h3 className="text-right">$ {lastPrice}</h3>
+                                <h3 className="text-right">$ {price}</h3>
                             </div>
 
                     }            <Elements stripe={stripePromise}>

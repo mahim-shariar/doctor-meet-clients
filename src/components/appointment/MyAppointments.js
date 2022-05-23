@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
-import useFirebase from "../../firebase/useFirebase/useFirebase";
 import MyAppointment from "./MyAppointment";
 import Page from "../Page";
 import { useAppSelector } from "../../redux/store";
 
 
 const MyAppointments = () => {
-    // const { user } = useFirebase();
+
     const { user } = useAppSelector((state) => state.user);
     const [appointments, setAppointments] = useState([]);
     useEffect(() => {
