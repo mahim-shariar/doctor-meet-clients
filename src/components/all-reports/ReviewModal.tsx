@@ -16,34 +16,32 @@ const style = {
     backgroundColor: "background.paper",
     border: "1px solid white",
     borderRadius: "10px",
-    boxShadow: 24,
+    boxShadow: 10,
     p: 4,
 };
 
 const ReviewModal = (props: any) => {
     const { modalOpen, handleClose, report, setIsUpdate } = props;
 
-    const [text, setText] = React.useState("");
+    const [text, setText] = React.useState(report?.review || "");
     const handleChange = (value: any) => {
         setText(value);
     };
 
     const handleReview = (id: string) => {
+        setIsUpdate(false);
         const newReport = report;
         newReport.review = text;
         newReport.status = true;
         // console.log(newReport);
         //send review data to server
-        fetch(
-            `http://localhost:5000/api/v1/reportReview/${id}/62604bc2ad329b3fee220aab`,
-            {
-                method: "PUT",
-                headers: {
-                    "content-type": "application/json",
-                },
-                body: JSON.stringify(newReport),
-            }
-        ).then((res) => {
+        fetch(`http://localhost:5000/api/v1/report/${report?._id}`, {
+            method: "PUT",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify(newReport),
+        }).then((res) => {
             if (res.status === 200) {
                 setIsUpdate(true);
                 Swal.fire({
@@ -53,7 +51,6 @@ const ReviewModal = (props: any) => {
                     showConfirmButton: false,
                     timer: 2000,
                 });
-                // window.location.reload();
             }
         });
     };
@@ -85,7 +82,7 @@ const ReviewModal = (props: any) => {
                     >
                         <div>
                             <ReactQuill
-                                value={report?.review}
+                                value={text}
                                 onChange={handleChange}
                                 placeholder="Write your review content here..."
                             />

@@ -15,7 +15,7 @@ import Autocomplete from "@mui/material/Autocomplete";
 import Swal from "sweetalert2";
 
 const ReportSection = () => {
-    let nameRef = useRef<HTMLInputElement>(null!);
+    let patientRef = useRef<HTMLInputElement>(null!);
     let DrnameRef = useRef<HTMLInputElement>(null!);
     let disRef = useRef<HTMLInputElement>(null!);
     let [isprogress, setIsProgress] = useState(false);
@@ -26,6 +26,7 @@ const ReportSection = () => {
     let storage = getStorage();
 
     const [doctors, setDoctors] = useState<any>([]);
+    const [users, setUsers] = useState<any>([]);
 
     useEffect(() => {
         const url = `http://localhost:5000/api/v1/doctors/all?specialist=All&&gender=All&&page=1&&rows=${1000}`;
@@ -33,6 +34,12 @@ const ReportSection = () => {
             .then((res) => res.json())
             .then((data) => {
                 setDoctors(data.result);
+            });
+        const url1 = `http://localhost:5000/api/v1/admin/users`;
+        fetch(url1)
+            .then((res) => res.json())
+            .then((data) => {
+                setUsers(data.users);
             });
     }, []);
 
@@ -84,19 +91,31 @@ const ReportSection = () => {
 
     const handleReportSubmit = (e: React.SyntheticEvent) => {
         e.preventDefault();
-        let patientId = nameRef.current?.value;
-        let id = DrnameRef.current?.value.split("#")[1];
-        // let email = emailRef.current?.value;
+        let patientEmail = patientRef.current?.value.split("#")[1];
+        let drEmail = DrnameRef.current?.value.split("#")[1];
+
+        let patientName = patientRef.current?.value.split("#")[0];
+        let drName = DrnameRef.current?.value.split("#")[0];
+
         let desc = disRef.current?.value;
         let file = url;
         let status = false;
         let review = "";
-        const report = { file, patientId, desc, review, status };
+        const report = {
+            file,
+            patientName,
+            patientEmail,
+            drName,
+            drEmail,
+            desc,
+            review,
+            status,
+        };
         // console.log(report);
 
-        //send review data to server
-        fetch(`http://localhost:5000/api/v1/report/${id}`, {
-            method: "PUT",
+        //send report data to server
+        fetch(`http://localhost:5000/api/v1/report`, {
+            method: "POST",
             headers: {
                 "content-type": "application/json",
             },
@@ -125,7 +144,11 @@ const ReportSection = () => {
 
     const defaultProps = {
         options: doctors,
-        getOptionLabel: (option: any) => option.name + "#" + option._id,
+        getOptionLabel: (option: any) => option.name + "#" + option.email,
+    };
+    const defaultProps1 = {
+        options: users,
+        getOptionLabel: (option: any) => option.name + "#" + option.email,
     };
 
     return (
@@ -176,16 +199,23 @@ const ReportSection = () => {
                                 padding: "30px",
                             }}
                         >
-                            <TextField
-                                required
-                                fullWidth
-                                id="outlined-basic"
-                                label="Patient Name"
-                                variant="outlined"
-                                inputRef={nameRef}
-                                sx={{
-                                    my: "15px",
-                                }}
+                            <Autocomplete
+                                disablePortal
+                                id="combo-box-demo"
+                                {...defaultProps1}
+                                renderInput={(params) => (
+                                    <TextField
+                                        {...params}
+                                        required
+                                        fullWidth
+                                        label="Patient Name"
+                                        variant="outlined"
+                                        inputRef={patientRef}
+                                        sx={{
+                                            my: "15px",
+                                        }}
+                                    />
+                                )}
                             />
 
                             <Autocomplete

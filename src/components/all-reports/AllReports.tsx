@@ -9,16 +9,22 @@ import Paper from "@mui/material/Paper";
 import { Box } from "@mui/system";
 import { Grid, LinearProgress, Typography } from "@mui/material";
 import SingleReport from "./SingleReport";
+import { useAppSelector } from "../../redux/store";
 
 export interface IReport {
     _id: string;
     file: string;
-    patientId: string;
+    patientName: string;
+    patientEmail: string;
+    drEmail: string;
+    drName: string;
     desc: string;
     status: boolean;
+    review: string;
 }
 
 const AllReports = () => {
+    const { user }: any = useAppSelector((state) => state.user);
     const [reports, setReports] = useState<IReport[]>([]);
     const [isUpdate, setIsUpdate] = useState(false);
     const [loading, setLoading] = useState(true);
@@ -26,16 +32,15 @@ const AllReports = () => {
     useEffect(() => {
         setLoading(true);
 
-        const url = `http://localhost:5000/api/v1/doctors/single/62604bc2ad329b3fee220aab`;
+        const url = `http://localhost:5000/api/v1/report/doctor/${user?.email}`;
 
         fetch(url)
             .then((res) => res.json())
-            .then((result) => {
-                setReports(result.data[0].reports);
-                // setCount(data.total);
+            .then((data) => {
+                setReports(data.result);
             })
             .finally(() => setLoading(false));
-    }, [isUpdate]);
+    }, [isUpdate, user?.email]);
 
     return (
         <>
@@ -89,7 +94,8 @@ const AllReports = () => {
                                     <TableHead>
                                         <TableRow>
                                             <TableCell>#ID</TableCell>
-                                            <TableCell>Patient Name</TableCell>
+                                            <TableCell>Doctor</TableCell>
+                                            <TableCell>Patient</TableCell>
                                             <TableCell align="left">
                                                 Comments
                                             </TableCell>

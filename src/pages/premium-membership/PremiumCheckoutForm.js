@@ -123,9 +123,9 @@ const PremiumCheckoutForm = ({ choosenCategory }) => {
           style: {
             base: {
               fontSize: '16px',
-              color: '#424770',
+              color: 'white',
               '::placeholder': {
-                color: '#aab7c4',
+                color: '#c8d6e5',
               },
             },
             invalid: {

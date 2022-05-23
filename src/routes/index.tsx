@@ -22,6 +22,7 @@ import ReportPdf from "../components/report-review-section/report-pdf/ReportPdf"
 import AllReports from "../components/all-reports/AllReports";
 import AllInvoices from "../pages/dashboards/invoices/AllInvoices";
 import DoctorsSchedules from "../components/manage-doctors/doctors-schedule/DoctorsSchedules";
+import AddDoctor from "../components/add-doctor/AddDoctor";
 
 // ----------------------------------------------------------------------
 
@@ -209,6 +210,10 @@ export default function Router() {
                     path: "doctor",
                     children: [
                         {
+                            path: "join-us",
+                            element: <AddDoctor />,
+                        },
+                        {
                             path: "report-pdf",
                             element: <ReportPdf />,
                         },
@@ -349,17 +354,13 @@ export default function Router() {
                     element: <DiagnosisPay />,
                 },
                 {
-                    path: "/diagnostic-pay/:id",
-                    element: <DiagnosisPay />,
-                },
-                {
                     path: "article/:id",
                     element: <ViewArticale />,
                 },
                 {
                     path: "doctor/:id",
                     element: <DoctorView />,
-                  },
+                },
             ],
         },
         // { path: "*", element: <Navigate to="/404" replace /> },
@@ -527,7 +528,7 @@ const ContactUs = Loadable(
     lazy(() => import("../components/contact-us/ContactUs"))
 );
 const DoctorView = Loadable(
-  lazy(() => import("../components/all-doctors/DoctorView"))
+    lazy(() => import("../components/all-doctors/DoctorView"))
 );
 const Faqs = Loadable(lazy(() => import("../pages/Faqs")));
 const ComingSoon = Loadable(lazy(() => import("../pages/ComingSoon")));
