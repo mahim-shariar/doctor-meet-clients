@@ -23,6 +23,7 @@ import AllReports from "../components/all-reports/AllReports";
 import AllInvoices from "../pages/dashboards/invoices/AllInvoices";
 import DoctorsSchedules from "../components/manage-doctors/doctors-schedule/DoctorsSchedules";
 import AddDoctor from "../components/add-doctor/AddDoctor";
+import PharmacyPay from "../components/pharmacy/PharmacyPay";
 
 // ----------------------------------------------------------------------
 
@@ -361,6 +362,8 @@ export default function Router() {
                     path: "doctor/:id",
                     element: <DoctorView />,
                 },
+                // { path: "pharmacy-payment/:id", element: <PharmacyPay /> },//It is dynamic route
+                { path: "/pharmacy-payment", element: <PharmacyPay /> },//It is static route
             ],
         },
         // { path: "*", element: <Navigate to="/404" replace /> },
