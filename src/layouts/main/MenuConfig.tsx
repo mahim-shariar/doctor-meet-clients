@@ -81,6 +81,11 @@ const menuConfig = [
     icon: <Iconify icon={"medical-icon:i-information-us"} {...ICON_SIZE} />,
     path: "/about-us",
   },
+  {
+    title: "Cart",
+    icon: <Iconify icon={"ant-design:shopping-cart-outlined"} {...ICON_SIZE} />,
+    path: "/cart",
+  },
 ];
 
 export default menuConfig;

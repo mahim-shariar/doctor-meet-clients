@@ -5,6 +5,7 @@ import {
   useLocation,
   useNavigate,
   unstable_HistoryRouter as HistoryRouter,
+  Link,
 } from "react-router-dom";
 import { login } from "../../../redux/actions/userAction";
 import { useAppDispatch, useAppSelector } from "../../../redux/store";
@@ -16,7 +17,8 @@ const history = createBrowserHistory({ window });
 
 const Login = () => {
   const { user }: any = useAppSelector((state) => state);
-  useEffect(() => {}, [user]);
+  console.log(user)
+  useEffect(() => { }, [user]);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const mail = useRef<HTMLInputElement>(null!);
@@ -29,7 +31,7 @@ const Login = () => {
     dispatch(login(email, password));
     if (user.success) {
       //@ts-ignore
-      navigate(history.back());
+      navigate("/");
     }
   };
   return (
@@ -57,8 +59,8 @@ const Login = () => {
     justify-content-between"
               controlId="formBasicCheckbox"
             >
-              <Form.Check type="checkbox" label="Remember me" />{" "}
-              <a href="/"> Forgot password? </a>
+
+              <Link to="/password/forgot"> Forgot password? </Link>
             </Form.Group>
             <Button onClick={handelSubmit} variant="primary px-4" type="submit">
               Login

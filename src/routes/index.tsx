@@ -20,6 +20,8 @@ import AddArticle from "../components/add-article/AddArticle";
 import VideoApp from "../pages/virtual-meet/VideoApp";
 import ReportPdf from "../components/report-review-section/report-pdf/ReportPdf";
 import AllReports from "../components/all-reports/AllReports";
+// import ForgotPassword from "../pages/security/forgotPassword/ForgotPassword";
+// import ForgotPassword from "../pages/security/forgotPassword/ForgotPassword";
 
 // ----------------------------------------------------------------------
 
@@ -350,7 +352,19 @@ export default function Router() {
                 {
                     path: "doctor/:id",
                     element: <DoctorView />,
-                  },
+                },
+                {
+                    path: "password/forgot",
+                    element: <ForgotPassword />,
+                },
+                {
+                    path: "password/reset/:token",
+                    element: <ResetPassword />,
+                },
+                {
+                    path: "me/update",
+                    element: <UpdateProfile />,
+                },
             ],
         },
         // { path: "*", element: <Navigate to="/404" replace /> },
@@ -369,9 +383,9 @@ const PharmacyHome = Loadable(
 // AUTHENTICATION
 const Login = Loadable(lazy(() => import("../pages/security/login/Login")));
 const Register = Loadable(lazy(() => import("../pages/auth/Register")));
-const ResetPassword = Loadable(
-    lazy(() => import("../pages/auth/ResetPassword"))
-);
+// const ResetPassword = Loadable(
+//     lazy(() => import("../pages/auth/ResetPassword"))
+// );
 const VerifyCode = Loadable(lazy(() => import("../pages/auth/VerifyCode")));
 const CovidPortal = Loadable(
     lazy(() => import("../pages/covid-portal/CovidPortal"))
@@ -471,7 +485,15 @@ const ReportStatus = Loadable(
 const ViewArticale = Loadable(
     lazy(() => import("../components/articles/ViewArticle"))
 );
-
+const ForgotPassword = Loadable(
+    lazy(() => import("../pages/security/forgotPassword/ForgotPassword"))
+);
+const ResetPassword = Loadable(
+    lazy(() => import("../pages/security/resetPassword/ResetPassword"))
+);
+const UpdateProfile = Loadable(
+    lazy(() => import("../pages/profile/UpdateProfile"))
+);
 // DASHBOARD
 
 // GENERAL
@@ -518,7 +540,7 @@ const ContactUs = Loadable(
     lazy(() => import("../components/contact-us/ContactUs"))
 );
 const DoctorView = Loadable(
-  lazy(() => import("../components/all-doctors/DoctorView"))
+    lazy(() => import("../components/all-doctors/DoctorView"))
 );
 const Faqs = Loadable(lazy(() => import("../pages/Faqs")));
 const ComingSoon = Loadable(lazy(() => import("../pages/ComingSoon")));
