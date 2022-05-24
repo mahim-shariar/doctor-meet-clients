@@ -9,6 +9,7 @@ import { useAppDispatch, useAppSelector } from "../../../redux/store";
 import { getProductDetails } from "../../../redux/actions/productAction";
 import { Rating } from "@mui/material";
 import { addItemsToCart } from "../../../redux/actions/cartAction";
+import Swal from "sweetalert2";
 
 const PharmacyProductView = () => {
   const dispatch = useAppDispatch();
@@ -113,7 +114,7 @@ const PharmacyProductView = () => {
     console.log(OrderReview);
 
     //send review data to server
-    fetch(`http://localhost:5000/api/v1/review`, {
+    fetch(`http://localhost:5000/api/v1/review/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -122,6 +123,7 @@ const PharmacyProductView = () => {
     }).then((res) => {
       if (res.status === 200) {
         console.log("success");
+        Swal.fire("Success!", "Review Send Success", "success");
       }
     });
   };
