@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&family=Source+Sans+Pro&display=swap');
+a{
+    text-decoration: none;
+}
+.premium-membership-images{
+    height: 250px;
+}
+.premium-membership-card{
+    background-color: white;
+    margin-right: 20px;
+    border-radius: 10px;
+    border: 1px solid #2e86de !important;
+    padding: 30px 0px;
+}
+.premium-membership-card-title{
+    font-size: 16px;
+    font-family: 'Radio Canada', sans-serif;
+}
+.premium-membership-banner-container{
+    position: relative;
+    margin-top: 100px;
+}
+.premium-image-transparent-bg{
+    background-color: rgba(0, 0, 0,0.5);
+    width: 100%;
+    height: 400px;
+    position: absolute;
+    top:0;
+    left: 0;
+}
+ /* .card:hover{
+    box-shadow: rgba(52, 31, 151,0.5) 0px 5px 15px;
+
+}
+.card-title{
+    font-size: 42px;
+    font-weight: 600;
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    color: #2e86de;
+    margin-bottom: 22px;
+}
+.membership-amount{
+    font-size: 24px;
+    font-weight: 600;
+    color: black;
+    margin-top: 20px;
+    text-align: center;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+.card-text p{
+    color: #576574;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 18px;
+}
+.card-footer{
+    border: 0px;
+} */
+.premium-member-card-footer{
+    border: 0px;
+    background-color: white;
+}
+.premium-member-card-text{
+    color: #222f3e;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 18px;
+}
+         .btn-premium-member {background-image: linear-gradient(to right, #77A1D3 0%, #79CBCA  51%, #77A1D3  100%)}
+         .btn-premium-member {
+            margin: 10px auto;
+            padding: 10px 45px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;            
+            box-shadow: 0 0 20px #eee;
+            border-radius: 40px;
+            border:0px;
+            display: block;
+          }
+
+          .btn-premium-member:hover {
+            background-position: right center; /* change the direction of the change here */
+
+             color: #fff;
+            text-decoration: none;
+          }  
+         

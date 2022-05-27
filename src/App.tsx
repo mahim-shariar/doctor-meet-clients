@@ -1,154 +1,43 @@
-import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import './Assets/main.css';
+// import { Route, Routes } from "react-router-dom";
+import AuthProvider from "./contexts/AuthProvider";
+import Router from "./routes/index";
+// theme
+import ThemeProvider from "./theme/index";
+import NotistackProvider from "./components/NotistackProvider";
+// components
+import ScrollToTop from "./components/ScrollToTop";
 import "./App.css";
-import Home from "./page/Home/Home";
-import { Route, Routes } from "react-router-dom";
-import AuthProvider from "./context/AuthProvider";
-import Registation from "./components/security/Registation/Registation";
-import Login from "./components/security/Login/Login";
-import Footer from "./components/Footer/Footer";
-import Nav from "./components/Nav/Nav";
-import ContactUs from "./page/ContactUs/ContactUs";
-
-function App() {
-  return (
-
-
-
-
-
-    <>
-      <AuthProvider>
-        {/* mdmahim shariar */}
-          <Nav></Nav>
-        <Routes>
-
-
-
-
-
-          <Route path="/" element={<Home />} ></Route>
-          <Route path="/signUp" element={<Registation />} ></Route>
-          <Route path="/login" element={<Login />} ></Route>
-          <Route path="/ContactUs" element={<ContactUs/>} ></Route>
-
-
-
-
-
-
-
-
-
-
-          {/* md mahim shariar  */}
-
-          {/* Suresh Pal Pranta */}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-          {/* Suresh Pal Pranta */}
-
-
-          {/* Mostofa Reza */}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-          {/* Mostofa Reza */}
-
-          {/* AKTARUZZAMAN RIDOY */}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-          {/* AKTARUZZAMAN RIDOY */}
-
-          {/* Alamin */}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-          {/* Alamin */}
-
-          {/* Mahadi */}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-          {/* Mahadi */}
-
-
-        </Routes>
-        <Footer></Footer>
-      </AuthProvider>
-    </>
-  );
+import { ChartStyle } from "./components/chart";
+import { ProgressBarStyle } from "./components/ProgressBar";
+import { useEffect } from "react";
+import { loadUser } from "./redux/actions/userAction";
+import store from "./redux/store";
+import { styled } from "@mui/material/styles";
+
+const RootStyle = styled("div")(({ theme }: any) => ({
+    backgroundColor: theme.palette.background.default,
+}));
+// ----------------------------------------------------------------------
+
+export default function App() {
+    const token = window.localStorage.getItem("token");
+
+    useEffect(() => {
+        store.dispatch(loadUser());
+    }, [token]);
+    return (
+        <ThemeProvider>
+            <NotistackProvider>
+                <AuthProvider>
+                    <ProgressBarStyle />
+                    <ChartStyle />
+                    <ScrollToTop />
+                    <RootStyle>
+                        <Router />
+                    </RootStyle>
+                </AuthProvider>
+            </NotistackProvider>
+        </ThemeProvider>
+    );
 }
-
-export default App;

@@ -1,0 +1,25 @@
+.DashboardHome {
+  padding: 0px 20px;
+}
+
+.dashboardCommonDivStyle {
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+  border-radius: 8px;
+}
+
+.commonIconStyle {
+  font-size: 3.5rem;
+  color: #97b3fb;
+}
+
+@media only screen and (max-width: 600px) {
+  .dashboardCommonDivStyle {
+    margin: 10px auto;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1000px) {
+  .dashboardCommonDivStyle {
+    margin: 20px auto;
+  }
+}

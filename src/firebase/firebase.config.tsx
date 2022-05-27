@@ -10,6 +10,6 @@ const firebaseConfig = {
   projectId: "doctor-meet-1ed83",
   storageBucket: "doctor-meet-1ed83.appspot.com",
   messagingSenderId: "984291427663",
-  appId: "1:984291427663:web:a06862c93b437bf872313a",
+  appId: "1:984291427663:web:a06862c93b437bf872313a"
 };
 export default firebaseConfig;
