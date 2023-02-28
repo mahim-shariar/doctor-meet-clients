@@ -3,18 +3,19 @@ import { styled } from "@mui/material/styles";
 
 import "./UpdateProfile.css";
 // import Loader from "../layout/Loader/Loader";
-import MailOutlineIcon from "@material-ui/icons/MailOutline";
-import FaceIcon from "@material-ui/icons/Face";
+// import MailOutlineIcon from "@material-ui/icons/MailOutline";
+// import FaceIcon from "@material-ui/icons/Face";
 import { useAppSelector, useAppDispatch } from "../../redux/store";
 // import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, loadUser, updateProfile } from "../../redux/actions/userAction";
 import { UPDATE_PROFILE_RESET } from "../../redux/constants/userConstants";
-
+//im ceckng if this works
 const RootStyle = styled("div")(({ theme }: any) => ({
     height: "100%",
     backgroundColor: theme.palette.background.default,
     paddingTop: theme.spacing(15),
     paddingBottom: theme.spacing(10),
+
 }));
 const UpdateProfile = () => {
     const dispatch = useAppDispatch();
